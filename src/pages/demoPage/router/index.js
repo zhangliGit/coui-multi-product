@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HomePage from '../views/HomePage.vue'
-import AppMain from '../views/AppMain.vue'
-import DetailCom from '../views/DetailCom'
+const AppMain = (resolve) => { require(['../views/AppMain.vue'], resolve) }
+const DetailCom = (resolve) => { require(['../views/DetailCom.vue'], resolve) }
 
 Vue.use(Router)
 Router.prototype.goBack = function () {
@@ -15,26 +15,17 @@ export default new Router({
     {
       path: '/',
       name: 'HomePage',
-      component: HomePage,
-      meta: {
-        keepAlive: true
-      }
+      component: HomePage
     },
     {
       path: '/AppMain',
       name: 'AppMain',
-      component: AppMain,
-      meta: {
-        keepAlive: true
-      }
+      component: AppMain
     },
     {
       path: '/DetailCom',
       name: 'DetailCom',
-      component: DetailCom,
-      meta: {
-        keepAlive: true
-      }
+      component: DetailCom
     }
   ]
 })

@@ -40,14 +40,26 @@ export default {
     ]),
     goDetail () {
       this.$router.push('/DetailCom')
+    },
+    enterShow () {
+      // type为0表示刷新  初次加载数据
+      let _self = this;
+      this.showData({type: 0, cb (len) {
+        _self.$refs.scroll.upShow(len)
+      }})
     }
   },
   mounted () {
-    // type为0表示刷新  初次加载数据
-    let _self = this;
-    this.showData({type: 0, page: this.page, pageSize: this.pageSize, cb (len) {
-      _self.$refs.scroll.upShow(len)
-    }})
+    this.enterShow()
+  },
+  beforeRouteEnter (to, from, next) {
+    if (from.path === '/') {
+      next(vm => {
+        vm.enterShow()
+      })
+    } else {
+      next()
+    }
   }
 }
 </script>

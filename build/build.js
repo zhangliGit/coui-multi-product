@@ -42,8 +42,8 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
       fsCopy.copy(path.resolve(__dirname,'../dist/static'), path.resolve(__dirname, `../dist/${pageDir}/static`))
       glob.sync(distPath + `/${pageDir}/static/js/*`).forEach((file) => {
         var fileName = file.split('/')[file.split('/').length-1].split('.')[0]
-        if (fileName != pageDir && fileName != 'vendor' && fileName != 'manifest') {
-            fsCopy.remove(file);
+        if (fileName === 'index') {
+          fsCopy.remove(file);
         }
       })
       glob.sync(distPath + `/${pageDir}/static/css/*`).forEach((file) => {
