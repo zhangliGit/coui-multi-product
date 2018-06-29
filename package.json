@@ -16,6 +16,8 @@
   "dependencies": {
     "better-scroll": "^1.12.4",
     "corlib": "^1.0.2",
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0",
     "mint-ui": "^2.2.13",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",

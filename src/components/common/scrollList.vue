@@ -61,6 +61,7 @@ export default {
       });
     },
     upShow(len) {
+      this.scroll.scrollTo(0, 0, 0)
       if (typeof len === "undefined") {
         // 网络请求失败时什么都不显示
         return;
@@ -110,7 +111,8 @@ export default {
         this.scroll = new BScroll(this.$refs.wrapper, {
           click: true,
           pullDownRefresh,
-          pullUpLoad
+          pullUpLoad,
+          scrollbar: true
         });
         this.scroll.refresh();
         /*

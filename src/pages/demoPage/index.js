@@ -6,6 +6,7 @@ import router from './router'
 import $ajax from '../../assets/js/ajaxService.js'
 import store from '../../assets/store/index.js'
 require('mint-ui/lib/style.css')
+require('../../assets/css/common.css')
 require('corlib/lib/iconfont.css')
 require('corlib/lib/flex.css')
 require('corlib/lib/base.css')

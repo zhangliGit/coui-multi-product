@@ -3,7 +3,7 @@
     <transition :name="transitionName">
       <keep-alive exclude="DetailCom">
         <router-view  class="Router co-Page co-flex co-cl-1" />
-      <keep-alive>
+      </keep-alive>
     </transition>
   </div>
 </template>
