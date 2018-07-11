@@ -2,8 +2,8 @@
     <div id="co-header" class="co-header co-bg-3 co-flex co-ac">
       <div class="headSlide co-flex">
         <slot name="letBtn"></slot>
-        <div v-show = "isBack" class="co-pd-r05">
-            <i @click="back" class="coicon coicon-return co-fs-4 co-cl-0"></i>
+        <div v-show = "isBack || isBacPortal" class="co-pd-r05">
+            <i @click="back" class="coicon coicon-return co-fs-3 co-cl-0"></i>
         </div>
       </div>
       <div class="co-header-title co-cl-0 co-tx-c">{{title}}</div>
@@ -22,7 +22,7 @@ export default {
     },
     isBack: {
       type: Boolean,
-      defualt: true
+      defualt: false
     },
     isBacPortal: {
       type: Boolean,
@@ -50,7 +50,7 @@ export default {
 </script>
 
 <style scoped>
-  .headSlide{
-    min-width:4rem
-  }
+.headSlide{
+  min-width:4rem
+}
 </style>

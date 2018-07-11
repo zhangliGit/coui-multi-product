@@ -1,0 +1,107 @@
+import Vue from 'vue'
+import {
+  AlertPlugin,
+  LoadingPlugin,
+  ToastPlugin,
+  ConfirmPlugin,
+  DatetimePlugin,
+  TransferDom
+} from 'vux'
+Vue.use(AlertPlugin)
+Vue.use(LoadingPlugin)
+Vue.use(ConfirmPlugin)
+Vue.use(ToastPlugin, {
+  position: 'middle',
+  time: 2000
+})
+Vue.use(DatetimePlugin)
+Vue.directive('transfer-dom', TransferDom)
+const loadingToast = {
+  loading () {
+    Vue.$vux.loading.show({})
+  },
+  hideLoading () {
+    Vue.$vux.loading.hide()
+  },
+  toast (text, tag = 0) {
+    const type = ['text', 'success', 'warn', 'cancel']
+    Vue.$vux.toast.show({
+      text: text,
+      time: 2000,
+      isShowMask: true,
+      type: type[tag]
+    })
+  },
+  alert (obj) {
+    Vue.$vux.alert.show({
+      title: obj.title || '提示',
+      content: obj.content || '',
+      onShow () {
+      },
+      onHide () {
+        if (obj.onHide) {
+          obj.onHide()
+        }
+      }
+    })
+  },
+  comfirm (obj) {
+    Vue.$vux.confirm.show({
+      title: obj.title || '提示',
+      content: obj.content || '确定操作吗？',
+      onCancel () {
+        if (obj.cancel) {
+          obj.cancel()
+        }
+      },
+      onConfirm () {
+        obj.comfirm()
+      }
+    })
+  },
+  prompt (obj) {
+    Vue.$vux.confirm.prompt('请输入内容', {
+      showInput: true,
+      dialogTransition: 'vux-fade',
+      title: obj.value || '提示',
+      closeOnConfirm: false,
+      onCancel () {
+        if (obj.cancel) {
+          obj.cancel()
+        }
+      },
+      onConfirm (value) {
+        if (value === '') return
+        obj.comfirm(value)
+        Vue.$vux.confirm.hide()
+      }
+    })
+  },
+  datetime (obj) {
+    if (obj.type === 'date') {
+      var format = 'YYYY-MM-DD'
+    } else if (obj.type === 'time') {
+      var format = 'HH:mm'
+    } else if (obj.type === 'datetime') {
+      var format = 'YYYY-MM-DD HH:mm'
+    }
+    Vue.$vux.datetime.show({
+      value: obj.value || '',
+      format: format,
+      title: '请选择日期',
+      confirmText: '确定',
+      cancelText: '取消',
+      onHide () {
+      },
+      onShow () {
+      },
+      onConfirm (value) {
+        obj.choose(value)
+      }
+    })
+  }
+}
+Vue.prototype.$loading = loadingToast
+export default {
+  $loading: loadingToast
+}

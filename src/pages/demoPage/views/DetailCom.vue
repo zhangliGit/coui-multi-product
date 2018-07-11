@@ -3,25 +3,25 @@
     <header-com isBack :title="title"></header-com>
     <scroll-list ref="scroll">
       <div class="co-pd-a08 co-bg-0 co-cl-1">
-        <div>{{dataDetail.title}}</div>
-        <div class="co-pd-a08 co-tx-r">{{dataDetail.time}}</div>
+        <div>{{detail.title}}</div>
+        <div class="co-pd-a08 co-tx-r">{{detail.time}}</div>
         <div class="co-line-3 co-text">
-          {{dataDetail.content}}
+          {{detail.content}}
         </div>
         <div class="co-line-2 co-text co-mg-t08">
-          {{dataDetail.content1}}
+          {{detail.content1}}
         </div>
         <div class="co-line-2 co-text co-mg-t08">
-          {{dataDetail.content2}}
+          {{detail.content2}}
         </div>
         <div class="co-line-2 co-text co-mg-t08">
-          {{dataDetail.content3}}
+          {{detail.content3}}
         </div>
         <div class="co-line-3 co-text co-mg-t08">
-          {{dataDetail.content}}
+          {{detail.content}}
         </div>
         <div class="co-line-2 co-text co-mg-t08">
-          {{dataDetail.content1}}
+          {{detail.content1}}
         </div>
       </div>
     </scroll-list>
@@ -31,7 +31,6 @@
 <script>
 import HeaderCom from '@c/HeaderCom'
 import scrollList from '@c/scrollList'
-import { mapState, mapActions } from 'vuex'
 export default {
   name: 'DetailCom',
   components: {
@@ -40,24 +39,26 @@ export default {
   },
   data () {
     return {
-      title: '详情'
+      title: '详情',
+      detail: {}
     }
   },
   computed: {
-    ...mapState('demoPage', [
-      'dataDetail'
-    ])
   },
   methods: {
-    ...mapActions('demoPage', [
-      'getDetail'
-    ]),
+    getDetail () {
+      let _self = this
+      this.$ajax({
+        url: 'http://yapi.demo.qunar.com/mock/9603/detail',
+        type: 'get'
+      }).then(data => {
+        this.detail = data.data
+        this.$refs.scroll.refresh()
+      })
+    }
   },
   mounted () {
-    let _self = this;
-    this.getDetail({id: 2, cb () {
-      _self.$refs.scroll.refresh()
-    }})
+    this.getDetail()
   }
 }
 </script>

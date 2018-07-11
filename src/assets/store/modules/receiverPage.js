@@ -1,12 +1,16 @@
 import $ajax from '../../js/ajaxService.js'
+import config from '../../js/config.js'
+import plugin from '../../js/vuxPlugin.js'
+require('../../js/vuxPlugin.js')
 
-const demoPage = {
+const receiverPage = {
   namespaced: true,
   state: {
     page: 1,
     pageSize: 10,
     dataList: [],
-    dataDetail: {}
+    dataDetail: {},
+    userInfo: {}
   },
   actions: {
     /**
@@ -19,14 +23,16 @@ const demoPage = {
         state.page++
       }
       $ajax({
-        url: 'http://yapi.demo.qunar.com/mock/9603/getList',
+        url: config.host + config.api.receiver.appointList,
         type: 'get',
         params: { // 分页数据
           page: state.page,
-          pageSize: state.pageSize
+          pageSize: state.pageSize,
+          userId: 1
         }
       }).then(data => {
         let result = data.data
+        console.log(data)
         commit('setDataList', {type: obj.type, result})
         // 判断数据长度 展示不同的ui 并通过回调关闭关闭弹动效果
         obj.cb(result.length)
@@ -48,7 +54,29 @@ const demoPage = {
         commit('setDataDetail', data.data)
         obj.cb()
       })
+    },
+    /**
+    * @ 登录
+    */
+    userLogin ({ commit, state }, obj) {
+      $ajax({
+        url: config.host + config.api.receiver.login,
+        type: 'get',
+        params: {
+          userId: obj.id,
+          password: obj.password
+        }
+      }).then(data => {
+        console.log(data)
+        if (data.status) {
+          commit('setUserInfo', data.data)
+          obj.cb()
+        } else {
+          plugin.$loading.toast('账号或密码错误', 0)
+        }
+      })
     }
+
   },
   mutations: {
     setDataList (state, obj) {
@@ -61,8 +89,10 @@ const demoPage = {
     setDataDetail (state, obj) {
       state.dataDetail = obj
     },
-   
+    setUserInfo (state, obj) {
+      state.userInfo = obj
+    }
   }
 }
 
-export default demoPage
+export default receiverPage

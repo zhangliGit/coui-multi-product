@@ -8,18 +8,19 @@
             <div v-if="upTag==1">释放刷新</div>
           </div>
           <div v-if="loadTag">
-              <spinner type="snake" class="co-cl-1"></spinner>
+              <spinner type="lines"></spinner><span class="co-pd-l02">正在刷新</span>
           </div>
         </div>
       </div>
-      <div v-show="autoTag" class="co-pd-a1 co-bg-0 co-flex co-ac co-jc">
-        暂无数据
+      <div v-show="autoTag" class="nodata-pd co-flex co-ver co-ac co-jc co-cl-3">
+        <i class="iconfont icon-naozhong co-mg-a04 co-fs-5"></i>
+				<div class="co-flex co-ac co-jc co-fs-1 ">-------- 暂无数据 --------</div>
       </div>
       <slot></slot>
       <div v-if = "pullUpLoad">
         <div v-if = "downTag !== -1" class="co-flex co-ac co-pd-tb08 co-jc co-cl-2 co-fs-01 co-bg-0">
           <div v-if="downTag === 1" class="co-flex co-ac">
-            <spinner type="snake" :size="20" class="co-mg-r02"></spinner>加载更多...
+           <spinner type="lines"></spinner><span class="co-pd-l02">加载更多...</span>
           </div>
           <div v-if="downTag === 0">已经到底了</div>
         </div>
@@ -30,9 +31,9 @@
 
 <script>
 import BScroll from "better-scroll";
-import { Spinner } from 'mint-ui';
+import { Spinner } from 'vux';
 export default {
-  name: "scrollView",
+  name: "scrollList",
   components: {
     Spinner
   },
@@ -70,7 +71,7 @@ export default {
         //当没有数据时显示暂无数据
         this.autoTag = true;
         this.downTag = -1;
-      } else if (len === 10) {
+      } else if (len >= 10) {
         // 当初次查询数据总数为10 说明可能还有分页数据
         this.downTag = 1;
         this.autoTag = false;
