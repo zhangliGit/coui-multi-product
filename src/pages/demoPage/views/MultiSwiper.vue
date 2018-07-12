@@ -2,9 +2,9 @@
   <div class="hello co-f1 co-flex co-ver">
     <header-com isBack :title="title"></header-com>
     <div class="co-pd-a06 co-bg-2">
-      多栏切换菜单,每栏显示8条数据，可以在组件任意调整
+      多栏切换菜单,每栏显示4条或8条数据 <span class="co-pd-lr05 co-bg-3 co-br-a1 co-cl-0" @click="setNum(4)">4</span> <span class="co-pd-lr05 co-bg-3 co-br-a1 co-cl-0" @click="setNum(8)">8</span>
     </div>
-    <multi-swiper @tabM = "tabM" :multi-data = "multiData"></multi-swiper>
+    <multi-swiper @tabM = "tabM" :number = "number" :multi-data = "multiData"></multi-swiper>
   </div>
 </template>
 
@@ -19,6 +19,7 @@ export default {
   },
   data () {
     return {
+      number: 4,
       title: this.$route.params.title,
       multiData : [
         {
@@ -73,6 +74,9 @@ export default {
   methods: {
     tabM (id) {
       console.log(id)
+    },
+    setNum (num) {
+      this.number = num
     }
   },
   mounted () {

@@ -56,7 +56,10 @@ export default {
     };
   },
   methods: {
-    refresh() {
+    refresh(tag = false) {
+      if (tag) {
+        this.scroll.scrollTo(0, 0, 0)
+      }
       this.$nextTick(() => {
         this.scroll.refresh();
       });

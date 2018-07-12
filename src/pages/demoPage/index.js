@@ -6,7 +6,7 @@ import router from './router'
 import $ajax from '../../assets/js/ajaxService.js'
 import store from '../../assets/store/index.js'
 require('../../assets/js/vuxPlugin.js')
-require('../../assets/css/common.css')
+require('../../assets/css/vux.css')
 require('../../assets/css/global.less')
 require('corlib/lib/iconfont.css')
 require('corlib/lib/flex.css')
