@@ -66,9 +66,6 @@
 .vux-slider > .vux-indicator > a > .vux-icon-dot.active, .vux-slider .vux-indicator-right > a > .vux-icon-dot.active {
   background: #444 !important
 }
-.swiper-pagination-bullet-active {
-  background: #444 !important
-}
 /**设置滚动条样式**/
 .bscroll-vertical-scrollbar {
   width: 4px !important

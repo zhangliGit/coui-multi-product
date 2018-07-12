@@ -32,6 +32,16 @@ export default {
       title: 'demo示例',
       dataList: [
         {
+					id: -1,
+          title: '加载页',
+          path: 'Loading'
+        },
+        {
+					id: 0,
+          title: '引导页',
+          path: 'Welcome'
+        },
+        {
 					id: 1,
           title: '列表',
           path: 'AppMain'

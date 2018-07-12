@@ -9,6 +9,8 @@ const SwiperList = (resolve) => { require(['../views/SwiperList.vue'], resolve) 
 const LevelScroll = (resolve) => { require(['../views/LevelScroll.vue'], resolve) }
 const ImgSwiper = (resolve) => { require(['../views/ImgSwiper.vue'], resolve) }
 const MultiSwiper = (resolve) => { require(['../views/MultiSwiper.vue'], resolve) }
+const Loading = (resolve) => { require(['../views/Loading.vue'], resolve) }
+const Welcome = (resolve) => { require(['../views/Welcome.vue'], resolve) }
 Vue.use(Router)
 Router.prototype.goBack = function () {
   this.isBack = true
@@ -21,6 +23,16 @@ export default new Router({
       path: '/',
       name: 'HomePage',
       component: HomePage
+    },
+    {
+      path: '/Loading',
+      name: 'Loading',
+      component: Loading
+    },
+    {
+      path: '/Welcome',
+      name: 'Welcome',
+      component: Welcome
     },
     {
       path: '/AppMain',

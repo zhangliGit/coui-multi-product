@@ -44,9 +44,6 @@ export default {
   computed: {
     tabNum () {
       return Math.ceil(parseInt(this.multiData.length)/this.number)
-    },
-    swiper () {
-      return this.$refs.mySwiper.swiper
     }
   },
   methods: {
@@ -65,11 +62,7 @@ export default {
  .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets {
    bottom:3px !important
  }
- .swiper-pagination-bullet {
-   background: red !important
- }
- .swiper-pagination span {
-    opacity: 1 !important;
-    background:red !important;
- }
+ .swiper-pagination-bullet-active {
+    background: #444 !important
+  }
 </style>
