@@ -11,6 +11,7 @@ const ImgSwiper = (resolve) => { require(['../views/ImgSwiper.vue'], resolve) }
 const MultiSwiper = (resolve) => { require(['../views/MultiSwiper.vue'], resolve) }
 const Loading = (resolve) => { require(['../views/Loading.vue'], resolve) }
 const Welcome = (resolve) => { require(['../views/Welcome.vue'], resolve) }
+const FormVail = (resolve) => { require(['../views/FormVail.vue'], resolve) }
 Vue.use(Router)
 Router.prototype.goBack = function () {
   this.isBack = true
@@ -73,6 +74,11 @@ export default new Router({
       path: '/MultiSwiper',
       name: 'MultiSwiper',
       component: MultiSwiper
+    },
+    {
+      path: '/FormVail',
+      name: 'FormVail',
+      component: FormVail
     }
   ]
 })

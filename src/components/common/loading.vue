@@ -1,9 +1,11 @@
 <template>
     <div class="loading co-f1">
       <div class="timeLoad" @click="loadEnd"><span class="co-fs-1">{{times}}</span>S</div>
+      <img :src="loadImg" alt="" style="width:100%;height:100%;display:block">
     </div>
 </template>
 <script>
+import loadImg from '../../assets/images/loading.png'
 export default {
   name: 'loading',
   components: {
@@ -16,6 +18,7 @@ export default {
   },
   data () {
     return {
+      loadImg,
       timeTag: '',
       times: this.loadingTime
     }
@@ -44,8 +47,8 @@ export default {
    position: absolute;
    padding:.2rem .8rem;
    text-align: center;
-   background:#fff;
-   -webkit-border-radius:6px;
-   border-radius:6px;
+   background:#f5f5f5;
+   -webkit-border-radius:12px;
+   border-radius:12px;
  }
 </style>

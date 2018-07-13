@@ -2,12 +2,15 @@
   <div class="hello co-f1 co-flex co-ver">
     <header-com isBack :title="title"></header-com>
     <div class="co-f1 co-flex">
-      <welcome @enterPage = "goNext"></welcome>
+      <welcome @enterPage = "goNext" :img-list = "imgList"></welcome>
     </div>
   </div>
 </template>
 
 <script>
+import welcome1 from '../../../assets/images/welcome1.png'
+import welcome2 from '../../../assets/images/welcome2.png'
+import welcome3 from '../../../assets/images/welcome3.png'
 import HeaderCom from '@c/HeaderCom'
 import welcome from '@c/welcome'
 export default {
@@ -18,6 +21,7 @@ export default {
   },
   data () {
     return {
+      imgList: [welcome1, welcome2, welcome3],
       title: this.$route.params.title
     }
   },

@@ -1,15 +1,11 @@
 <template>
-  <div class="co-f1 co-flex">
+  <div class="co-f1 co-flex" :style="{ width: conW +'px'}">
     <swiper :options="swiperOption" class="co-f1 co-flex" ref="mySwiper">
-      <swiper-slide class="co-flex co-f1">
-        <div class="co-f1 co-bg-3"></div>
-      </swiper-slide>
-      <swiper-slide class="co-flex co-f1">
-        <div class="co-f1 co-bg-4"></div>
-      </swiper-slide>
-      <swiper-slide class="co-flex co-f1">
-        <div class="co-f1 co-bg-5"></div>
-        <div class="goNext" @click="goNext">
+      <swiper-slide class="co-flex co-f1" v-for="(item, index) in imgList" :key="index">
+        <div class="co-f1">
+          <img :src="item" alt="" :style="{ width: conW +'px', height: '100%', display: 'block'}">
+        </div>
+        <div class="goNext" @click="goNext" v-if = "index == imgList.length -1">
           立即体验
         </div>
       </swiper-slide>
@@ -27,11 +23,16 @@ export default {
     swiperSlide
   },
   props: {
+    imgList: {
+      type: Array,
+      default: []
+    }
   },
   data () {
     return {
       conW: window.screen.width,
       swiperOption: {
+        effect: 'coverflow', //slide,fade,coverflow
         resistanceRatio: 0,
         pagination: {
           el: '.swiper-pagination'

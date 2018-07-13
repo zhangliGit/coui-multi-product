@@ -14,19 +14,29 @@
           <swiper-item><p>基本世神 兑换《传奇世界H5》畅玩级礼包 消耗30金币</p></swiper-item>
         </swiper>
       </div>
+      <div class="co-mg-t05">
+        <swiper-scroll></swiper-scroll>
+      </div>
+      <div class="co-mg-t05">
+        <swiper-list></swiper-list>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import HeaderCom from '@c/HeaderCom'
+import swiperScroll from '@c/swiperScroll'
+import swiperList from '@c/swiperList'
 import { Swiper, SwiperItem  } from 'vux'
 export default {
   name: 'SwiperList',
   components: {
     HeaderCom,
     Swiper,
-    SwiperItem
+    SwiperItem,
+    swiperScroll,
+    swiperList
   },
   data () {
     return {

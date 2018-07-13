@@ -78,12 +78,13 @@ const loadingToast = {
     })
   },
   datetime (obj) {
+    var format
     if (obj.type === 'date') {
-      var format = 'YYYY-MM-DD'
+      format = 'YYYY-MM-DD'
     } else if (obj.type === 'time') {
-      var format = 'HH:mm'
+      format = 'HH:mm'
     } else if (obj.type === 'datetime') {
-      var format = 'YYYY-MM-DD HH:mm'
+      format = 'YYYY-MM-DD HH:mm'
     }
     Vue.$vux.datetime.show({
       value: obj.value || '',

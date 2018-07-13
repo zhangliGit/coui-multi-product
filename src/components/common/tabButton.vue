@@ -26,8 +26,8 @@ export default {
     }
   },
   methods: {
-    tabClick (index) {
-      this.$emit('tab-current', this.tabMenu[index-1].id)
+    tabClick (id) {
+      this.$emit('tab-current', id)
     }
   },
   mounted () {

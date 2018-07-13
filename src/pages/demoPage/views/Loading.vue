@@ -26,7 +26,11 @@ export default {
   },
   methods: {
     loadEnd () {
-      console.log(2)
+      this.$loading.alert({
+        content: '加载进度完毕',
+        onHide () {
+        }
+      })
     }
   },
   mounted () {

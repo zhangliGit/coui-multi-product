@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import $ajax from '../../assets/js/ajaxService.js'
 import store from '../../assets/store/index.js'
+import { corLib } from 'corlib'
 require('../../assets/js/vuxPlugin.js')
 require('../../assets/css/vux.css')
 require('../../assets/css/global.less')
@@ -15,6 +16,7 @@ require('corlib/lib/rem.js')
 Vue.config.productionTip = false
 /* eslint-disable no-new */
 Vue.prototype.$ajax = $ajax
+Vue.prototype.corlib = corLib
 const attachFastClick = require('fastclick')
 attachFastClick.attach(document.body)
 new Vue({

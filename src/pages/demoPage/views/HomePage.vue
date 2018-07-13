@@ -75,6 +75,11 @@ export default {
 					id: 7,
           title: '多列菜单',
           path: 'MultiSwiper'
+        },
+        {
+					id: 8,
+          title: '表单',
+          path: 'FormVail'
         }
       ],
       current: 0,
