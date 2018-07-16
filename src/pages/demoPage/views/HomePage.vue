@@ -80,6 +80,11 @@ export default {
 					id: 8,
           title: '表单',
           path: 'FormVail'
+        },
+        {
+					id: 9,
+          title: '瀑布流',
+          path: 'WaterFall'
         }
       ],
       current: 0,

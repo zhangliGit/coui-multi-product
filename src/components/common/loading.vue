@@ -1,6 +1,6 @@
 <template>
     <div class="loading co-f1">
-      <div class="timeLoad" @click="loadEnd"><span class="co-fs-1">{{times}}</span>S</div>
+      <div class="timeLoad co-fs-01" @click="loadEnd"><span class="co-fs-1 co-pd-r02">{{times}}</span>跳过</div>
       <img :src="loadImg" alt="" style="width:100%;height:100%;display:block">
     </div>
 </template>

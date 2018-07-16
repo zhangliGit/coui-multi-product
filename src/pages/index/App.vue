@@ -11,6 +11,9 @@
         <div class="appList co-bd-r co-pd-tb1 co-tx-c co-bg-0 co-bd-t" @click="goHtml('demoPage')">
           案例
         </div>
+        <div class="appList co-bd-r co-pd-tb1 co-tx-c co-bg-0 co-bd-t" @click="goHtml('myApp')">
+          开发
+        </div>
       </div>
     </div>
   </div>

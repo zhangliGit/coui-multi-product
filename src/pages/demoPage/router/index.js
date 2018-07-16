@@ -12,6 +12,7 @@ const MultiSwiper = (resolve) => { require(['../views/MultiSwiper.vue'], resolve
 const Loading = (resolve) => { require(['../views/Loading.vue'], resolve) }
 const Welcome = (resolve) => { require(['../views/Welcome.vue'], resolve) }
 const FormVail = (resolve) => { require(['../views/FormVail.vue'], resolve) }
+const WaterFall = (resolve) => { require(['../views/WaterFall.vue'], resolve) }
 Vue.use(Router)
 Router.prototype.goBack = function () {
   this.isBack = true
@@ -79,6 +80,11 @@ export default new Router({
       path: '/FormVail',
       name: 'FormVail',
       component: FormVail
+    },
+    {
+      path: '/WaterFall',
+      name: 'WaterFall',
+      component: WaterFall
     }
   ]
 })

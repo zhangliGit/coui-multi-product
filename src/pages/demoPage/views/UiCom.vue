@@ -50,6 +50,33 @@
             <calendar v-model="demo1" title="日期选择" placeholder="请选择" disable-past @on-change="chooseCalendar"></calendar>
           </group>
         </div>
+        <div class="co-bd-t co-bd-l co-bg-0 demoList co-tx-c co-te" style="width:100%">
+          <group>
+            <x-address @on-shadow-change="onShadowChange" @on-hide="getAddress" title="请选择地址" :list="addressData" placeholder="请选择地址"></x-address>
+          </group>
+        </div>
+        <div class="co-flex co-ac co-pd-a1 co-jsb">
+          <div style="width:5rem;height:5rem;display:block;-webkit-border-radius:100%;border-radius:100%" class="co-bg-0">
+            <x-circle
+              :percent="percent"
+              :stroke-width="5"
+              stroke-color="#04BE02">
+              <span>{{ percent }}%</span>
+            </x-circle>
+          </div>
+          <div style="width:5rem;height:5rem;display:block;-webkit-border-radius:100%;border-radius:100%" class="co-bg-0">
+            <x-circle
+              :percent="percent"
+              :stroke-width="6"
+              :trail-width="6"
+              :stroke-color="['#36D1DC', '#5B86E5']">
+              <span>{{ percent }}%</span>
+            </x-circle>
+          </div>
+        </div>
+        <div class="co-pd-a02">
+          <x-progress :percent="percent1" :show-cancel="false"></x-progress>
+        </div>
       </div>
     </scroll-list>
     <div v-transfer-dom>
@@ -68,15 +95,14 @@
         </group>
       </popup>
     </div>
-    <div v-transfer-dom>
-    </div>
   </div>
 </template>
 
 <script>
 import HeaderCom from '@c/HeaderCom'
 import scrollList from '@c/scrollList'
-import { Actionsheet, PopupPicker, Calendar, Popup, PopupHeader, Group, Radio, PopupRadio } from 'vux'
+import { Actionsheet, PopupPicker, Calendar, Popup, PopupHeader, Group, Radio, PopupRadio, XCircle, XProgress, ChinaAddressV4Data, XAddress } from 'vux'
+import { setInterval, clearInterval } from 'timers';
 export default {
   name: 'UiCom',
   components: {
@@ -90,10 +116,18 @@ export default {
     PopupHeader,
     Radio,
     PopupRadio,
-    Calendar
+    Calendar,
+    XCircle,
+    XProgress,
+    XAddress
   },
   data () {
     return {
+      address: '',
+      pickerAddress: '',
+      addressData: ChinaAddressV4Data,
+      percent: 0,
+      percent1: 0,
       demo1: '',
       readonly: true,
       calendarValue: '',
@@ -221,9 +255,27 @@ export default {
     chooseCalendar (value) {
       console.log(this.demo1)
       console.log(value)
+    },
+    onShadowChange (ids, names) {
+      this.pickerAddress = names
+    },
+    getAddress (type) {
+      if (type) {
+        this.address = this.pickerAddress.join(' ')
+        console.log(this.address)
+      }
     }
   },
   mounted () {
+    setTimeout(() => {
+      this.percent = 80
+    },1200)
+    let lineLoad = setInterval(() => {
+      this.percent1 ++
+      if (this.percent1 == 80) {
+        clearInterval(lineLoad)
+      }
+    }, 50)
   }
 }
 </script>

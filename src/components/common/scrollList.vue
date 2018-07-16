@@ -4,8 +4,14 @@
       <div class="upTip co-flex co-ac co-jc">
         <div v-if="pullDownRefresh">
           <div  v-if="!loadTag">
-            <div v-if="upTag==0">下拉刷新</div>
-            <div v-if="upTag==1">释放刷新</div>
+            <div v-if="upTag==0" class="co-flex co-ac co-jc">
+              <div class="co-flex co-ac"><i class="coicon coicon-unfold co-fs-3"></i></div>
+              <div class="co-flex co-ac">下拉刷新</div>
+            </div>
+            <div v-if="upTag==1" class="co-flex co-ac co-jc">
+              <div class="co-flex co-ac"><i class="coicon coicon-packup co-fs-3"></i></div>
+              <div class="co-flex co-ac">释放刷新</div>
+            </div>
           </div>
           <div v-if="loadTag">
               <spinner type="lines"></spinner><span class="co-pd-l02">正在刷新</span>
@@ -100,7 +106,7 @@ export default {
       if (!this.scroll) {
         const pullDownRefresh = this.pullDownRefresh
           ? {
-              threshold: 80,
+              threshold: 60,
               stop: 50
             }
           : false;
@@ -126,7 +132,7 @@ export default {
           if (!this.pullDownRefresh) {
             return;
           }
-          if (pos.y > 80) {
+          if (pos.y > 60) {
             this.upTag = 1;
           } else {
             this.upTag = 0;
