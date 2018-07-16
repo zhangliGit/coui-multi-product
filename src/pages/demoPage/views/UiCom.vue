@@ -45,6 +45,9 @@
         <div @click="datetimeChoose" class="co-pd-a08 co-bd-t co-bd-l co-bg-0 demoList co-tx-c co-te">
           日期时间选择
         </div>
+        <div @click="showDialogTag = true" class="co-pd-a08 co-bd-t co-bd-l co-bg-0 demoList co-tx-c co-te">
+          弹出dialog
+        </div>
         <div class="co-bd-t co-bd-l co-bg-0 demoList co-tx-c co-te" style="width:100%">
           <group>
             <calendar v-model="demo1" title="日期选择" placeholder="请选择" disable-past @on-change="chooseCalendar"></calendar>
@@ -95,13 +98,25 @@
         </group>
       </popup>
     </div>
+    <div v-transfer-dom>
+      <x-dialog v-model="showDialogTag" class="dialog-demo">
+        <div class="img-box">
+          <div class="co-pd-a05 co-flex co-jc">
+            <img src="https://ws1.sinaimg.cn/large/663d3650gy1fq6824ur1dj20ia0pydlm.jpg" style="width:100%;height:8rem;display:block">
+          </div>
+        </div>
+        <div @click="showDialogTag = false" class="co-pd-a05">
+          <i class="coicon coicon-close co-fs-4"></i>
+        </div>
+      </x-dialog>
+    </div>
   </div>
 </template>
 
 <script>
 import HeaderCom from '@c/HeaderCom'
 import scrollList from '@c/scrollList'
-import { Actionsheet, PopupPicker, Calendar, Popup, PopupHeader, Group, Radio, PopupRadio, XCircle, XProgress, ChinaAddressV4Data, XAddress } from 'vux'
+import { Actionsheet, PopupPicker, Calendar, Popup, PopupHeader, Group, Radio, PopupRadio, XCircle, XProgress, ChinaAddressV4Data, XAddress, XDialog } from 'vux'
 import { setInterval, clearInterval } from 'timers';
 export default {
   name: 'UiCom',
@@ -119,10 +134,12 @@ export default {
     Calendar,
     XCircle,
     XProgress,
-    XAddress
+    XAddress,
+    XDialog
   },
   data () {
     return {
+      showDialogTag: false,
       address: '',
       pickerAddress: '',
       addressData: ChinaAddressV4Data,
