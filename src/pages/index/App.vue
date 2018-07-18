@@ -3,7 +3,7 @@
     <div id="co-header" class="co-header co-bg-3 co-flex co-ac">
       <div class="headSlide co-flex">
       </div>
-      <div class="co-header-title co-cl-0 co-tx-c">多页面应用</div>
+      <div class="co-header-title co-cl-0 co-tx-c">App开发</div>
       <div class="headSlide co-flex co-je"></div>
     </div>
     <div class="co-f1">

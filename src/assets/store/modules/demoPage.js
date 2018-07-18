@@ -60,8 +60,7 @@ const demoPage = {
     },
     setDataDetail (state, obj) {
       state.dataDetail = obj
-    },
-   
+    }
   }
 }
 
