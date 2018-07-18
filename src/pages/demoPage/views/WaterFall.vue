@@ -2,14 +2,13 @@
   <div class="co-f1 co-flex co-ver co-cl-1">
     <header-com :title="title" isBack></header-com>
     <!--pullDownRefresh pullUpLoad 这两个属性表示有上拉加载和 下拉刷新-->
-    <scroll-list ref="scroll" scroll-index = "appMain" pullDownRefresh pullUpLoad @show-data = "showData">
-      <div>
-        <div v-for="(item, index) in dataList" :key="index" @click="goDetail" class="co-pd-a08 co-bd-b co-bg-0">
-          <div>
-            <img :src="item.img" style="width:100%;height:auto;display:block" alt="">
-          </div>
-          <div>{{item.title}}</div>
-          <div class="co-mg-t08">{{item.time}}</div>
+    <scroll-list ref="scroll">
+      <div style="overflow: auto" class="co-bg-2 co-pd-b04">
+        <div id="conLeft" class="waterList co-bg-2">
+          <div id="waterOne"></div>
+        </div>
+        <div id="conRight" class="waterList co-bg-2">
+          <div id="waterTwo"></div>
         </div>
       </div>
     </scroll-list>
@@ -19,7 +18,7 @@
 <script>
 import HeaderCom from '@c/HeaderCom'
 import scrollList from '@c/scrollList'
-import { mapState, mapActions } from 'vuex'
+import Vue from 'vue'
 export default {
   name: 'WaterFall',
   components: {
@@ -28,48 +27,85 @@ export default {
   },
   data () {
     return {
-      title: '列表',
-      current: 0,
+      title: '瀑布流',
+      dataList: [
+        {
+          id: 1,
+          title: '第一个数据'
+        },
+        {
+          id: 2,
+          title: '第二个数据'
+        },
+        {
+          id: 3,
+          title: '第三个数据'
+        },
+        {
+          id: 4,
+          title: '第四个数据'
+        },
+        {
+          id: 5,
+          title: '第五个数据'
+        },
+        {
+          id: 6,
+          title: '第六个数据'
+        },
+        {
+          id: 7,
+          title: '第七个数据'
+        }
+      ]
     }
   },
   computed: {
-    ...mapState('demoPage', [
-      'dataList'
-    ])
   },
   methods: {
-    ...mapActions('demoPage', [
-      'showData'
-    ]),
-    goDetail () {
-      this.$router.push('/DetailCom')
+    detail (id) {
+      console.log(id)
     },
-    enterShow () {
-      // type为0表示刷新  初次加载数据
-      let _self = this;
-      this.showData({type: 0, cb (len) {
-        _self.$refs.scroll.upShow(len)
-      }})
+    showList () {
+      let _seft = this
+      for (let i =0; i < this.dataList.length; i++) {
+        var listH = Math.floor(Math.random()*100 + 200);
+        (function(i){
+          var leftH = document.getElementById('conLeft').offsetHeight;
+          var rightH = document.getElementById('conRight').offsetHeight;
+          let MyComponent = Vue.extend({
+            template: `<div class='co-mg-t04 co-bd-a1 co-br-a0 co-of' @click='detail(${_seft.dataList[i].id})'>
+                      <div class='co-bg-4' style='width:100%; height:${listH}px'></div>
+                      <div class='co-pd-a02'>${_seft.dataList[i].title}</div>
+                      </div>`,
+            methods:{
+              detail: function(id){
+                console.log(id)
+              }
+            }
+          })
+          let component = new MyComponent().$mount()
+          if(leftH <= rightH){
+            document.getElementById('waterOne').appendChild(component.$el)
+          }else{
+            document.getElementById('waterTwo').appendChild(component.$el)
+          }
+        })(i)         
+      }
     }
   },
   mounted () {
-    this.enterShow()
-  },
-  beforeRouteEnter (to, from, next) {
-    if (from.path === '/') {
-      next(vm => {
-        vm.enterShow()
-      })
-    } else {
-      next()
-    }
+    this.showList()
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .headSlide{
-    min-width:4rem
+  .waterList {
+    width:47%;
+    float: left;
+    overflow:hidden;
+    margin-left: 2%
   }
 </style>

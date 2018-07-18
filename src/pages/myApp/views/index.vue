@@ -1,6 +1,6 @@
 <template>
   <div class="co-f1 co-flex co-ver co-cl-1">
-    <header-com :title="title"></header-com>
+    <header-com isBacPortal :title="title"></header-com>
     <!--pullDownRefresh pullUpLoad 这两个属性表示有上拉加载和 下拉刷新-->
     <scroll-list ref="scroll">
       <div class="co-bg-0">

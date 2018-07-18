@@ -2,7 +2,8 @@
   <div class="hello co-f1 co-flex co-ver">
     <header-com isBack :title="title"></header-com>
     <scroll-list ref="scroll">
-      <div>
+      <div class="co-f1">
+        <top-menu></top-menu>
         <div @click="loading" class="co-pd-a08 co-bd-t co-bd-l co-bg-0 demoList co-tx-c co-te">
           加载框
         </div>
@@ -47,6 +48,9 @@
         </div>
         <div @click="showDialogTag = true" class="co-pd-a08 co-bd-t co-bd-l co-bg-0 demoList co-tx-c co-te">
           弹出dialog
+        </div>
+        <div class="co-pd-a08 co-bd-t co-bd-l co-bg-0 demoList co-tx-c co-te">
+          顶部菜单
         </div>
         <div class="co-bd-t co-bd-l co-bg-0 demoList co-tx-c co-te" style="width:100%">
           <group>
@@ -116,11 +120,13 @@
 <script>
 import HeaderCom from '@c/HeaderCom'
 import scrollList from '@c/scrollList'
+import topMenu from '@c/topMenu'
 import { Actionsheet, PopupPicker, Calendar, Popup, PopupHeader, Group, Radio, PopupRadio, XCircle, XProgress, ChinaAddressV4Data, XAddress, XDialog } from 'vux'
 import { setInterval, clearInterval } from 'timers';
 export default {
   name: 'UiCom',
   components: {
+    topMenu,
     HeaderCom,
     scrollList,
     Actionsheet,
