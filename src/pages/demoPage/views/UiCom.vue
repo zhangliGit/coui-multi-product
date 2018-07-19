@@ -3,7 +3,7 @@
     <header-com isBack :title="title"></header-com>
     <scroll-list ref="scroll">
       <div class="co-f1">
-        <top-menu></top-menu>
+        <top-menu :menu-list = "menuList" v-model="topMenuShow" @menu-change="menuChange"></top-menu>
         <div @click="loading" class="co-pd-a08 co-bd-t co-bd-l co-bg-0 demoList co-tx-c co-te">
           加载框
         </div>
@@ -49,12 +49,18 @@
         <div @click="showDialogTag = true" class="co-pd-a08 co-bd-t co-bd-l co-bg-0 demoList co-tx-c co-te">
           弹出dialog
         </div>
-        <div class="co-pd-a08 co-bd-t co-bd-l co-bg-0 demoList co-tx-c co-te">
+        <div @click="showTopMenu" class="co-pd-a08 co-bd-t co-bd-l co-bg-0 demoList co-tx-c co-te">
           顶部菜单
+        </div>
+        <div @click="$router.push({name: 'TimeLine'})" class="co-pd-a08 co-bd-t co-bd-l co-bg-0 demoList co-tx-c co-te">
+          时间轴列表
+        </div>
+        <div  @click="$router.push({name: 'CalendarShow'})" class="co-pd-a08 co-bd-t co-bd-l co-bg-0 demoList co-tx-c co-te">
+          日历控件  
         </div>
         <div class="co-bd-t co-bd-l co-bg-0 demoList co-tx-c co-te" style="width:100%">
           <group>
-            <calendar v-model="demo1" title="日期选择" placeholder="请选择" disable-past @on-change="chooseCalendar"></calendar>
+            <calendar v-model="demo1" title="日历日期选择" placeholder="请选择" disable-past @on-change="chooseCalendar"></calendar>
           </group>
         </div>
         <div class="co-bd-t co-bd-l co-bg-0 demoList co-tx-c co-te" style="width:100%">
@@ -145,6 +151,25 @@ export default {
   },
   data () {
     return {
+      topMenuShow: false,
+      menuList: [
+        {
+          id: 100,
+          name: '未完成'
+        },
+        {
+          id: 101,
+          name: '已完成'
+        },
+        {
+          id: 102,
+          name: '我执行的'
+        },
+        {
+          id: 103,
+          name: '我发起的'
+        }
+      ],
       showDialogTag: false,
       address: '',
       pickerAddress: '',
@@ -158,7 +183,7 @@ export default {
       popupShow1: false,
       selectValue: ['小米'],
       popupValue: '',
-      title: this.$route.params.title,
+      title: 'ui控件',
       actionShow: false,
       selectList: [['小米', 'iPhone', '华为', '情怀', '三星']],
       popupList: ['星期一','星期二','星期三','星期四','星期五','星期六','星期天'],
@@ -287,9 +312,18 @@ export default {
         this.address = this.pickerAddress.join(' ')
         console.log(this.address)
       }
+    },
+    menuChange (obj) {
+      this.$loading.alert({
+        content: JSON.stringify(obj)
+      })
+    },
+    showTopMenu () {
+      this.topMenuShow = true
     }
   },
   mounted () {
+    console.log(2)
     setTimeout(() => {
       this.percent = 80
     },1200)

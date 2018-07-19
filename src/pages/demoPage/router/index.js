@@ -13,6 +13,8 @@ const Loading = (resolve) => { require(['../views/Loading.vue'], resolve) }
 const Welcome = (resolve) => { require(['../views/Welcome.vue'], resolve) }
 const FormVail = (resolve) => { require(['../views/FormVail.vue'], resolve) }
 const WaterFall = (resolve) => { require(['../views/WaterFall.vue'], resolve) }
+const TimeLine = (resolve) => { require(['../views/TimeLine.vue'], resolve) }
+const CalendarShow = (resolve) => { require(['../views/CalendarShow.vue'], resolve) }
 Vue.use(Router)
 Router.prototype.goBack = function () {
   this.isBack = true
@@ -85,6 +87,16 @@ export default new Router({
       path: '/WaterFall',
       name: 'WaterFall',
       component: WaterFall
+    },
+    {
+      path: '/TimeLine',
+      name: 'TimeLine',
+      component: TimeLine
+    },
+    {
+      path: '/CalendarShow',
+      name: 'CalendarShow',
+      component: CalendarShow
     }
   ]
 })

@@ -13,6 +13,8 @@ require('corlib/lib/iconfont.css')
 require('corlib/lib/flex.css')
 require('corlib/lib/base.css')
 require('corlib/lib/rem.js')
+let VueTouch = require('vue-touch')
+Vue.use(VueTouch, {name: 'v-touch'})
 Vue.config.productionTip = false
 /* eslint-disable no-new */
 Vue.prototype.$ajax = $ajax

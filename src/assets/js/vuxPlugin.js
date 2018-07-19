@@ -85,6 +85,8 @@ const loadingToast = {
       format = 'HH:mm'
     } else if (obj.type === 'datetime') {
       format = 'YYYY-MM-DD HH:mm'
+    } else if (obj.type === 'dateMonth') {
+      format = 'YYYY-MM'
     }
     Vue.$vux.datetime.show({
       value: obj.value || '',

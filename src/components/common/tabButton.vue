@@ -34,7 +34,7 @@ export default {
   }
 }
 </script>
-<style lang="less">
+<style lang="less" >
   .tabMenu {
     height: 2.2rem;
     a {

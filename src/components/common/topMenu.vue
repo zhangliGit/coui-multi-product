@@ -1,10 +1,10 @@
 <template>
-    <div v-show = "topShow" class="topMenu co-flex co-ver">
+    <div v-show = "topMenuShow" class="topMenu co-flex co-ver">
       <div>
-        <div class="co-pd-a06 co-bd-b1 co-bg-1">已完成</div>
-        <div class="co-pd-a06 co-bd-b1 co-bg-1">未完成</div>
-        <div class="co-pd-a06 co-bd-b1 co-bg-1">我发起的</div>
-        <div class="co-pd-a06 co-bd-b1 co-bg-1">我执行的</div>
+        <div class="co-pd-a06 co-bd-b co-bg-0 co-flex co-jsb" @click="chooseMenu(item.id, item.name, index)" v-for="(item, index) in menuList" :key="index">
+          <div>{{item.name}}</div>
+          <div v-show="currentMenu == index"><i class="coicon coicon-success_large co-cl-4"></i></div>
+        </div>
       </div>
       <div class="co-f1" @click="closeMenu">
       </div>
@@ -15,27 +15,42 @@ export default {
   name: 'topMenu',
   components: {
   },
+  model: {
+    prop: 'topMenuShow',
+    event: 'topValue'
+  },
   props: {
+    menuList: {
+      type: Array,
+      default: []
+    },
+    topMenuShow: false
   },
   data () {
     return {
-      topShow: true
+      currentMenu: -1
     }
   },
   methods: {
     closeMenu () {
-      this.topShow = false
+      this.$emit('topValue', false)
+    },
+    chooseMenu (id, name, index) {
+      this.currentMenu = index
+      this.$emit('topValue', false)
+      this.$emit('menu-change', {id, name})
     }
   },
   mounted () {
   }
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
   .topMenu {
     position: absolute;
     width:100%;
-    height:100%;
+    height:1000px;
+    background:rgba(0, 0, 0, .4);
     z-index:999999
   }
 </style>
