@@ -32,6 +32,11 @@ export default {
       title: 'demo示例',
       dataList: [
         {
+					id: -2,
+          title: '路由跳转',
+          path: 'RouterPage'
+        },
+        {
 					id: -1,
           title: '加载页',
           path: 'Loading'

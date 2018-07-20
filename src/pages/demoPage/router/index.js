@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HomePage from '../views/HomePage.vue'
+const RouterPage = (resolve) => { require(['../views/RouterPage.vue'], resolve) }
+const RouterA = (resolve) => { require(['../views/RouterA.vue'], resolve) }
+const RouterB = (resolve) => { require(['../views/RouterB.vue'], resolve) }
+const RouterC = (resolve) => { require(['../views/RouterC.vue'], resolve) }
 const AppMain = (resolve) => { require(['../views/AppMain.vue'], resolve) }
 const DetailCom = (resolve) => { require(['../views/DetailCom.vue'], resolve) }
 const UiCom = (resolve) => { require(['../views/UiCom.vue'], resolve) }
@@ -16,9 +20,13 @@ const WaterFall = (resolve) => { require(['../views/WaterFall.vue'], resolve) }
 const TimeLine = (resolve) => { require(['../views/TimeLine.vue'], resolve) }
 const CalendarShow = (resolve) => { require(['../views/CalendarShow.vue'], resolve) }
 Vue.use(Router)
-Router.prototype.goBack = function () {
+Router.prototype.goBack = function (index) {
   this.isBack = true
-  this.back()
+  if (index) {
+    this.go(index)
+  } else {
+    this.back()
+  }
 }
 
 export default new Router({
@@ -27,6 +35,26 @@ export default new Router({
       path: '/',
       name: 'HomePage',
       component: HomePage
+    },
+    {
+      path: '/RouterPage',
+      name: 'RouterPage',
+      component: RouterPage
+    },
+    {
+      path: '/RouterA',
+      name: 'RouterA',
+      component: RouterA
+    },
+    {
+      path: '/RouterB',
+      name: 'RouterB',
+      component: RouterB
+    },
+    {
+      path: '/RouterC',
+      name: 'RouterC',
+      component: RouterC
     },
     {
       path: '/Loading',

@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper co-f1 co-of co-bg-2" ref="wrapper">
-    <div>
+    <div :style = "{minHeight: minH + 'px'}">
       <div class="upTip co-flex co-ac co-jc">
         <div v-if="pullDownRefresh">
           <div  v-if="!loadTag">
@@ -55,6 +55,7 @@ export default {
   },
   data() {
     return {
+      minH: 0,
       autoTag: false,
       upTag: 0,
       loadTag: false,
@@ -103,6 +104,9 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
+      if (this.pullDownRefresh) {
+        this.minH = this.$refs.wrapper.offsetHeight + 1;
+      }
       if (!this.scroll) {
         const pullDownRefresh = this.pullDownRefresh
           ? {
