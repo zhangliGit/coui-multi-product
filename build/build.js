@@ -9,6 +9,7 @@ const path = require('path')
 const chalk = require('chalk')
 const webpack = require('webpack')
 const config = require('../config')
+const zipper = require("zip-local")
 const webpackConfig = require('./webpack.prod.conf')
 const fsCopy = require('fs-sync')
 const pagePath = path.resolve(__dirname,'../src/pages')
@@ -40,6 +41,8 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
     modulesDir.forEach((file) => {
       let pageDir = file.split('/')[file.split('/').length-1]
       fsCopy.copy(path.resolve(__dirname,'../dist/static'), path.resolve(__dirname, `../dist/${pageDir}/static`))
+      fsCopy.copy(distPath + `/${pageDir}/`, distPath + `/zip/${pageDir}/${pageDir}/`)
+      zipper.sync.zip(distPath + `/zip/${pageDir}`).compress().save(distPath + `/${pageDir}.zip`)
       glob.sync(distPath + `/${pageDir}/static/js/*`).forEach((file) => {
         var fileName = file.split('/')[file.split('/').length-1].split('.')[0]
         if (fileName === 'index') {
@@ -53,10 +56,10 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
         }
       })
     })
-
     fsCopy.remove(path.resolve(__dirname,'../dist/static'))
     fsCopy.remove(path.resolve(__dirname,'../dist/index'))
-
+    fsCopy.remove(path.resolve(__dirname,'../dist/zip'))
+    fsCopy.remove(path.resolve(__dirname,'../dist/index.zip'))
     console.log(chalk.cyan('  Build complete.\n'))
     console.log(chalk.yellow(
       '  Tip: built files are meant to be served over an HTTP server.\n' +
