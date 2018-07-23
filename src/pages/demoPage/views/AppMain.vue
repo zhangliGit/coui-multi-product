@@ -2,7 +2,7 @@
   <div class="co-f1 co-flex co-ver co-cl-1">
     <header-com :title="title" isBack></header-com>
     <!--pullDownRefresh pullUpLoad 这两个属性表示有上拉加载和 下拉刷新-->
-    <scroll-list ref="scroll" scroll-index = "appMain" pullDownRefresh pullUpLoad @show-data = "showData">
+    <scroll-list :page-num = "pageNum" ref="scroll" scroll-index = "appMain" pullDownRefresh pullUpLoad @show-data = "showData">
       <div>
         <div v-for="(item, index) in dataList" :key="index" @click="goDetail" class="co-pd-a08 co-bd-b co-bg-0">
           <div>{{item.title}}</div>
@@ -27,6 +27,7 @@ export default {
     return {
       title: '列表',
       current: 0,
+      pageNum: 10
     }
   },
   computed: {

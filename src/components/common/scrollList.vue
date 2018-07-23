@@ -51,6 +51,10 @@ export default {
     pullUpLoad: {
       type: Boolean,
       defalut: false
+    },
+    pageNum: {
+      type: Number,
+      defalut: 10
     }
   },
   data() {
@@ -81,12 +85,12 @@ export default {
         //当没有数据时显示暂无数据
         this.autoTag = true;
         this.downTag = -1;
-      } else if (len >= 10) {
-        // 当初次查询数据总数为10 说明可能还有分页数据
+      } else if (len >= this.pageNum) {
+        // 当初次查询数据总数为this.pageNum 说明可能还有分页数据
         this.downTag = 1;
         this.autoTag = false;
       } else {
-        // 当数据大于0 小于10时说明没有分页
+        // 当数据大于0 小于this.pageNum时说明没有分页
         this.downTag = 0;
         this.autoTag = false;
       }
@@ -170,12 +174,12 @@ export default {
             cb(len) {
               _self.downEnd();
               console.log(len)
-              if (len < 10) {
-                //如果分页查询数据小于10（为每页条数，根据自己项目设置） 说明数据已全部加载完毕
+              if (len < this.pageNum) {
+                //如果分页查询数据小于this.pageNum（为每页条数，根据自己项目设置） 说明数据已全部加载完毕
                 _self.autoTag = false;
                 _self.downTag = 0;
               } else {
-                // 如果等于10  说明还可能有分页
+                // 如果等于this.pageNum  说明还可能有分页
                 _self.downTag = 1;
                 _self.autoTag = false;
               }

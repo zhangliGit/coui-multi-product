@@ -32,6 +32,16 @@ export default {
       title: 'demo示例',
       dataList: [
         {
+					id: -4,
+          title: '原生能力',
+          path: 'RouterPage'
+        },
+        {
+					id: -3,
+          title: '业务功能组件',
+          path: 'RouterPage'
+        },
+        {
 					id: -2,
           title: '路由跳转',
           path: 'RouterPage'
