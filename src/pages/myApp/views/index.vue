@@ -12,7 +12,7 @@
         </div>
       </div>
     </scroll-list>
-    <div id="co-footer" v-if="false" class="co-bg-0 co-bd-t co-flex co-ac co-fs-01 co-cl-1">
+    <div id="co-footer" class="co-bg-0 co-bd-t co-flex co-ac co-fs-01 co-cl-1">
       <div v-for="(item, index) in footer" :key="index" :class="['co-f1 co-flex co-ver co-ac co-jc',{'co-cl-4': current == index}]">
         <i :class="`coicon ${item.icon} co-fs-4`"></i>
         <div>{{item.title}}</div>
@@ -32,7 +32,7 @@ export default {
   },
   data () {
     return {
-      title: '标题',
+      title: '首页',
       current: 0,
       footer: [
         {

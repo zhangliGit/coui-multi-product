@@ -32,6 +32,11 @@ export default {
       title: 'demo示例',
       dataList: [
         {
+					id: -5,
+          title: 'JS能力',
+          path: 'jsApi'
+        },
+        {
 					id: -4,
           title: '原生能力',
           path: 'RouterPage'
@@ -58,7 +63,7 @@ export default {
         },
         {
 					id: 1,
-          title: '列表',
+          title: '列表加载刷新',
           path: 'AppMain'
         },
         {
@@ -123,6 +128,10 @@ export default {
   },
   methods: {
     goList (path, title) {
+      if (path === 'jsApi') {
+        window.open('https://www.baidu.com')
+        return
+      }
       this.$router.push({name: path, params: {title}})
     }
   },

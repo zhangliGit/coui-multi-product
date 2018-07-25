@@ -8,6 +8,9 @@
     </div>
     <div class="co-f1">
       <div class="">
+        <div class="appList co-bd-r co-pd-tb1 co-tx-c co-bg-0 co-bd-t" @click="goHtml('jsApi')">
+          jsApi文档
+        </div>
         <div class="appList co-bd-r co-pd-tb1 co-tx-c co-bg-0 co-bd-t" @click="goHtml('demoPage')">
           案例
         </div>

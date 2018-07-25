@@ -37,9 +37,9 @@ export default {
     height: 2.2rem;
   }
   .vux-tab .vux-tab-item.vux-tab-selected {
-    color:#32659e !important;
+    color:#d81e06 !important;
   }
   .vux-tab-ink-bar{
-    background-color:#32659e !important
+    background-color:#d81e06 !important
   }
 </style>
