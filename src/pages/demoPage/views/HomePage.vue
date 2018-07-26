@@ -32,19 +32,9 @@ export default {
       title: 'demo示例',
       dataList: [
         {
-					id: -5,
-          title: 'JS能力',
-          path: 'jsApi'
-        },
-        {
-					id: -4,
-          title: '原生能力',
-          path: 'RouterPage'
-        },
-        {
 					id: -3,
           title: '业务功能组件',
-          path: 'RouterPage'
+          path: 'BusinessFun'
         },
         {
 					id: -2,

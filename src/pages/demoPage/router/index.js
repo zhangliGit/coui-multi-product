@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HomePage from '../views/HomePage.vue'
+const BusinessFun = (resolve) => { require(['../views/BusinessFun.vue'], resolve) }
 const RouterPage = (resolve) => { require(['../views/RouterPage.vue'], resolve) }
 const RouterA = (resolve) => { require(['../views/RouterA.vue'], resolve) }
 const RouterB = (resolve) => { require(['../views/RouterB.vue'], resolve) }
@@ -35,6 +36,11 @@ export default new Router({
       path: '/',
       name: 'HomePage',
       component: HomePage
+    },
+    {
+      path: '/BusinessFun',
+      name: 'BusinessFun',
+      component: BusinessFun
     },
     {
       path: '/RouterPage',

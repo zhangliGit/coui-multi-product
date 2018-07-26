@@ -7,15 +7,24 @@
       <div class="headSlide co-flex co-je"></div>
     </div>
     <div class="co-f1">
-      <div class="">
-        <div class="appList co-bd-r co-pd-tb1 co-tx-c co-bg-0 co-bd-t" @click="goHtml('jsApi')">
-          jsApi文档
+      <div class="co-bg-0" style="overflow:auto;padding-bottom: 1rem">
+        <div class="appList co-flex co-ver co-ac co-jc" @click="goHtml('jsApi')">
+          <div class="appBg co-flex co-ac co-jc">
+            <i class="coicon coicon-workbench icon-wh"></i>
+          </div>
+          <div>jsApi文档</div>
         </div>
-        <div class="appList co-bd-r co-pd-tb1 co-tx-c co-bg-0 co-bd-t" @click="goHtml('demoPage')">
-          案例
+        <div class="appList co-flex co-ver co-ac co-jc" @click="goHtml('demoPage')">
+          <div class="appBg co-flex co-ac co-jc">
+            <i class="coicon coicon-qrcode icon-wh"></i>
+          </div>
+          <div>案例</div>
         </div>
-        <div class="appList co-bd-r co-pd-tb1 co-tx-c co-bg-0 co-bd-t" @click="goHtml('myApp')">
-          开发
+        <div class="appList co-flex co-ver co-ac co-jc" @click="goHtml('myApp')">
+          <div class="appBg co-flex co-ac co-jc">
+            <i class="coicon coicon-edit icon-wh"></i>
+          </div>
+          <div>开发</div>
         </div>
       </div>
     </div>
@@ -40,7 +49,20 @@ export default {
 
 <style>
 .appList{
-  width:33.33%;
+  width:25%;
   float: left;
+  padding-top: 1rem;
+  color:#333
+}
+.appBg {
+  margin-bottom: .4rem;
+  width:2.8rem;
+  height:2.8rem;
+  background: #eee;
+  -webkit-border-radius: .6rem;
+  border-radius: .6rem;
+}
+.icon-wh {
+  font-size: 2rem
 }
 </style>
