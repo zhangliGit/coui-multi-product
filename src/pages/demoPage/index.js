@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import $ajax from '../../assets/js/ajaxService.js'
-import store from '../../assets/store/index.js'
+import store from './store/index.js'
 import { corLib } from 'corlib'
 require('../../assets/js/vuxPlugin.js')
 require('../../assets/css/vux.css')

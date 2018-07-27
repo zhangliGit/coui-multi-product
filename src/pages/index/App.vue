@@ -8,7 +8,13 @@
     </div>
     <div class="co-f1">
       <div class="co-bg-0" style="overflow:auto;padding-bottom: 1rem">
-        <div class="appList co-flex co-ver co-ac co-jc" @click="goHtml('jsApi')">
+        <div class="appList co-flex co-ver co-ac co-jc" @click="goHtml('devStandard', true)">
+          <div class="appBg co-flex co-ac co-jc">
+            <i class="coicon coicon-warning icon-wh"></i>
+          </div>
+          <div>开发规范</div>
+        </div>
+        <div class="appList co-flex co-ver co-ac co-jc" @click="goHtml('jsApi', true)">
           <div class="appBg co-flex co-ac co-jc">
             <i class="coicon coicon-workbench icon-wh"></i>
           </div>
@@ -18,13 +24,13 @@
           <div class="appBg co-flex co-ac co-jc">
             <i class="coicon coicon-qrcode icon-wh"></i>
           </div>
-          <div>案例</div>
+          <div>app案例</div>
         </div>
         <div class="appList co-flex co-ver co-ac co-jc" @click="goHtml('myApp')">
           <div class="appBg co-flex co-ac co-jc">
             <i class="coicon coicon-edit icon-wh"></i>
           </div>
-          <div>开发</div>
+          <div>开发模板</div>
         </div>
       </div>
     </div>
@@ -40,7 +46,11 @@ export default {
     }
   },
   methods: {
-    goHtml (name) {
+    goHtml (name, tag = false) {
+      if (tag) {
+        window.open(`http://xiaoyueyue.com.cn:8080/${name}/index.html`)                                            
+        return
+      }
       window.location.href = `${name}.html`
     }
   }
