@@ -97,6 +97,9 @@ export default {
       console.log(value)
     },
     onChange () {
+      if (pageNum === 10) {
+        let pageMum = 12
+      }
       this.age = this.selectValue[0]
     }
   },
@@ -109,5 +112,8 @@ export default {
 .weui-switch:checked, .weui-switch-cp__input:checked ~ .weui-switch-cp__box {
   border-color: #d81e06 !important;
   background: #d81e06 !important
+}
+.menu-list {
+  height: 3rem;
 }
 </style>

@@ -8,13 +8,13 @@
     </div>
     <div class="co-f1">
       <div class="co-bg-0" style="overflow:auto;padding-bottom: 1rem">
-        <div class="appList co-flex co-ver co-ac co-jc" @click="goHtml('devStandard', true)">
+        <div class="appList co-flex co-ver co-ac co-jc" @click="goHtml('http://xiaoyueyue.com.cn:8080/dev-api-doc/dev-standard/index.html', true)">
           <div class="appBg co-flex co-ac co-jc">
             <i class="coicon coicon-warning icon-wh"></i>
           </div>
           <div>开发规范</div>
         </div>
-        <div class="appList co-flex co-ver co-ac co-jc" @click="goHtml('jsApi', true)">
+        <div class="appList co-flex co-ver co-ac co-jc" @click="goHtml('http://xiaoyueyue.com.cn:8080/dev-api-doc/cor-lib/index.html', true)">
           <div class="appBg co-flex co-ac co-jc">
             <i class="coicon coicon-workbench icon-wh"></i>
           </div>
@@ -48,7 +48,7 @@ export default {
   methods: {
     goHtml (name, tag = false) {
       if (tag) {
-        window.open(`http://xiaoyueyue.com.cn:8080/${name}/index.html`)                                            
+        window.open(name)                                            
         return
       }
       window.location.href = `${name}.html`
