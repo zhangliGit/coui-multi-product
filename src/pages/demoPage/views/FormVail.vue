@@ -23,8 +23,8 @@
         <div>爱好：</div>
         <div class="co-f1 co-flex co-je co-ac co-pd-l05">
             <div @click="chooseLove(item)" class="co-flex co-ac" v-for="(item, index) in cheeckList" :key="index">
-              <div class="co-flex co-ac co-mg-lr04"  :class="{'co-cl-4': corlib.arryHasVal(loveList, item)}">
-                <div><i :class="['coicon co-fs-3', {'coicon-success_fill': corlib.arryHasVal(loveList, item)}, {'coicon-success': !corlib.arryHasVal(loveList, item)}]"></i></div>
+              <div class="co-flex co-ac co-mg-lr04"  :class="{'co-cl-4': corJs.arryHasVal(loveList, item)}">
+                <div><i :class="['coicon co-fs-3', {'coicon-success_fill': corJs.arryHasVal(loveList, item)}, {'coicon-success': !corJs.arryHasVal(loveList, item)}]"></i></div>
                 <div>{{item}}</div>
               </div>
             </div>
@@ -86,9 +86,8 @@ export default {
       this.sexIndex = val
     },
     chooseLove (val) {
-      if (this.corlib.arryHasVal(this.loveList, val)) {
-        console.log(val)
-        this.corlib.arryRemoveVal(this.loveList, val)
+      if (this.corJs.arryHasVal(this.loveList, val)) {
+        this.corJs.arryRemoveVal(this.loveList, val)
       } else {
         this.loveList.push(val)
       }
