@@ -13,7 +13,7 @@
 <script>
 import HeaderCom from '@c/HeaderCom'
 export default {
-  name: 'Loading',
+  name: 'RouterB',
   components: {
     HeaderCom
   },

@@ -20,7 +20,7 @@
 
 <script>
 import HeaderCom from '@c/HeaderCom'
-import scrollList from '@c/scrollList'
+import ScrollList from '@c/ScrollList'
 import { Swipeout, SwipeoutItem, SwipeoutButton } from 'vux'
 export default {
   name: 'SwiperList',
@@ -29,7 +29,7 @@ export default {
     Swipeout,
     SwipeoutItem,
     SwipeoutButton,
-    scrollList
+    ScrollList
   },
   data () {
     return {

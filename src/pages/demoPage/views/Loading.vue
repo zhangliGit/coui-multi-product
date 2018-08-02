@@ -9,12 +9,12 @@
 
 <script>
 import HeaderCom from '@c/HeaderCom'
-import loading from '@c/loading'
+import Loading from '@c/Loading'
 export default {
   name: 'Loading',
   components: {
     HeaderCom,
-    loading
+    Loading
   },
   data () {
     return {

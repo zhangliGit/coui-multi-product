@@ -11,13 +11,13 @@
 
 <script>
 import HeaderCom from '@c/HeaderCom'
-import scrollList from '@c/scrollList'
+import ScrollList from '@c/ScrollList'
 import TimeLine from '@c/TimeLine'
 export default {
-  name: 'DetailCom',
+  name: 'TimeLine',
   components: {
     HeaderCom,
-    scrollList,
+    ScrollList,
     TimeLine
   },
   data () {

@@ -23,12 +23,12 @@
 
 <script>
 import HeaderCom from '@c/HeaderCom'
-import scrollList from '@c/scrollList'
+import ScrollList from '@c/ScrollList'
 export default {
   name: 'index',
   components: {
 		HeaderCom,
-		scrollList
+		ScrollList
   },
   data () {
     return {

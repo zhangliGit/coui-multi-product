@@ -12,12 +12,12 @@ import welcome1 from '../../../assets/images/welcome1.png'
 import welcome2 from '../../../assets/images/welcome2.png'
 import welcome3 from '../../../assets/images/welcome3.png'
 import HeaderCom from '@c/HeaderCom'
-import welcome from '@c/welcome'
+import Welcome from '@c/Welcome'
 export default {
   name: 'Welcome',
   components: {
     HeaderCom,
-    welcome
+    Welcome
   },
   data () {
     return {

@@ -30,18 +30,18 @@
 <script>
 import HeaderCom from '@c/HeaderCom'
 import swiperScroll from '@c/swiperScroll'
-import swiperList from '@c/swiperList'
-import swiper3D from '@c/swiper3D'
+import SwiperList from '@c/SwiperList'
+import Swiper3D from '@c/Swiper3D'
 import { Swiper, SwiperItem } from 'vux'
 export default {
-  name: 'SwiperList',
+  name: 'ImgSwiper',
   components: {
     HeaderCom,
     Swiper,
     SwiperItem,
-    swiperScroll,
-    swiperList,
-    swiper3D
+    SwiperScroll,
+    SwiperList,
+    Swiper3D
   },
   data () {
     return {

@@ -3,7 +3,7 @@
  */
 import Vue from 'vue'
 import Vuex from 'vuex'
-import demoPage from './modules/listData.js'
+import demoPage from './modules/list-data.js'
 Vue.use(Vuex)
 
 export default new Vuex.Store({

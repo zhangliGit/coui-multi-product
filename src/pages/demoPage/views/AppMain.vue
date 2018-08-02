@@ -15,13 +15,13 @@
 
 <script>
 import HeaderCom from '@c/HeaderCom'
-import scrollList from '@c/scrollList'
+import ScrollList from '@c/ScrollList'
 import { mapState, mapActions } from 'vuex'
 export default {
   name: 'AppMain',
   components: {
     HeaderCom,
-    scrollList
+    ScrollList
   },
   data () {
     return {

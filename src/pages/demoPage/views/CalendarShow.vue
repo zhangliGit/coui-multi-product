@@ -15,14 +15,14 @@
 
 <script>
 import HeaderCom from '@c/HeaderCom'
-import scrollList from '@c/scrollList'
-import calendarShow from '@c/calendarShow'
+import ScrollList from '@c/ScrollList'
+import CalendarShow from '@c/CalendarShow'
 export default {
-  name: 'DetailCom',
+  name: 'CalendarShow',
   components: {
     HeaderCom,
-    scrollList,
-    calendarShow
+    ScrollList,
+    CalendarShow
   },
   data () {
     let newd = new Date()

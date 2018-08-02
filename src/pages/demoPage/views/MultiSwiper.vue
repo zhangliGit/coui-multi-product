@@ -10,12 +10,12 @@
 
 <script>
 import HeaderCom from '@c/HeaderCom'
-import multiSwiper from '@c/multiSwiper'
+import MultiSwiper from '@c/MultiSwiper'
 export default {
   name: 'MultiSwiper',
   components: {
     HeaderCom,
-    multiSwiper
+    MultiSwiper
   },
   data () {
     return {

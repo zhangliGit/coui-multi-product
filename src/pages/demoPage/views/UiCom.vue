@@ -125,16 +125,16 @@
 
 <script>
 import HeaderCom from '@c/HeaderCom'
-import scrollList from '@c/scrollList'
-import topMenu from '@c/topMenu'
+import ScrollList from '@c/ScrollList'
+import TopMenu from '@c/TopMenu'
 import { Actionsheet, PopupPicker, Calendar, Popup, PopupHeader, Group, Radio, PopupRadio, XCircle, XProgress, ChinaAddressV4Data, XAddress, XDialog } from 'vux'
 import { setInterval, clearInterval } from 'timers';
 export default {
   name: 'UiCom',
   components: {
-    topMenu,
+    TopMenu,
     HeaderCom,
-    scrollList,
+    ScrollList,
     Actionsheet,
     PopupPicker,
     Calendar,

@@ -1,4 +1,4 @@
-import $ajax from '@a/js/ajax_service.js'
+import $ajax from '@a/js/ajax-service.js'
 const demoPage = {
   namespaced: true,
   state: {

@@ -20,12 +20,12 @@
 
 <script>
 import HeaderCom from '@c/HeaderCom'
-import scrollList from '@c/scrollList'
+import ScrollList from '@c/ScrollList'
 export default {
   name: 'HomePage',
   components: {
 		HeaderCom,
-		scrollList
+		ScrollList
   },
   data () {
     return {

@@ -39,7 +39,7 @@
 import BScroll from "better-scroll";
 import { Spinner } from 'vux';
 export default {
-  name: "scrollList",
+  name: "ScrollList",
   components: {
     Spinner
   },

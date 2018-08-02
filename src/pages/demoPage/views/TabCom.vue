@@ -14,16 +14,16 @@
 
 <script>
 import HeaderCom from '@c/HeaderCom'
-import tabMenu from '@c/tabMenu'
-import tabMenuScroll from '@c/tabMenuScroll'
-import tabButton from '@c/tabButton'
+import TabMenu from '@c/TabMenu'
+import TabMenuScroll from '@c/TabMenuScroll'
+import TabButton from '@c/TabButton'
 export default {
-  name: 'FormVail',
+  name: 'TabCom',
   components: {
     HeaderCom,
-    tabMenu,
-    tabMenuScroll,
-    tabButton
+    TabMenu,
+    TabMenuScroll,
+    TabButton
   },
   data () {
     return {

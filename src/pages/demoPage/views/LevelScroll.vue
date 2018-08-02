@@ -2,40 +2,40 @@
   <div class="hello co-f1 co-flex co-ver">
     <header-com isBack :title="title"></header-com>
     <level-scroll>
-      <ul class="container" slot="scrollList">
-        <li class="scrollList">
+      <ul class="container" slot="ScrollList">
+        <li class="ScrollList">
           <div class="scrollDiv co-bg-4"></div>
           <div class="co-tx-c co-mg-t02">体育</div>
         </li>
-        <li class="scrollList">
+        <li class="ScrollList">
           <div class="scrollDiv co-bg-5"></div>
           <div class="co-tx-c co-mg-t02">娱乐</div>
         </li>
-        <li class="scrollList">
+        <li class="ScrollList">
           <div class="scrollDiv co-bg-6"></div>
           <div class="co-tx-c co-mg-t02">新闻</div>
         </li>
-        <li class="scrollList">
+        <li class="ScrollList">
           <div class="scrollDiv co-bg-7"></div>
           <div class="co-tx-c co-mg-t02">热点</div>
         </li>
-        <li class="scrollList">
+        <li class="ScrollList">
           <div class="scrollDiv co-bg-5"></div>
           <div class="co-tx-c co-mg-t02">资讯</div>
         </li>
-        <li class="scrollList">
+        <li class="ScrollList">
           <div class="scrollDiv co-bg-4"></div>
           <div class="co-tx-c co-mg-t02">本地</div>
         </li>
-        <li class="scrollList">
+        <li class="ScrollList">
           <div class="scrollDiv co-bg-4"></div>
           <div class="co-tx-c co-mg-t02">体育</div>
         </li>
-        <li class="scrollList">
+        <li class="ScrollList">
           <div class="scrollDiv co-bg-5"></div>
           <div class="co-tx-c co-mg-t02">娱乐</div>
         </li>
-        <li class="scrollList">
+        <li class="ScrollList">
           <div class="scrollDiv co-bg-6"></div>
           <div class="co-tx-c co-mg-t02">新闻</div>
         </li>
@@ -43,15 +43,15 @@
     </level-scroll>
     <div class="co-mg-t05 co-bg-2">
       <level-scroll>
-        <ul class="container" slot="scrollList">
-          <li class="scrollList"> 横向滚动内容</li>
-          <li class="scrollList"> 横向滚动内容</li>
-          <li class="scrollList"> 横向滚动内容</li>
-          <li class="scrollList"> 横向滚动内容</li>
-          <li class="scrollList"> 横向滚动内容</li>
-          <li class="scrollList"> 横向滚动内容</li>
-          <li class="scrollList"> 横向滚动内容</li>
-          <li class="scrollList"> 横向滚动内容</li>
+        <ul class="container" slot="ScrollList">
+          <li class="ScrollList"> 横向滚动内容</li>
+          <li class="ScrollList"> 横向滚动内容</li>
+          <li class="ScrollList"> 横向滚动内容</li>
+          <li class="ScrollList"> 横向滚动内容</li>
+          <li class="ScrollList"> 横向滚动内容</li>
+          <li class="ScrollList"> 横向滚动内容</li>
+          <li class="ScrollList"> 横向滚动内容</li>
+          <li class="ScrollList"> 横向滚动内容</li>
         </ul>
       </level-scroll>
     </div>
@@ -60,12 +60,12 @@
 
 <script>
 import HeaderCom from '@c/HeaderCom'
-import levelScroll from '@c/levelScroll'
+import LevelScroll from '@c/LevelScroll'
 export default {
-  name: 'SwiperList',
+  name: 'LevelScroll',
   components: {
     HeaderCom,
-    levelScroll
+    LevelScroll
   },
   data () {
     return {
@@ -93,7 +93,7 @@ export default {
   -webkit-border-radius: 100%;
   border-radius: 100%
 }
-.scrollList {
+.ScrollList {
   padding:.6rem;
   display: inline-block;
 }
