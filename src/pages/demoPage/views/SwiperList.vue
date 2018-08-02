@@ -23,7 +23,7 @@ import HeaderCom from '@c/HeaderCom'
 import ScrollList from '@c/ScrollList'
 import { Swipeout, SwipeoutItem, SwipeoutButton } from 'vux'
 export default {
-  name: 'swiperList',
+  name: 'SwiperList',
   components: {
     HeaderCom,
     Swipeout,

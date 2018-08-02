@@ -9,11 +9,7 @@ const path = require('path')
 const chalk = require('chalk')
 const webpack = require('webpack')
 const config = require('../config')
-<<<<<<< HEAD
-const zipper = require("zip-local")
-=======
 const zipper = require('zip-local')
->>>>>>> 889a6be018fc83ce7a4ceb939f6d18b8abaf00d6
 const webpackConfig = require('./webpack.prod.conf')
 const fsCopy = require('fs-sync')
 const pagePath = path.resolve(__dirname,'../src/pages')

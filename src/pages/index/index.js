@@ -7,7 +7,6 @@ require('corlib/lib/flex.css')
 require('corlib/lib/base.css')
 require('corlib/lib/rem.js')
 Vue.config.productionTip = false
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
