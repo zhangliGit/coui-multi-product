@@ -38,13 +38,12 @@ export default {
 }
 .slide-left-enter,
 .slide-right-leave-to {
-    -webkit-transform: translate(100%, 0);
-    transform: translate(100%, 0);
+  -webkit-transform: translate(100%, 0);
+  transform: translate(100%, 0);
 }
 .slide-right-enter,
-.slide-left-leave-to
- {
-    -webkit-transform: translate(-100%, 0);
-    transform: translate(-100% 0);
+.slide-left-leave-to {
+  -webkit-transform: translate(-100%, 0);
+  transform: translate(-100% 0);
 }
 </style>
