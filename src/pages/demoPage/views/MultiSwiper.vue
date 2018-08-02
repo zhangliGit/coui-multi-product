@@ -12,7 +12,7 @@
 import HeaderCom from '@c/HeaderCom'
 import MultiSwiper from '@c/MultiSwiper'
 export default {
-  name: 'MultiSwiper',
+  name: 'MultiSwiperCom',
   components: {
     HeaderCom,
     MultiSwiper

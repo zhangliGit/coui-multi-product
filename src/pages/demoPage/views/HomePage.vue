@@ -118,10 +118,6 @@ export default {
   },
   methods: {
     goList (path, title) {
-      if (path === 'jsApi') {
-        window.open('https://www.baidu.com')
-        return
-      }
       this.$router.push({name: path, params: {title}})
     }
   },

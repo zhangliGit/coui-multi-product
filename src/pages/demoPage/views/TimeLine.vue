@@ -14,7 +14,7 @@ import HeaderCom from '@c/HeaderCom'
 import ScrollList from '@c/ScrollList'
 import TimeLine from '@c/TimeLine'
 export default {
-  name: 'TimeLine',
+  name: 'TimeLineCom',
   components: {
     HeaderCom,
     ScrollList,

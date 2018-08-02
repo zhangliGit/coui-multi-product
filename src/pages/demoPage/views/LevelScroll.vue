@@ -62,7 +62,7 @@
 import HeaderCom from '@c/HeaderCom'
 import LevelScroll from '@c/LevelScroll'
 export default {
-  name: 'LevelScroll',
+  name: 'LevelScrollCom',
   components: {
     HeaderCom,
     LevelScroll

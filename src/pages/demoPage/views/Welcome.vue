@@ -14,7 +14,7 @@ import welcome3 from '../../../assets/images/welcome3.png'
 import HeaderCom from '@c/HeaderCom'
 import Welcome from '@c/Welcome'
 export default {
-  name: 'Welcome',
+  name: 'WelcomeCom',
   components: {
     HeaderCom,
     Welcome

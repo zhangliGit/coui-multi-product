@@ -130,7 +130,7 @@ import TopMenu from '@c/TopMenu'
 import { Actionsheet, PopupPicker, Calendar, Popup, PopupHeader, Group, Radio, PopupRadio, XCircle, XProgress, ChinaAddressV4Data, XAddress, XDialog } from 'vux'
 import { setInterval, clearInterval } from 'timers';
 export default {
-  name: 'UiCom',
+  name: 'uiCom',
   components: {
     TopMenu,
     HeaderCom,

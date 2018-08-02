@@ -11,7 +11,7 @@
 import HeaderCom from '@c/HeaderCom'
 import Loading from '@c/Loading'
 export default {
-  name: 'Loading',
+  name: 'loading1',
   components: {
     HeaderCom,
     Loading

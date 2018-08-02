@@ -18,7 +18,7 @@ import HeaderCom from '@c/HeaderCom'
 import ScrollList from '@c/ScrollList'
 import CalendarShow from '@c/CalendarShow'
 export default {
-  name: 'CalendarShow',
+  name: 'CalendarShowCom',
   components: {
     HeaderCom,
     ScrollList,

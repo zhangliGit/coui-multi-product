@@ -20,7 +20,7 @@ import HeaderCom from '@c/HeaderCom'
 import ScrollList from '@c/ScrollList'
 import Vue from 'vue'
 export default {
-  name: 'WaterFall',
+  name: 'waterFall',
   components: {
     HeaderCom,
     ScrollList
