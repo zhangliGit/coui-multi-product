@@ -3,7 +3,7 @@
     <swiper :options="swiperOption" ref="mySwiper">
       <!-- slides -->
       <swiper-slide class="swiperH co-flex co-wp co-pd-b1" v-for="tabIndex in tabNum" :key="tabIndex">
-        <div :style="{}" @click="tabMenu(item.id)" class="tabList co-flex co-ver co-ac co-jc co-pd-t05" v-for="(item, index) in multiData.slice((tabIndex-1)*number, (tabIndex-1)*number+number)" :key="index">
+        <div @click="tabMenu(item.id)" class="tabList co-flex co-ver co-ac co-jc co-pd-t05" v-for="(item, index) in multiData.slice((tabIndex-1)*number, (tabIndex-1)*number+number)" :key="index">
           <div><i class="coicon coicon-shop_fill co-fs-4"></i></div>
           <div>{{item.name}}</div>
         </div>
