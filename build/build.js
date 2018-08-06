@@ -1,7 +1,7 @@
 'use strict'
 require('./check-versions')()
 
-process.env.NODE_ENV = 'production'
+// process.env.NODE_ENV = 'production'
 
 const ora = require('ora')
 const rm = require('rimraf')
@@ -17,7 +17,8 @@ const distPath = path.resolve(__dirname,'../dist')
 const glob = require('glob')
 const modulesDir = glob.sync(pagePath + '/*')
 
-const spinner = ora('building for production...')
+// const spinner = ora('building for production...')
+var spinner = ora('building for ' + process.env.NODE_ENV + ' of ' + process.env.env_config+ ' mode...' )
 spinner.start()
 
 rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {

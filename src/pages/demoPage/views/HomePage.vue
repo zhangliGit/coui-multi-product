@@ -21,6 +21,7 @@
 <script>
 import HeaderCom from '@c/HeaderCom'
 import ScrollList from '@c/ScrollList'
+import { baseUrl } from '@a/js/config-env'
 export default {
   name: 'HomePage',
   components: {
@@ -29,6 +30,7 @@ export default {
   },
   data () {
     return {
+      baseUrl,
       title: 'demo示例',
       dataList: [
         {
@@ -122,6 +124,7 @@ export default {
     }
   },
   mounted () {
+    console.log(baseUrl)
 		this.$refs.scroll.refresh()
   }
 }

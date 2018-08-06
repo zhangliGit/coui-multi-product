@@ -5,15 +5,17 @@
   "author": "zhangli",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "cross-env NODE_ENV=development env_config=dev webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev--test": "cross-env NODE_ENV=testing env_config=test webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev--pro": "cross-env NODE_ENV=production env_config=pro webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
-    "build": "node build/build.js",
-    "build--test": "node build/test.js",
-    "build--dev": "node build/dev.js"
+    "build": "cross-env NODE_ENV=production env_config=prod node build/build.js",
+    "build--test": "cross-env NODE_ENV=production env_config=test node build/build.js",
+    "build--dev": "cross-env NODE_ENV=production env_config=dev node build/build.js"
   },
   "dependencies": {
     "better-scroll": "^1.12.4",
@@ -45,6 +47,7 @@
     "chalk": "^2.0.1",
     "chromedriver": "^2.27.2",
     "copy-webpack-plugin": "^4.0.1",
+    "cross-env": "^5.2.0",
     "cross-spawn": "^5.0.1",
     "css-loader": "^0.28.0",
     "eslint": "^4.15.0",
