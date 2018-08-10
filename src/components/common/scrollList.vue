@@ -19,8 +19,8 @@
         </div>
       </div>
       <div v-show="autoTag" class="nodata-pd co-flex co-ver co-ac co-jc co-cl-3">
-        <i class="iconfont icon-naozhong co-mg-a04 co-fs-5"></i>
-				<div class="co-flex co-ac co-jc co-fs-1 ">-------- 暂无数据 --------</div>
+        <i class="coicon coicon-shielding co-mg-a04 co-fs-5"></i>
+				<div class="co-flex co-ac co-jc">暂无数据</div>
       </div>
       <slot></slot>
       <div v-if = "pullUpLoad">
@@ -202,5 +202,9 @@ export default {
   text-align: center;
   color: #333;
   background: #e6e6e6;
+}
+.nodata-pd {
+  background:#fff;
+  padding: 2rem 0;
 }
 </style>
