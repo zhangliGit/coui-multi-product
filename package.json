@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "better-scroll": "^1.12.4",
-    "corlib": "^1.1.3",
+    "corlib": "^1.1.6",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
     "vue": "^2.5.2",

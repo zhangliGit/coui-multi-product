@@ -8,17 +8,11 @@
     </div>
     <div class="co-f1">
       <div class="co-bg-0" style="overflow:auto;padding-bottom: 1rem">
-        <div class="appList co-flex co-ver co-ac co-jc" @click="goHtml('http://xiaoyueyue.com.cn:8080/dev-api-doc/dev-standard/index.html', true)">
-          <div class="appBg co-flex co-ac co-jc">
-            <i class="coicon coicon-warning icon-wh"></i>
+        <div class="appList co-flex co-ver co-ac co-jc" @click="goHtml('http://xiaoyueyue.com.cn:8080/coui-dev-sit/coui.html', true)">
+          <div class="appBg co-flex co-ac co-jc" style="background:#d81e06">
+            <i class="coicon coicon-workbench icon-wh co-cl-0"></i>
           </div>
-          <div>开发规范</div>
-        </div>
-        <div class="appList co-flex co-ver co-ac co-jc" @click="goHtml('http://xiaoyueyue.com.cn:8080/dev-api-doc/cor-lib/index.html', true)">
-          <div class="appBg co-flex co-ac co-jc">
-            <i class="coicon coicon-workbench icon-wh"></i>
-          </div>
-          <div>jsApi文档</div>
+          <div style="color:#d81e06">COUI文档</div>
         </div>
         <div class="appList co-flex co-ver co-ac co-jc" @click="goHtml('demoPage')">
           <div class="appBg co-flex co-ac co-jc">

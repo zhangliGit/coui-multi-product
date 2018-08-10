@@ -1,7 +1,7 @@
 <template>
   <div class="hello co-f1 co-flex co-ver">
     <header-com isBack :title="title"></header-com>
-    <div class="co-f1">
+    <div class="co-f1 overScroll">
       <swiper @click.native="currentImg" v-model="autoImg" :list="dataList"  loop auto>
       </swiper>
       <div class="co-pd-a05 co-bg-2">
