@@ -60,4 +60,6 @@ npm run build--test // 打包测试环境
 
 ### 项目展示
 
+> [项目基础模块DEMO](http://xiaoyueyue.com.cn:8080/coui-demo/index.html)
+
 ![项目展示](http://xiaoyueyue.com.cn:8080/demoPage.png)
