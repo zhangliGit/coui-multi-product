@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <mobilePortal>
-  <urlLogin>http://mx.excegroup.com:11000/mxm/login</urlLogin>
+  <urlLogin>mxm/login</urlLogin>
   <userName>admin</userName>
   <password>123456</password>
   <name>移动门户</name>
   <appList>
     <name>demo-page</name>
-    <id>1000000</id>
-  </appList>
-  <appList>
-    <name>my-app</name>
-    <id>1000001</id>
   </appList>
 </mobilePortal>

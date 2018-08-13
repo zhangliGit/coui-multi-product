@@ -30,7 +30,7 @@ console.log(appName + '应用正在发布中,请等待片刻...')
 httprequest(urlLogin[0])
 function httprequest(url){
     request({
-      url: 'http://yapi.demo.qunar.com/mock/9603/test',
+      url: url,
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
