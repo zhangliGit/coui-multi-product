@@ -14,13 +14,13 @@
           </div>
           <div style="color:#d81e06">COUI文档</div>
         </div>
-        <div class="appList co-flex co-ver co-ac co-jc" @click="goHtml('demoPage')">
+        <div class="appList co-flex co-ver co-ac co-jc" @click="goHtml('demo-page')">
           <div class="appBg co-flex co-ac co-jc">
             <i class="coicon coicon-qrcode icon-wh"></i>
           </div>
           <div>app案例</div>
         </div>
-        <div class="appList co-flex co-ver co-ac co-jc" @click="goHtml('myApp')">
+        <div class="appList co-flex co-ver co-ac co-jc" @click="goHtml('my-app')">
           <div class="appBg co-flex co-ac co-jc">
             <i class="coicon coicon-edit icon-wh"></i>
           </div>
