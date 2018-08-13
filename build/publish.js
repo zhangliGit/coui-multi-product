@@ -3,7 +3,7 @@ var path = require('path')
 var request = require('request');
 var parseString = require('xml2js').parseString
 var data = fs.readFileSync(__dirname + '/config.xml')
-var appList = '', urlLogin = '', userName = '', password = ''
+var appList = '', urlLogin = '', userName = '', password = '', JSESSIONID = ''
 parseString(data.toString(), function (err, result) {
   appList = result.mobilePortal.appList
   urlLogin = result.mobilePortal.urlLogin
@@ -38,6 +38,7 @@ function httprequest(url){
     }, function(error, response, body) {
         if (!error && response.statusCode == 200) {
             console.log(appName + '轻应用发布成功')
+            JSESSIONID = response.headers['set-cookie'][0].split(';')[0].split('=')[1];
             clearInterval(loading)
         }
     });
