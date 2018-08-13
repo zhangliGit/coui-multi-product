@@ -40,7 +40,7 @@ export default {
       'showData'
     ]),
     goDetail () {
-      this.$router.push('/DetailCom')
+      this.$router.push('/DetailCom') 
     },
     enterShow () {
       // type为0表示刷新  初次加载数据
