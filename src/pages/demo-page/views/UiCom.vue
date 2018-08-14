@@ -200,7 +200,7 @@ export default {
     loading () {
       this.$loading.loading();
       setTimeout(() => {
-        this.$loading.hideLoading();
+        this.$loading.hideLoading()
       }, 4000)
     },
     toast (title, tag) {

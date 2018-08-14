@@ -167,13 +167,13 @@ export default {
         *上拉刷新监听
         */
         this.scroll.on("pullingUp", () => {
-          if (this.downTag === 0 || this.downTag === -1) return;
           let _self = this;
+          _self.downEnd();
+          if (this.downTag === 0 || this.downTag === -1) return;
           this.$emit("show-data", {
             type: 1,
             cb(len) {
               _self.downEnd();
-              console.log(len)
               if (len < this.pageNum) {
                 //如果分页查询数据小于this.pageNum（为每页条数，根据自己项目设置） 说明数据已全部加载完毕
                 _self.autoTag = false;
