@@ -17,8 +17,10 @@ Vue.use(ToastPlugin, {
 Vue.use(DatetimePlugin)
 Vue.directive('transfer-dom', TransferDom)
 const loadingToast = {
-  loading () {
-    Vue.$vux.loading.show({})
+  loading (text = '') {
+    Vue.$vux.loading.show({
+      text: text
+    })
   },
   hideLoading () {
     Vue.$vux.loading.hide()
