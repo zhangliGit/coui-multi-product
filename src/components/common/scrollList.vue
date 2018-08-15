@@ -168,8 +168,10 @@ export default {
         */
         this.scroll.on("pullingUp", () => {
           let _self = this;
-          _self.downEnd();
-          if (this.downTag === 0 || this.downTag === -1) return;
+          if (this.downTag === 0 || this.downTag === -1) {
+             _self.downEnd();
+            return;
+          }
           this.$emit("show-data", {
             type: 1,
             cb(len) {
