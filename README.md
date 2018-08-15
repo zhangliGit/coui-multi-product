@@ -2,6 +2,14 @@
 
 **基于vue和webpack的多页面移动应用模板，使用vux ui框架，同时封装了一些常用的组件，适合开发门户轻应用类集合应用**
 
+### 脚手架安装
+
+```
+npm install coui-cli -g // 全局安装coui-cli脚手架
+
+coui-cli init // 下载项目模块
+```
+
 ### 项目开发
 
 ```
