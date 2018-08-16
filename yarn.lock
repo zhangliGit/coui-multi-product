@@ -1904,17 +1904,9 @@ core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
 
-corlib@^1.1.5:
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/corlib/-/corlib-1.1.6.tgz#11e7270f6eb1a6207e4ba304f72776c9faa6ea3f"
-  dependencies:
-    corlib "^1.1.5"
-
-corlib@^1.1.7:
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/corlib/-/corlib-1.1.7.tgz#de8ba383db2c791f4d093d5aa9f4daf435fb7cb7"
-  dependencies:
-    corlib "^1.1.5"
+corlib@^1.1.8:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/corlib/-/corlib-1.1.8.tgz#cad81bf07b2a7225ae212e759470f628a85da279"
 
 cosmiconfig@^2.1.0, cosmiconfig@^2.1.1:
   version "2.2.2"
@@ -5323,6 +5315,10 @@ mocha-nightwatch@3.2.2:
     lodash.create "3.1.1"
     mkdirp "0.5.1"
     supports-color "3.1.2"
+
+moment@^2.22.2:
+  version "2.22.2"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
 
 move-concurrently@^1.0.1:
   version "1.0.1"

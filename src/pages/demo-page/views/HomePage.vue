@@ -124,8 +124,7 @@ export default {
     }
   },
   mounted () {
-    console.log(baseUrl)
-		this.$refs.scroll.refresh()
+    this.$refs.scroll.refresh()
   }
 }
 </script>
