@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import welcome1 from '../../../assets/images/welcome1.png'
-import welcome2 from '../../../assets/images/welcome2.png'
-import welcome3 from '../../../assets/images/welcome3.png'
+import welcome1 from '../assets/images/demo-page.welcome1.png'
+import welcome2 from '../assets/images/demo-page.welcome2.png'
+import welcome3 from '../assets/images/demo-page.welcome3.png'
 import HeaderCom from '@c/HeaderCom'
 import Welcome from '@c/Welcome'
 export default {

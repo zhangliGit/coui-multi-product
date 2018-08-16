@@ -56,6 +56,12 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
             fsCopy.remove(file);
         }
       })
+      glob.sync(distPath + `/${pageDir}/static/img/*`).forEach((file) => {
+        var fileName = file.split('/')[file.split('/').length-1].split('.')[0]
+        if (fileName != pageDir) {
+            fsCopy.remove(file);
+        }
+      })
     })
     fsCopy.remove(path.resolve(__dirname,'../dist/static'))
     fsCopy.remove(path.resolve(__dirname,'../dist/index'))

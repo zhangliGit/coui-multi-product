@@ -5,7 +5,7 @@
     </div>
 </template>
 <script>
-import loadImg from '../../assets/images/loading.png'
+import loadImg from '../../pages/demo-page/assets/images/demo-page.loading.png'
 export default {
   name: 'loading',
   components: {
