@@ -28,7 +28,7 @@ let webpackConfig = {
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath,
-    chunkFilename: '[id]-[chunkhash:8].js'
+    chunkFilename: '[name]-[chunkhash:8].js'
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],

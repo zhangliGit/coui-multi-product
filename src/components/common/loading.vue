@@ -5,7 +5,6 @@
     </div>
 </template>
 <script>
-import loadImg from '../../pages/demo-page/assets/images/demo-page.loading.png'
 export default {
   name: 'loading',
   components: {
@@ -18,7 +17,7 @@ export default {
   },
   data () {
     return {
-      loadImg,
+      loadImg: 'http://xiaoyueyue.com.cn:8080/welcome1.png',
       timeTag: '',
       times: this.loadingTime
     }

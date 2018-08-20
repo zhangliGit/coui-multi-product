@@ -42,10 +42,12 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
     modulesDir.forEach((file) => {
       let pageDir = file.split('/')[file.split('/').length-1]
       fsCopy.copy(path.resolve(__dirname,'../dist/static'), path.resolve(__dirname, `../dist/${pageDir}/static`))
+      fsCopy.copy(distPath + `/${pageDir}/`, distPath + `/zip/${pageDir}/${pageDir}/`)
+      zipper.sync.zip(distPath + `/zip/${pageDir}`).compress().save(distPath + `/${pageDir}.zip`)
       glob.sync(distPath + `/${pageDir}/static/js/*`).forEach((file) => {
         var fileName = file.split('/')[file.split('/').length-1].split('.')[0]
-        if (fileName === 'index') {
-          fsCopy.remove(file);
+        if (fileName != 'manifest' && fileName != 'vendor' && fileName != pageDir && !fileName.match(/^\d+$/)) {
+          fsCopy.remove(file)
         }
       })
       glob.sync(distPath + `/${pageDir}/static/css/*`).forEach((file) => {
@@ -54,14 +56,6 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
             fsCopy.remove(file);
         }
       })
-      glob.sync(distPath + `/${pageDir}/static/img/*`).forEach((file) => {
-        var fileName = file.split('/')[file.split('/').length-1].split('.')[0]
-        if (fileName != pageDir) {
-            fsCopy.remove(file);
-        }
-      })
-      fsCopy.copy(distPath + `/${pageDir}/`, distPath + `/zip/${pageDir}/${pageDir}/`)
-      zipper.sync.zip(distPath + `/zip/${pageDir}`).compress().save(distPath + `/${pageDir}.zip`)
     })
     fsCopy.remove(path.resolve(__dirname,'../dist/static'))
     fsCopy.remove(path.resolve(__dirname,'../dist/index'))

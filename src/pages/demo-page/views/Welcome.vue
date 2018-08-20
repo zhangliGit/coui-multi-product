@@ -8,9 +8,6 @@
 </template>
 
 <script>
-import welcome1 from '../assets/images/demo-page.welcome1.png'
-import welcome2 from '../assets/images/demo-page.welcome2.png'
-import welcome3 from '../assets/images/demo-page.welcome3.png'
 import HeaderCom from '@c/HeaderCom'
 import Welcome from '@c/Welcome'
 export default {
@@ -21,7 +18,7 @@ export default {
   },
   data () {
     return {
-      imgList: [welcome1, welcome2, welcome3],
+      imgList: ['http://xiaoyueyue.com.cn:8080/welcome.png', 'http://xiaoyueyue.com.cn:8080/welcome1.png'],
       title: this.$route.params.title
     }
   },

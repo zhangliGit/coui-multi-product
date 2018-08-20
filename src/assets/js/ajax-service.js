@@ -21,6 +21,7 @@ const $ajax = (obj, tag = true) => {
         if (res.status === true) {
           resolve(res.data)
         } else {
+          reject()
           Vue.$vux.toast.show({
             text: '请求失败',
             time: 1500,
@@ -46,6 +47,7 @@ const $ajax = (obj, tag = true) => {
           Vue.$vux.loading.hide()
           resolve(response.data)
         }).catch(function () {
+          reject()
           Vue.$vux.loading.hide()
           Vue.$vux.toast.show({
             text: '请求失败',
@@ -59,6 +61,7 @@ const $ajax = (obj, tag = true) => {
           resolve(response.data)
           Vue.$vux.loading.hide()
         }).catch(function () {
+          reject()
           Vue.$vux.loading.hide()
           Vue.$vux.toast.show({
             text: '请求失败',

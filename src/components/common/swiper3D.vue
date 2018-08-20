@@ -7,18 +7,12 @@
       <swiper-slide class="swiperCom">
         <img :src="welcome2" alt="" style="width:80%;height:8rem;display:block;margin:0 auto">
       </swiper-slide>
-      <swiper-slide class="swiperCom">
-        <img :src="welcome3" alt="" style="width:80%;height:8rem;display:block;margin:0 auto">
-      </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
   </div>
 </template>
 <script>
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
-import welcome1 from '../../pages/demo-page/assets/images/demo-page.welcome1.png'
-import welcome2 from '../../pages/demo-page/assets/images/demo-page.welcome2.png'
-import welcome3 from '../../pages/demo-page/assets/images/demo-page.welcome3.png'
 import 'swiper/dist/css/swiper.css'
 export default {
   name: 'swiper3D',
@@ -30,9 +24,8 @@ export default {
   },
   data () {
     return {
-      welcome1,
-      welcome2,
-      welcome3,
+      welcome1: 'http://xiaoyueyue.com.cn:8080/welcome.png',
+      welcome2: 'http://xiaoyueyue.com.cn:8080/welcome1.png',
       swiperOption: {
         effect: 'coverflow', //slide,fade,coverflow
         grabCursor: true,

@@ -5,11 +5,11 @@
         <div v-if="pullDownRefresh">
           <div  v-if="!loadTag">
             <div v-if="upTag==0" class="co-flex co-ac co-jc">
-              <div class="co-flex co-ac"><i class="coicon coicon-unfold co-fs-3"></i></div>
+              <div class="co-flex co-ac co-pd-t02"><i class="coicon coicon-jiantou co-fs-3" style="-webkit-transform:rotate(180deg);transform:rotate(180deg)"></i></div>
               <div class="co-flex co-ac">下拉刷新</div>
             </div>
             <div v-if="upTag==1" class="co-flex co-ac co-jc">
-              <div class="co-flex co-ac"><i class="coicon coicon-packup co-fs-3"></i></div>
+              <div class="co-flex co-ac" style="padding-top: .1rem"><i class="coicon coicon-jiantou co-fs-3"></i></div>
               <div class="co-flex co-ac">释放刷新</div>
             </div>
           </div>
