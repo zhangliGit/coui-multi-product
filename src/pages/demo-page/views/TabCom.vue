@@ -4,8 +4,6 @@
     <div class="co-f1">
       <div class="co-pd-a08 co-bg-2">固定条数菜单</div>
       <tab-menu @tab-current="tabCurrent" :tab-menu = "tabMenu"></tab-menu>
-      <div class="co-pd-a08 co-bg-2">不固定条数滚动菜单</div>
-      <tab-menu-scroll @tab-current="tabCurrent" :tab-menu = "tabMenu1"></tab-menu-scroll>
       <div class="co-pd-a08 co-bg-2">button-tab导航菜单</div>
       <tab-button @tab-current="tabCurrent" :tab-menu = "tabMenu"></tab-button>
     </div>
@@ -15,14 +13,12 @@
 <script>
 import HeaderCom from '@c/HeaderCom'
 import TabMenu from '@c/TabMenu'
-import TabMenuScroll from '@c/TabMenuScroll'
 import TabButton from '@c/TabButton'
 export default {
   name: 'TabCom',
   components: {
     HeaderCom,
     TabMenu,
-    TabMenuScroll,
     TabButton
   },
   data () {

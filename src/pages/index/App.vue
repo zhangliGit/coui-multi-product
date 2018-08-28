@@ -18,7 +18,7 @@
           <div class="appBg co-flex co-ac co-jc">
             <i class="coicon coicon-qrcode icon-wh"></i>
           </div>
-          <div>app案例</div>
+          <div>COUI案例</div>
         </div>
         <div class="appList co-flex co-ver co-ac co-jc" @click="goHtml('my-app')">
           <div class="appBg co-flex co-ac co-jc">

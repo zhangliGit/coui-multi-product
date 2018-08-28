@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper" ref="wrapper">
-    <slot name="ScrollList"></slot>
+    <slot name="scrollList"></slot>
   </div>
 </template>
 <script>

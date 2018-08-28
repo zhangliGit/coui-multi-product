@@ -47,17 +47,17 @@ const loadingToast = {
       }
     })
   },
-  comfirm (obj) {
+  confirm (obj) {
     Vue.$vux.confirm.show({
       title: obj.title || '提示',
       content: obj.content || '确定操作吗？',
       onCancel () {
-        if (obj.cancel) {
-          obj.cancel()
+        if (obj.onCancel) {
+          obj.onCancel()
         }
       },
       onConfirm () {
-        obj.comfirm()
+        obj.confirm()
       }
     })
   },
@@ -74,7 +74,7 @@ const loadingToast = {
       },
       onConfirm (value) {
         if (value === '') return
-        obj.comfirm(value)
+        obj.confirm(value)
         Vue.$vux.confirm.hide()
       }
     })

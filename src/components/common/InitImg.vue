@@ -1,23 +1,27 @@
 <template>
-    <div class="loading co-f1">
+    <div class="init-img co-f1 co-of">
       <div class="timeLoad co-fs-01" @click="loadEnd"><span class="co-fs-1 co-pd-r02">{{times}}</span>跳过</div>
       <img :src="loadImg" alt="" style="width:100%;height:100%;display:block">
     </div>
 </template>
 <script>
 export default {
-  name: 'loading',
+  name: 'initImg',
   components: {
   },
   props: {
+    loadImg: {
+      type: String,
+      required: true,
+      default: ''
+    },
     loadingTime: {
-      type: Number,
+      type: [Number],
       default: 4
     }
   },
   data () {
     return {
-      loadImg: 'http://xiaoyueyue.com.cn:8080/welcome1.png',
       timeTag: '',
       times: this.loadingTime
     }
@@ -39,15 +43,18 @@ export default {
   }
 }
 </script>
-<style lang="less" scoped>
- .timeLoad {
-   top: 1rem;
-   right:.6rem;
-   position: absolute;
-   padding:.2rem .8rem;
-   text-align: center;
-   background:#f5f5f5;
-   -webkit-border-radius:12px;
-   border-radius:12px;
- }
+<style lang="less">
+  .init-img {
+    .timeLoad {
+      top: 1rem;
+      right:.6rem;
+      position: absolute;
+      padding:.2rem .8rem;
+      text-align: center;
+      background:#f5f5f5;
+      -webkit-border-radius:12px;
+      border-radius:12px;
+    }
+  }
+ 
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div v-show = "topMenuShow" class="topMenu co-flex co-ver">
+    <div v-show = "topMenuShow" class="top-menu co-flex co-ver">
       <div>
         <div class="co-pd-a06 co-bd-b co-bg-0 co-flex co-jsb" @click="chooseMenu(item.id, item.name, index)" v-for="(item, index) in menuList" :key="index">
           <div>{{item.name}}</div>
@@ -28,7 +28,7 @@ export default {
   },
   data () {
     return {
-      currentMenu: -1
+      currentMenu: 0
     }
   },
   methods: {
@@ -38,15 +38,15 @@ export default {
     chooseMenu (id, name, index) {
       this.currentMenu = index
       this.$emit('topValue', false)
-      this.$emit('menu-change', {id, name})
+      this.$emit('menu-change', {id, name, index})
     }
   },
   mounted () {
   }
 }
 </script>
-<style lang="less" scoped>
-  .topMenu {
+<style lang="less">
+  .top-menu {
     position: absolute;
     width:100%;
     height:1000px;

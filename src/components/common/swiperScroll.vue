@@ -1,11 +1,8 @@
 <template>
-  <div>
+  <div class="swiper-scroll">
     <swiper :options="swiperOption" ref="mySwiper">
-      <swiper-slide class="swiperCom co-bg-3">
-      </swiper-slide>
-      <swiper-slide class="swiperCom co-bg-4">
-      </swiper-slide>
-      <swiper-slide class="swiperCom co-bg-5">
+      <swiper-slide class="swiperCom" v-for="(item, index) in swiperImg" :key="index">
+        <img class="swiper-img" :src="item.img" :style="styleOjb" alt="" />
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
@@ -21,9 +18,20 @@ export default {
     swiperSlide
   },
   props: {
+    swiperImg: {
+      type: Array,
+      default: []
+    },
+    imgHeight: {
+      type: Number,
+      default: 12
+    }
   },
   data () {
     return {
+      styleOjb: {
+        height: `${this.imgHeight}rem`
+      },
       swiperOption: {
         effect: 'slide', //slide,fade,coverflow
         // resistanceRatio: 0,
@@ -45,6 +53,12 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+ .swiper-scroll {
+   .swiper-img {
+     width: 100%;
+     display: block;
+   }
+ }
  .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets {
    bottom: 4px !important
  }
@@ -52,6 +66,6 @@ export default {
    background:red !important
  }
  .swiperCom {
-   height:4rem;
+   height:12rem;
  }
 </style>

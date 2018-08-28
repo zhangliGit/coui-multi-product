@@ -1,6 +1,5 @@
 /**vux框架样式重写**/
 .weui-loading_toast .weui-toast {
-  width:4rem;
   height:4rem;
   margin-left: -2.2rem;
   top: 50%;

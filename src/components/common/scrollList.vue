@@ -1,19 +1,20 @@
 <template>
-  <div class="wrapper co-f1 co-of co-bg-2" ref="wrapper">
+  <div class="wrapper co-f1 co-of" ref="wrapper">
     <div :style = "{minHeight: minH + 'px'}">
       <div class="upTip co-flex co-ac co-jc">
         <div v-if="pullDownRefresh">
           <div  v-if="!loadTag">
-            <div v-if="upTag==0" class="co-flex co-ac co-jc">
-              <div class="co-flex co-ac co-pd-t02"><i class="coicon coicon-jiantou co-fs-3" style="-webkit-transform:rotate(180deg);transform:rotate(180deg)"></i></div>
-              <div class="co-flex co-ac">下拉刷新</div>
-            </div>
-            <div v-if="upTag==1" class="co-flex co-ac co-jc">
-              <div class="co-flex co-ac" style="padding-top: .1rem"><i class="coicon coicon-jiantou co-fs-3"></i></div>
-              <div class="co-flex co-ac">释放刷新</div>
+            <div class="co-flex co-ac co-jc">
+              <div class="co-flex co-ac" ref="refreshIcon" style="-webkit-transition:all .5s ease;transition:all .5s ease; margin-top: .2rem; -webkit-transform: rotate(180deg);transform: rotate(180deg)"><i class="coicon coicon-jiantou co-fs-3"></i></div>
+              <div v-if="upTag == 0" class="co-flex co-ac co-jc">
+                <div class="co-flex co-ac">下拉刷新</div>
+              </div>
+              <div v-if="upTag == 1" class="co-flex co-ac co-jc">
+                <div class="co-flex co-ac">释放刷新</div>
+              </div>
             </div>
           </div>
-          <div v-if="loadTag">
+          <div v-if = "loadTag">
               <spinner type="lines"></spinner><span class="co-pd-l02">正在刷新</span>
           </div>
         </div>
@@ -141,8 +142,16 @@ export default {
             return;
           }
           if (pos.y > 60) {
+            try {
+              this.$refs.refreshIcon.style.transform = 'rotate(0deg)'
+              this.$refs.refreshIcon.style.webkitTransform = 'rotate(0deg)'
+            } catch(e) {}
             this.upTag = 1;
           } else {
+            try {
+              this.$refs.refreshIcon.style.transform = 'rotate(180deg)'
+              this.$refs.refreshIcon.style.webkitTransform = 'rotate(180deg)'
+            } catch(e) {}
             this.upTag = 0;
           }
         });
@@ -150,9 +159,6 @@ export default {
         *下拉刷新监听
         */
         this.scroll.on("pullingDown", () => {
-          if (!this.pullUpLoad) {
-            return;
-          }
           this.loadTag = true;
           let _self = this;
           this.$emit("show-data", {
@@ -203,7 +209,6 @@ export default {
   height: 44px;
   text-align: center;
   color: #333;
-  background: #e6e6e6;
 }
 .nodata-pd {
   background:#fff;

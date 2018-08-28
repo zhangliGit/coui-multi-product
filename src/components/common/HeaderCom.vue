@@ -27,6 +27,10 @@ export default {
     isBacPortal: {
       type: Boolean,
       defualt: false
+    },
+    headerBg: {
+      type: String,
+      defualt: '#d81e06'
     }
   },
   data () {
@@ -49,8 +53,10 @@ export default {
 }
 </script>
 
-<style scoped>
-.headSlide{
-  min-width:4rem
+<style lang = "less">
+.co-header {
+  .headSlide{
+    min-width:4rem
+  }
 }
 </style>

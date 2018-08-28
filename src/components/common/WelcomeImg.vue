@@ -1,5 +1,5 @@
 <template>
-  <div class="co-f1 co-flex" :style="{ width: conW +'px'}">
+  <div class="welcome-img co-f1 co-flex co-of" :style="{ width: conW +'px'}">
     <swiper :options="swiperOption" class="co-f1 co-flex" ref="mySwiper">
       <swiper-slide class="co-flex co-f1" v-for="(item, index) in imgList" :key="index">
         <div class="co-f1">
@@ -17,7 +17,7 @@
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 export default {
-  name: 'welcome',
+  name: 'welcomeImg',
   components: {
     swiper,
     swiperSlide
@@ -32,12 +32,12 @@ export default {
     return {
       conW: window.screen.width,
       swiperOption: {
-        effect: 'coverflow', //slide,fade,coverflow
+        effect: 'slide', //slide,fade,coverflow
         resistanceRatio: 0,
         pagination: {
           el: '.swiper-pagination'
         }
-      }
+      },
     }
   },
   computed: {
@@ -54,9 +54,6 @@ export default {
 <style lang="less">
  .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets {
    bottom: 20px !important
- }
- .swiper-pagination-bullet-active {
-   background:red !important
  }
  .goNext {
    width: 6rem;
