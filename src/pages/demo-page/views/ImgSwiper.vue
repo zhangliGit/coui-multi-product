@@ -15,7 +15,6 @@
         </swiper>
       </div>
       <div class="co-mg-t05">
-        <swiper3-d></swiper3-d>
       </div>
       <div class="co-mg-t05">
         <swiper-scroll></swiper-scroll>
@@ -31,7 +30,6 @@
 import HeaderCom from '@c/HeaderCom'
 import SwiperScroll from '@c/SwiperScroll'
 import SwiperList from '@c/SwiperList'
-import Swiper3D from '@c/Swiper3D'
 import { Swiper, SwiperItem } from 'vux'
 export default {
   name: 'ImgSwiperCom',
@@ -41,7 +39,6 @@ export default {
     SwiperItem,
     SwiperScroll,
     SwiperList,
-    Swiper3D
   },
   data () {
     return {

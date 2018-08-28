@@ -24,7 +24,7 @@ export default {
     },
     imgHeight: {
       type: Number,
-      default: 12
+      default: 8
     }
   },
   data () {
@@ -33,6 +33,7 @@ export default {
         height: `${this.imgHeight}rem`
       },
       swiperOption: {
+        loop: true,
         effect: 'slide', //slide,fade,coverflow
         // resistanceRatio: 0,
         pagination: {
@@ -64,8 +65,5 @@ export default {
  }
  .swiper-pagination-bullet-active {
    background:red !important
- }
- .swiperCom {
-   height:12rem;
  }
 </style>

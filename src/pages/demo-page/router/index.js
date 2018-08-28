@@ -49,7 +49,6 @@ const ScrollLefRit = (resolve) => { require(['../views/scroll-com/ScrollLefRit.v
  * 轮播滚动
  */
 const SwiperImg = (resolve) => { require(['../views/swiper-com/SwiperImg.vue'], resolve) }
-const VerticalScroll = (resolve) => { require(['../views/swiper-com/VerticalScroll.vue'], resolve) }
 
 /**
  * 进度条
@@ -57,6 +56,7 @@ const VerticalScroll = (resolve) => { require(['../views/swiper-com/VerticalScro
 const LinePro = (resolve) => { require(['../views/progress-com/LinePro.vue'], resolve) }
 const CirclePro = (resolve) => { require(['../views/progress-com/CirclePro.vue'], resolve) }
 const StepPro = (resolve) => { require(['../views/progress-com/StepPro.vue'], resolve) }
+const Star = (resolve) => { require(['../views/progress-com/Star.vue'], resolve) }
 
 const BusinessFun = (resolve) => { require(['../views/BusinessFun.vue'], resolve) }
 const RouterPage = (resolve) => { require(['../views/RouterPage.vue'], resolve) }
@@ -239,11 +239,6 @@ export default new Router({
       name: 'SwiperImg',
       component: SwiperImg
     },
-    {
-      path: '/VerticalScroll',
-      name: 'VerticalScroll',
-      component: VerticalScroll
-    },
     /**
      * 进度条
      */
@@ -261,6 +256,11 @@ export default new Router({
       path: '/StepPro',
       name: 'StepPro',
       component: StepPro
+    },
+    {
+      path: '/Star',
+      name: 'Star',
+      component: Star
     },
     {
       path: '/BusinessFun',
@@ -286,16 +286,6 @@ export default new Router({
       path: '/RouterC',
       name: 'RouterC',
       component: RouterC
-    },
-    {
-      path: '/Loading',
-      name: 'Loading',
-      component: Loading
-    },
-    {
-      path: '/Welcome',
-      name: 'Welcome',
-      component: Welcome
     },
     {
       path: '/AppMain',

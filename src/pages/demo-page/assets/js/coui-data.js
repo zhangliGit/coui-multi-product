@@ -196,14 +196,14 @@ const COUI = {
   SWIPER_LIST: [
     {
       id: 0,
-      title: '左右轮播滚动',
+      title: '轮播滚动',
       path: 'SwiperImg'
     },
-    {
-      id: 1,
-      title: '垂直轮播滚动',
-      path: 'VerticalScroll'
-    }
+    // {
+    //   id: 1,
+    //   title: '垂直轮播滚动',
+    //   path: 'VerticalScroll'
+    // }
   ],
   /**
    * 进度条
@@ -219,10 +219,15 @@ const COUI = {
       title: '线条加载进度',
       path: 'LinePro'
     },
+    // {
+    //   id: 2,
+    //   title: '加载步骤',
+    //   path: 'StepPro'
+    // },
     {
       id: 2,
-      title: '加载步骤',
-      path: 'StepPro'
+      title: '评分',
+      path: 'Star'
     }
   ]
 }
