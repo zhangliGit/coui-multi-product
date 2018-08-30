@@ -6,38 +6,58 @@ const COUI = {
   COUI_LIST: [
     {
       id: 0,
+      title: '网络请求',
+      type: 'AJAX_LIST'
+    },
+    {
+      id: 1,
       title: 'UI控件',
       type: 'UI_LIST'
     },
     {
-      id: 1,
+      id: 2,
       title: '表单控件',
       type: 'FORM_LIST'
     },
     {
-      id: 2,
+      id: 3,
       title: '加载引导',
       type: 'INIT_LIST'
     },
     {
-      id: 3,
+      id: 4,
       title: '导航菜单',
       type: 'MENU_LIST'
     },
     {
-      id: 4,
+      id: 5,
       title: '加载滑动',
       type: 'SCROLL_LIST'
     },
     {
-      id: 5,
+      id: 6,
       title: '轮播滚动',
       type: 'SWIPER_LIST'
     },
     {
-      id: 6,
+      id: 7,
       title: '进度条',
       type: 'LOADING_LIST'
+    },
+    {
+      id: 8,
+      title: '项目常用',
+      type: 'PROJECT_LIST'
+    }
+  ],
+  /**
+   * 网络请求
+   */
+  AJAX_LIST: [
+    {
+      id: 0,
+      title: '网络请求',
+      path: 'AjaxData'
     }
   ],
   /**
@@ -76,13 +96,13 @@ const COUI = {
     },
     {
       id: 6,
-      title: 'date日期选择',
-      path: 'DateTime'
+      title: 'ActionSheet弹出框',
+      path: 'ActionSheet'
     },
     {
-      id: 7,
-      title: '日历',
-      path: 'Calendar'
+      id: 6,
+      title: 'date日期选择',
+      path: 'DateTime'
     }
   ],
   /**
@@ -158,6 +178,11 @@ const COUI = {
       id: 3,
       title: 'tab菜单栏',
       path: 'TabMenu'
+    },
+    {
+      id: 4,
+      title: '多列tab滑动菜单',
+      path: 'MultiTab'
     }
   ],
   /**
@@ -228,6 +253,26 @@ const COUI = {
       id: 2,
       title: '评分',
       path: 'Star'
+    }
+  ],
+  /**
+   * 项目常用
+   */
+  PROJECT_LIST: [
+    {
+      id: 0,
+      title: '打卡时间轴',
+      path: 'TimeLine'
+    },
+    {
+      id: 1,
+      title: '日历',
+      path: 'Calendar'
+    },
+    {
+      id: 2,
+      title: '滑动日历',
+      path: 'CalendarScroll'
     }
   ]
 }

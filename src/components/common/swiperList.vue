@@ -47,7 +47,7 @@ export default {
   }
 }
 </script>
-<style lang="less" scoped>
+<style lang="less">
  .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets {
    bottom: 4px !important
  }

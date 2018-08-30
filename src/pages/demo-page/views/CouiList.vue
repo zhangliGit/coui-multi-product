@@ -2,12 +2,14 @@
   <div class="co-f1 co-flex co-ver co-cl-1">
     <header-com isBacPortal :title="title"></header-com>
     <div class="co-f1 co-flex">
-      <div class="coui-list">
-        <div @click="sideMenu(index, item.type)" :class="['coui-list-item co-flex co-ac co-jc', {'coui-list--active': couiIndex === index}]" v-for="(item, index) in COUI.COUI_LIST" :key="item.id">
-          {{item.title}}
-        </div>
+      <div class="coui-list co-flex">
+        <scroll-list>
+          <div @click="sideMenu(index, item.type)" :class="['coui-list-item co-flex co-ac co-jc', {'coui-list--active': couiIndex === index}]" v-for="(item, index) in COUI.COUI_LIST" :key="item.id">
+            {{item.title}}
+          </div>
+        </scroll-list>
       </div>
-      <scroll-list ref="scroll">
+      <scroll-list>
         <div>
           <div v-for="(item, index) in couiList" :key="index" @click="goList(item.path, item.title)" class="co-bd-b co-flex co-ac demo-list co-bg-0 co-te">
             <div class="co-f1">
@@ -36,7 +38,7 @@ export default {
       title: 'COUI',
       couiIndex: 0,
       COUI,
-      couiList: COUI.UI_LIST,
+      couiList: COUI.AJAX_LIST,
       dataList: [
         {
 					id: -3,
@@ -133,7 +135,6 @@ export default {
     }
   },
   mounted () {
-    this.$refs.scroll.refresh()
   }
 }
 </script>
@@ -152,7 +153,6 @@ export default {
       background:#fff;
       color:#d81e06
     }
-
   }
   .demo-list {
     height:2.5rem;

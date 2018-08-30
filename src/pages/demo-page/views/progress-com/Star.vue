@@ -1,8 +1,15 @@
 <template>
-  <div class="alert co-f1 co-flex co-ver">
+  <div class="star co-f1 co-flex co-ver">
     <header-com isBack :title="title"></header-com>
     <div class="co-f1">
-      <star></star>
+      <div class="co-pd-a05 co-flex co-ac">
+        <star v-model="score"></star>
+        <div class="co-mg-l04 co-fs-2">{{score}}</div>
+      </div>
+      <div class="co-pd-a05 co-flex co-ac">
+        <star v-model="score1" type="smile"></star>
+        <div class="co-mg-l04 co-fs-2">{{score1}}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -18,6 +25,8 @@ export default {
   },
   data () {
     return {
+      score: 0,
+      score1: 0,
       title: '评分',
     }
   },
@@ -30,5 +39,5 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang = "less">
 </style>

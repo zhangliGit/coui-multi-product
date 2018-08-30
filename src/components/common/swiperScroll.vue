@@ -53,7 +53,7 @@ export default {
   }
 }
 </script>
-<style lang="less" scoped>
+<style lang="less">
  .swiper-scroll {
    .swiper-img {
      width: 100%;

@@ -1,6 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import CouiList from '../views/CouiList.vue'
+
+/**
+ * 网络请求
+ */
+const AjaxData = (resolve) => { require(['../views/ajax-com/AjaxData.vue'], resolve) }
+const AjaxDetail = (resolve) => { require(['../views/ajax-com/AjaxDetail.vue'], resolve) }
+
 /**
  * ui控件
  */
@@ -10,8 +17,9 @@ const Alert = (resolve) => { require(['../views/toast-com/Alert.vue'], resolve) 
 const Confirm = (resolve) => { require(['../views/toast-com/Confirm.vue'], resolve) }
 const Prompt = (resolve) => { require(['../views/toast-com/Prompt.vue'], resolve) }
 const Select = (resolve) => { require(['../views/toast-com/Select.vue'], resolve) }
+const ActionSheet = (resolve) => { require(['../views/toast-com/ActionSheet.vue'], resolve) }
 const DateTime = (resolve) => { require(['../views/toast-com/DateTime.vue'], resolve) }
-const Calendar = (resolve) => { require(['../views/toast-com/Calendar.vue'], resolve) }
+
 /**
  * 表单控件
  */
@@ -35,6 +43,7 @@ const Header = (resolve) => { require(['../views/nav-com/Header.vue'], resolve) 
 const Footer = (resolve) => { require(['../views/nav-com/Footer.vue'], resolve) }
 const TopMenu = (resolve) => { require(['../views/nav-com/TopMenu.vue'], resolve) }
 const TabMenu = (resolve) => { require(['../views/nav-com/TabMenu.vue'], resolve) }
+const MultiTab = (resolve) => { require(['../views/nav-com/MultiTab.vue'], resolve) }
 
 /**
  * 加载滑动
@@ -58,6 +67,13 @@ const CirclePro = (resolve) => { require(['../views/progress-com/CirclePro.vue']
 const StepPro = (resolve) => { require(['../views/progress-com/StepPro.vue'], resolve) }
 const Star = (resolve) => { require(['../views/progress-com/Star.vue'], resolve) }
 
+/**
+ * 项目常用组件
+ */
+const TimeLine = (resolve) => { require(['../views/project-com/TimeLine.vue'], resolve) }
+const Calendar = (resolve) => { require(['../views/project-com/Calendar.vue'], resolve) }
+const CalendarScroll = (resolve) => { require(['../views/project-com/CalendarScroll.vue'], resolve) }
+
 const BusinessFun = (resolve) => { require(['../views/BusinessFun.vue'], resolve) }
 const RouterPage = (resolve) => { require(['../views/RouterPage.vue'], resolve) }
 const RouterA = (resolve) => { require(['../views/RouterA.vue'], resolve) }
@@ -69,10 +85,8 @@ const UiCom = (resolve) => { require(['../views/UiCom.vue'], resolve) }
 const TabCom = (resolve) => { require(['../views/TabCom.vue'], resolve) }
 const SwiperList = (resolve) => { require(['../views/SwiperList.vue'], resolve) }
 const ImgSwiper = (resolve) => { require(['../views/ImgSwiper.vue'], resolve) }
-const MultiSwiper = (resolve) => { require(['../views/MultiSwiper.vue'], resolve) }
 const FormVail = (resolve) => { require(['../views/FormVail.vue'], resolve) }
 const WaterFall = (resolve) => { require(['../views/WaterFall.vue'], resolve) }
-const TimeLine = (resolve) => { require(['../views/TimeLine.vue'], resolve) }
 const CalendarShow = (resolve) => { require(['../views/CalendarShow.vue'], resolve) }
 Vue.use(Router)
 Router.prototype.goBack = function (index) {
@@ -90,6 +104,19 @@ export default new Router({
       path: '/',
       name: 'CouiList',
       component: CouiList
+    },
+    /**
+     * 网络请求
+     */
+    {
+      path: '/AjaxData',
+      name: 'AjaxData',
+      component: AjaxData
+    },
+    {
+      path: '/AjaxDetail',
+      name: 'AjaxDetail',
+      component: AjaxDetail
     },
     /**
      * ui控件
@@ -125,14 +152,14 @@ export default new Router({
       component: Select
     },
     {
+      path: '/ActionSheet',
+      name: 'ActionSheet',
+      component: ActionSheet
+    },
+    {
       path: '/DateTime',
       name: 'DateTime',
       component: DateTime
-    },
-    {
-      path: '/Calendar',
-      name: 'Calendar',
-      component: Calendar
     },
     /**
      * 表单控件
@@ -203,6 +230,11 @@ export default new Router({
       name: 'TabMenu',
       component: TabMenu
     },
+    {
+      path: '/MultiTab',
+      name: 'MultiTab',
+      component: MultiTab
+    },
     /**
      * 滚动滑动
      */
@@ -262,6 +294,24 @@ export default new Router({
       name: 'Star',
       component: Star
     },
+    /**
+     * 项目常用组件
+     */
+    {
+      path: '/TimeLine',
+      name: 'TimeLine',
+      component: TimeLine
+    },
+    {
+      path: '/Calendar',
+      name: 'Calendar',
+      component: Calendar
+    },
+    {
+      path: '/CalendarScroll',
+      name: 'CalendarScroll',
+      component: CalendarScroll
+    },
     {
       path: '/BusinessFun',
       name: 'BusinessFun',
@@ -318,11 +368,6 @@ export default new Router({
       component: ImgSwiper
     },
     {
-      path: '/MultiSwiper',
-      name: 'MultiSwiper',
-      component: MultiSwiper
-    },
-    {
       path: '/FormVail',
       name: 'FormVail',
       component: FormVail
@@ -331,11 +376,6 @@ export default new Router({
       path: '/WaterFall',
       name: 'WaterFall',
       component: WaterFall
-    },
-    {
-      path: '/TimeLine',
-      name: 'TimeLine',
-      component: TimeLine
     },
     {
       path: '/CalendarShow',

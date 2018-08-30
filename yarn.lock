@@ -1904,9 +1904,9 @@ core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
 
-corlib@^1.1.8:
-  version "1.1.8"
-  resolved "https://registry.yarnpkg.com/corlib/-/corlib-1.1.8.tgz#cad81bf07b2a7225ae212e759470f628a85da279"
+corlib@^1.1.9:
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/corlib/-/corlib-1.1.9.tgz#36d75cbcf8dbdc4a362522a18e7d487c5a95a10a"
 
 cosmiconfig@^2.1.0, cosmiconfig@^2.1.1:
   version "2.2.2"
@@ -2144,6 +2144,10 @@ data-urls@^1.0.0:
     abab "^1.0.4"
     whatwg-mimetype "^2.0.0"
     whatwg-url "^6.4.0"
+
+date-fns@^1.29.0:
+  version "1.29.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.29.0.tgz#12e609cdcb935127311d04d33334e2960a2a54e6"
 
 date-now@^0.1.4:
   version "0.1.4"

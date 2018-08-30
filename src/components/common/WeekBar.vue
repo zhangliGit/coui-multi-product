@@ -1,10 +1,12 @@
 <template>
   <div class="kbom-week-bar" ref="wrapper">
-    <ul class="container">
-      <li ref="scroll" class="week-day" :class="[day.isWeekend, day.status]"
+    <ul class="container co-bd-b co-bd-t">
+      <li @click="currentDay(day.day)" ref="scroll" class="week-day" :class="['co-bd-r co-flex co-ac co-jc co-ver', {'date--active': currentIndex == day.day}]"
       v-for="day in weekDayList" :key="day.day">
-        <span class="label">{{day.days}}</span>
-        <span class="date">{{day.day}}</span>
+        <div class="label">{{day.days}}</div>
+        <div class="co-flex co-jc">
+          <div class="co-mg-t02 date-day--active">{{day.day}}</div>
+        </div>
       </li>
     </ul>
   </div>
@@ -33,13 +35,24 @@ export default {
   components: {
     BScroll,
   },
+  props: {
+    isDay: {
+      type: [String, Number],
+      default: new Date().getDate()
+    }
+  },
   data () {
     return {
+      currentIndex: this.isDay,
       weekDayList: [],
     }
   },
   beforeMount () {
-    this.getWeekDay()
+    const localDate = this.getDate()
+    let year = getYear(localDate)
+    let month = getMonth(localDate) + 1
+    let day = getDate(localDate)
+    this.showMonth(year, month, day)
   },
   mounted () {
     this.$nextTick(() => {
@@ -51,6 +64,10 @@ export default {
     })
   },
   methods: {
+    currentDay (day) {
+      this.currentIndex = day
+      this.$emit('current-day', this.currentIndex)
+    },
     getDate () {
       let myDate = new Date()
       return myDate.toLocaleDateString()
@@ -59,11 +76,12 @@ export default {
       let currentDate = this.getDate()
       this.scroll.scrollToElement(this.$refs.scroll[getDate(currentDate) - 3], 0)
     },
-    getWeekDay () {
+    showMonth (year, month, day) {
+      this.currentIndex = day
       const localDate = this.getDate()
-      let year = getYear(localDate)
-      let month = getMonth(localDate) + 1
-      let days = getDaysInMonth(localDate)
+      month = parseInt(month)
+      let days = getDaysInMonth(`${year}/${month}`)
+      this.weekDayList = []
       for (let i = 1; i <= days; i++) {
         var day = year + '/' + month + '/' + i
         var obj = {
@@ -85,21 +103,18 @@ export default {
   align-items: center;
   color: #aeaeae;
   overflow: hidden;
-  font-size: 0.32rem;
 }
 .kbom-week-bar .container {
   white-space: nowrap;
   display: block;
-  border-bottom: 1px solid #ccc;
   font-size: 0;
 }
 .kbom-week-bar .week-day {
   display: inline-block;
   text-align: center;
-  padding: 0.2133rem 0.6667rem;
+  padding: 0.3rem .65rem;
   box-sizing: border-box;
-  font-size: 0.3rem;
-  border-right: 1px solid #ccc;
+  font-size: 0.7rem;
   background: #fff;
   color: #ccc;
 }
@@ -110,26 +125,30 @@ export default {
 .kbom-week-bar .week-day .date {
   margin-top: 0.1867rem;
   color: #000;
-  font-size: 0.5rem;
+  font-size: 0.7rem;
 }
 .kbom-week-bar .day--past:last-child {
   border: none;
 }
 .kbom-week-bar .day--present {
   position: relative;
-  padding: 0.16rem 0.5867rem;
   box-shadow: 0 0 0.4rem 0.1333rem rgba(150,150,150,0.4),
               0 0 0.4rem -0.1333rem rgba(150,150,150,0.4);
 }
 .kbom-week-bar .day--weekend .date {
-  color: red;
+  color: #d81e06;
 }
-.kbom-week-bar .day--present .date {
-  width: 0.8rem;
-  height: 0.8rem;
-  line-height: 0.8rem;
+.date--active {
+  background-color: #d81e06 !important
+}
+.date--active .date-day--active {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
   border-radius: 50%;
-  background: red;
-  color: #fff;
+  background: #fff;
+  color: #d81e06;
 }
 </style>

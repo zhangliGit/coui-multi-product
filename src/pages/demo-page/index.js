@@ -5,7 +5,6 @@ import App from './App'
 import router from './router'
 import $ajax from '../../assets/js/ajax-service.js'
 import store from './store/index.js'
-import moment from 'moment'
 import { corJs, corNative } from 'corlib'
 require('../../assets/js/vux-plugin.js')
 require('../../assets/css/vux.css')
@@ -20,7 +19,6 @@ Vue.config.productionTip = false
 Vue.prototype.$ajax = $ajax
 Vue.prototype.corJs = corJs
 Vue.prototype.corNative = corNative
-Vue.prototype.moment = moment
 const attachFastClick = require('fastclick')
 attachFastClick.attach(document.body)
 new Vue({

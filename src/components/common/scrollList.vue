@@ -1,7 +1,14 @@
 <template>
   <div class="wrapper co-f1 co-of" ref="wrapper">
     <div :style = "{minHeight: minH + 'px'}">
-      <div class="upTip co-flex co-ac co-jc">
+      <div v-show = "isFail" class="fail-dialog co-flex co-ver co-ac co-jc">
+        <div>
+          <i class="coicon coicon-wangluoguzhang co-cl-2" style="font-size: 4rem"></i>
+        </div>
+        <div class="co-fs-01 co-cl-2">数据请求失败，请重新尝试</div>
+        <div style="height: 5rem"></div>
+      </div>
+      <div class="scroll-up-tip co-flex co-ac co-jc">
         <div v-if="pullDownRefresh">
           <div  v-if="!loadTag">
             <div class="co-flex co-ac co-jc">
@@ -19,17 +26,19 @@
           </div>
         </div>
       </div>
-      <div v-show="autoTag" class="nodata-pd co-flex co-ver co-ac co-jc co-cl-3">
+      <div v-show="autoTag" class="scroll-nodata-pd co-flex co-ver co-ac co-jc co-cl-3">
         <i class="coicon coicon-shielding co-mg-a04 co-fs-5"></i>
 				<div class="co-flex co-ac co-jc">暂无数据</div>
       </div>
-      <slot></slot>
-      <div v-if = "pullUpLoad">
-        <div v-if = "downTag !== -1" class="co-flex co-ac co-pd-tb08 co-jc co-cl-2 co-fs-01 co-bg-0">
-          <div v-if="downTag === 1" class="co-flex co-ac">
-           <spinner type="lines"></spinner><span class="co-pd-l02">加载更多...</span>
+      <div v-show="!isShowData">
+        <slot></slot>
+        <div v-if = "pullUpLoad">
+          <div v-if = "downTag !== -1" class="co-flex co-ac co-pd-tb08 co-jc co-cl-2 co-fs-01 co-bg-0">
+            <div v-if="downTag === 1" class="co-flex co-ac">
+            <spinner type="lines"></spinner><span class="co-pd-l02">加载更多...</span>
+            </div>
+            <div v-if="downTag === 0">已经到底了</div>
           </div>
-          <div v-if="downTag === 0">已经到底了</div>
         </div>
       </div>
     </div>
@@ -37,14 +46,18 @@
 </template>
 
 <script>
-import BScroll from "better-scroll";
-import { Spinner } from 'vux';
+import BScroll from "better-scroll"
+import { Spinner } from 'vux'
 export default {
   name: "ScrollList",
   components: {
     Spinner
   },
   props: {
+    isRequest: {
+      type: Boolean,
+      defalut: false
+    },
     pullDownRefresh: {
       type: Boolean,
       defalut: false
@@ -53,13 +66,15 @@ export default {
       type: Boolean,
       defalut: false
     },
-    pageNum: {
+    pageSize: {
       type: Number,
       defalut: 10
     }
   },
   data() {
     return {
+      isFail: false,
+      isShowData: this.isRequest,
       minH: 0,
       autoTag: false,
       upTag: 0,
@@ -68,49 +83,62 @@ export default {
     };
   },
   methods: {
-    refresh(tag = false) {
-      if (tag) {
-        this.scroll.scrollTo(0, 0, 0)
-      }
+    refresh(tag = 1) {
+      // if (tag == -1) {
+      //   if (!this.isShowData) {
+      //     this.isFail = true
+      //   }
+      //   return
+      // } else {
+      //   this.isFail = false
+      // }
+      this.scroll.scrollTo(0, 0, 0)
       this.$nextTick(() => {
         this.scroll.refresh();
       });
     },
     upShow(len) {
       this.scroll.scrollTo(0, 0, 0)
-      if (typeof len === "undefined") {
-        // 网络请求失败时什么都不显示
-        return;
+      if (typeof len === 'undefined') {
+        if (!this.isShowData) {
+          return
+        }
+        this.isFail = true
+        this.scroll.finishPullDown()
+        return
+      } else {
+        this.isFail = false
+        this.isShowData = false
       }
       if (len === 0) {
         //当没有数据时显示暂无数据
-        this.autoTag = true;
-        this.downTag = -1;
-      } else if (len >= this.pageNum) {
-        // 当初次查询数据总数为this.pageNum 说明可能还有分页数据
-        this.downTag = 1;
-        this.autoTag = false;
+        this.autoTag = true
+        this.downTag = -1
+      } else if (len >= this.pageSize) {
+        // 当初次查询数据总数为this.pageSize 说明可能还有分页数据
+        this.downTag = 1
+        this.autoTag = false
       } else {
         // 当数据大于0 小于this.pageNum时说明没有分页
-        this.downTag = 0;
-        this.autoTag = false;
+        this.downTag = 0
+        this.autoTag = false
       }
     },
     upEnd() {
-      this.loadTag = false;
-      this.upTag = 0;
-      this.scroll.finishPullDown();
-      this.refresh();
+      this.loadTag = false
+      this.upTag = 0
+      this.scroll.finishPullDown()
+      this.refresh()
     },
     downEnd() {
-      this.scroll.finishPullUp();
-      this.refresh();
+      this.scroll.finishPullUp()
+      this.refresh()
     }
   },
   mounted() {
     this.$nextTick(() => {
       if (this.pullDownRefresh) {
-        this.minH = this.$refs.wrapper.offsetHeight + 1;
+        this.minH = this.$refs.wrapper.offsetHeight + 1
       }
       if (!this.scroll) {
         const pullDownRefresh = this.pullDownRefresh
@@ -165,7 +193,7 @@ export default {
             type: 0,
             cb(len) {
               _self.upShow(len);
-              _self.upEnd();
+              _self.upEnd(len);
             }
           });
         });
@@ -175,19 +203,19 @@ export default {
         this.scroll.on("pullingUp", () => {
           let _self = this;
           if (this.downTag === 0 || this.downTag === -1) {
-             _self.downEnd();
+            _self.scroll.finishPullUp()
             return;
           }
           this.$emit("show-data", {
             type: 1,
             cb(len) {
               _self.downEnd();
-              if (len < this.pageNum) {
-                //如果分页查询数据小于this.pageNum（为每页条数，根据自己项目设置） 说明数据已全部加载完毕
+              if (len < this.pageSize) {
+                //如果分页查询数据小于this.pageSize（为每页条数，根据自己项目设置） 说明数据已全部加载完毕
                 _self.autoTag = false;
                 _self.downTag = 0;
               } else {
-                // 如果等于this.pageNum  说明还可能有分页
+                // 如果等于this.pageSize  说明还可能有分页
                 _self.downTag = 1;
                 _self.autoTag = false;
               }
@@ -200,8 +228,18 @@ export default {
 };
 </script>
 
-<style>
-.upTip {
+<style lang = "less">
+.fail-dialog {
+  padding-top: 3rem;
+  width: 100%;
+  position: absolute;
+  height: 15rem;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  background-color:#fff;
+}
+.scroll-up-tip {
   z-index: 1;
   width: 100%;
   position: absolute;
@@ -210,7 +248,7 @@ export default {
   text-align: center;
   color: #333;
 }
-.nodata-pd {
+.scroll-nodata-pd {
   background:#fff;
   padding: 2rem 0;
 }

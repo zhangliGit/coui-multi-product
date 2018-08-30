@@ -91,6 +91,7 @@ export default {
       }
     },
     menuChange (item) {
+      console.log(item)
       if (this.currentTab === 1) {
         this.tabValue1 = { name: item.name, index: item.index}
       } else {

@@ -1,11 +1,14 @@
 <template>
-  <div>
+  <div class="multi-swiper">
     <swiper :options="swiperOption" ref="mySwiper">
       <!-- slides -->
       <swiper-slide class="swiperH co-flex co-wp co-pd-b1" v-for="tabIndex in tabNum" :key="tabIndex">
         <div @click="tabMenu(item.id)" class="tabList co-flex co-ver co-ac co-jc co-pd-t05" v-for="(item, index) in multiData.slice((tabIndex-1)*number, (tabIndex-1)*number+number)" :key="index">
-          <div><i class="coicon coicon-shop_fill co-fs-4"></i></div>
-          <div>{{item.name}}</div>
+          <div v-if="item.img" class="co-flex co-jc">
+            <img :src="item.img" class="tab-img" alt="" />
+          </div>
+          <div v-if="item.icon"><i :class="(item.icon || 'coicon coicon-prompt') + ' co-fs-4'"></i></div>
+          <div class="co-fs-01">{{item.name}}</div>
         </div>
       </swiper-slide>
       <!-- Optional controls -->
@@ -25,7 +28,9 @@ export default {
   props: {
     multiData: {
       type: Array,
-      default: []
+      default: function () {
+        return []
+      }
     },
     number: {
       type: Number,
@@ -55,14 +60,22 @@ export default {
   }
 }
 </script>
-<style lang="less" scoped>
- .tabList {
-   width:25%
+<style lang="less">
+ .multi-swiper {
+   .tabList {
+    width:25%
+  }
+  .tab-img {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: block
+  }
  }
  .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets {
    bottom:3px !important
  }
  .swiper-pagination-bullet-active {
-    background: #444 !important
-  }
+   opacity: .5;
+   background:red !important;
+ }
 </style>

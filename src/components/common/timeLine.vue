@@ -2,12 +2,12 @@
     <div class="co-pd-t1">
       <div class="co-flex" v-for="(item, index) in timeList" :key="index">
         <div class="timeLine">
-          <div class="tipC">{{item.tag}}</div>
+          <div class="tipC">{{item.tip}}</div>
         </div>
         <div class="co-f1">
           <div class="sjxD"></div>
           <div class="co-pd-a06 co-bd-a co-br-a0 co-bg-0 dataShow">
-            <div class="co-flex co-jsb"><span>打卡时间：{{item.time}}</span><span class="tagD">迟到</span></div>
+            <div class="co-flex co-jsb"><span>打卡时间：{{item.time}}</span><span class="tagD" v-if="item.tag == 1 || item.tag == 0">{{item.tag | showD}}</span></div>
             <div class="co-cl-3 co-line-2 co-mg-t04 co-te2 co-fs-01">
               {{item.address}}
             </div>
@@ -25,6 +25,18 @@ export default {
     timeList: {
       type: Array,
       default: []
+    }
+  },
+  filters: {
+    showD (tag) {
+      switch (parseInt(tag)) {
+        case 0 : return '迟到'
+        break
+        case 1 : return '早退'
+        break
+        default: return '正常'
+        break
+      }
     }
   },
   data () {
@@ -63,8 +75,10 @@ export default {
  }
  .sjxD {
    position: absolute;
+   border-left: 1px #ccc solid;
+   border-bottom: 1px #ccc solid;
    z-index: 99; 
-   left: 1rem;
+   left: .9rem;
    top: .8rem;
    width: .8rem;
    height:.8rem;

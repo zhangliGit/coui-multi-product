@@ -2,12 +2,29 @@
 import axios from 'axios'
 import qs from 'qs'
 import Vue from 'vue'
+axios.defaults.timeout = 15000 // 请求超时时间
 function checkParams (params) {
   var isAndroid = (window.navigator.userAgent.indexOf('Android') >= 0)
   if (isAndroid) {
     return JSON.stringify(params)
   }
   return params
+}
+function errorToast (e) {
+  Vue.$vux.loading.hide()
+  let info
+  console.log(JSON.stringify(e))
+  if (e.code) {
+    info = '数据请求失败'
+  } else {
+    info = '请检查网络'
+  }
+  Vue.$vux.toast.show({
+    text: info,
+    time: 1500,
+    isShowMask: true,
+    type: 'warn'
+  })
 }
 const $ajax = (obj, tag = true) => {
   if (tag) {
@@ -21,7 +38,7 @@ const $ajax = (obj, tag = true) => {
         if (res.status === true) {
           resolve(res.data)
         } else {
-          reject()
+          reject(res)
           Vue.$vux.toast.show({
             text: '请求失败',
             time: 1500,
@@ -46,32 +63,24 @@ const $ajax = (obj, tag = true) => {
         }).then(function (response) {
           Vue.$vux.loading.hide()
           resolve(response.data)
-        }).catch(function () {
-          reject()
-          Vue.$vux.loading.hide()
-          Vue.$vux.toast.show({
-            text: '请求失败',
-            time: 1500,
-            isShowMask: true,
-            type: 'warn'
-          })
+        }).catch(function (error) {
+          reject(error)
+          errorToast(error)
         })
       } else {
         axios.post(obj.url, qs.stringify(obj.params)).then(function (response) {
+          Vue.$vux.loading.hide()
           resolve(response.data)
-          Vue.$vux.loading.hide()
-        }).catch(function () {
-          reject()
-          Vue.$vux.loading.hide()
-          Vue.$vux.toast.show({
-            text: '请求失败',
-            time: 1500,
-            isShowMask: true,
-            type: 'warn'
-          })
+        }).catch(function (error) {
+          reject(error)
+          errorToast(error)
         })
       }
     }
   })
 }
+/**
+ * 错误处理
+ */
+
 export default $ajax

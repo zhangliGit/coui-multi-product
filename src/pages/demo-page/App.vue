@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <transition :name="transitionName">
-      <keep-alive include="HomePage">
+      <keep-alive include="HomePage,AjaxData">
         <router-view  class="Router co-Page co-flex co-cl-1" />
       </keep-alive>
     </transition>

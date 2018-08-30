@@ -17,7 +17,7 @@
       <div :class="['calendar-body showCal', {'showHeight' : isOpen}]" ref="calendar" id="calendar">
         <div class="calendar-row" v-for="(week, weekId) in sortDate" :key="weekId">
           <!-- <span :class="['calendar-day', {'current': currentDate === day.date, 'exception': exception.indexOf(day.date) > -1}]" v-for="(day, dayId) in week" :key="dayId">{{day ? day.date : ''}}</span> -->
-          <span v-for="(day, dayId) in week" :key="dayId" :class="['calendar-day exception', {'current': day ? currentDate === day.date : false}]"
+          <span v-for="(day, dayId) in week" :key="dayId" :class="['calendar-day', {'current': day ? currentDate === day.date : false, 'exception': dateShow.includes(day ? day.date : '')}]"
             @click="changeDate(day)">
             <i>{{day ? day.date : ''}}</i>
             <i>{{day ? day.lunnar : ''}}</i>
@@ -164,10 +164,11 @@ function getFirstDate (date) {
   return newdate
 }
 export default {
-  name: 'calendar',
+  name: 'calendar1',
   data () {
     var newd = new Date()
     return {
+      dateShow: this.isDate,
       isOpen: false,
       // -> 标志日历的当前显示
       currentYear: newd.getFullYear(),
@@ -179,6 +180,12 @@ export default {
     }
   },
   props: {
+    isDate: {
+      type: Array,
+      default: function () {
+        return []
+      }
+    },
     type: {
       type: String, // 'START_SUN START_MON' -> 从周一开始或者从周日开始
       default: 'START_SUN'
@@ -241,6 +248,7 @@ export default {
         document.getElementById('calendar').style.height =  3.2 * sortDate.length + 'rem'
       }
       this.sortDate = sortDate
+      console.log(this.sortDate)
     },
     toogleCal () {
       if (this.isOpen) {

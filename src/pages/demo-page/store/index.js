@@ -11,9 +11,6 @@ export default new Vuex.Store({
     demoPage
   },
   state: {
-    isModify: false,
-    dataList: [], // 列表的数据
-    dataDetail: {}
   },
   getters: {
   },
