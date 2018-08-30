@@ -83,16 +83,16 @@ export default {
     };
   },
   methods: {
-    refresh(tag = 1) {
-      // if (tag == -1) {
-      //   if (!this.isShowData) {
-      //     this.isFail = true
-      //   }
-      //   return
-      // } else {
-      //   this.isFail = false
-      // }
-      this.scroll.scrollTo(0, 0, 0)
+    init(tag) {
+      if (typeof tag == 'boolean') {
+        this.isFail = true
+      } else {
+        this.isFail = false
+        this.isShowData = false
+        this.refresh()
+      }
+    },
+    refresh() {
       this.$nextTick(() => {
         this.scroll.refresh();
       });
@@ -114,7 +114,7 @@ export default {
         //当没有数据时显示暂无数据
         this.autoTag = true
         this.downTag = -1
-      } else if (len >= this.pageSize) {
+      } else if (len == this.pageSize) {
         // 当初次查询数据总数为this.pageSize 说明可能还有分页数据
         this.downTag = 1
         this.autoTag = false
@@ -161,13 +161,13 @@ export default {
           pullUpLoad,
           scrollbar: true
         });
-        this.scroll.refresh();
+        this.scroll.refresh()
         /*
         *监听手势y轴滑动距离
         */
         this.scroll.on("scroll", pos => {
           if (!this.pullDownRefresh) {
-            return;
+            return
           }
           if (pos.y > 60) {
             try {
@@ -180,7 +180,7 @@ export default {
               this.$refs.refreshIcon.style.transform = 'rotate(180deg)'
               this.$refs.refreshIcon.style.webkitTransform = 'rotate(180deg)'
             } catch(e) {}
-            this.upTag = 0;
+            this.upTag = 0
           }
         });
         /*
@@ -192,8 +192,8 @@ export default {
           this.$emit("show-data", {
             type: 0,
             cb(len) {
-              _self.upShow(len);
-              _self.upEnd(len);
+              _self.upShow(len)
+              _self.upEnd(len)
             }
           });
         });
@@ -203,21 +203,23 @@ export default {
         this.scroll.on("pullingUp", () => {
           let _self = this;
           if (this.downTag === 0 || this.downTag === -1) {
-            _self.scroll.finishPullUp()
             return;
           }
           this.$emit("show-data", {
             type: 1,
             cb(len) {
-              _self.downEnd();
+              if (typeof len === 'undefined') {
+                return
+              }
+              _self.downEnd()
               if (len < this.pageSize) {
                 //如果分页查询数据小于this.pageSize（为每页条数，根据自己项目设置） 说明数据已全部加载完毕
-                _self.autoTag = false;
-                _self.downTag = 0;
+                _self.autoTag = false
+                _self.downTag = 0
               } else {
                 // 如果等于this.pageSize  说明还可能有分页
-                _self.downTag = 1;
-                _self.autoTag = false;
+                _self.downTag = 1
+                _self.autoTag = false
               }
             }
           });

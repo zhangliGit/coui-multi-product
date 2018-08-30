@@ -80,8 +80,8 @@ export default {
     let _self = this
     this.showData({
       type: 0,
-      cb () {
-        _self.$refs.scroll.upShow()
+      cb (len) {
+        _self.$refs.scroll.upShow(len)
       }
     })
   }

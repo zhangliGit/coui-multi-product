@@ -1,8 +1,9 @@
 <template>
   <div class="dataDetail-com co-f1 co-flex co-ver">
     <header-com isBack :title="title"></header-com>
-    <scroll-list ref="scroll">
+    <scroll-list ref="scroll" isRequest>
       <div class="co-pd-a08 co-cl-1">
+        我是列表详情
         <div>{{dataDetail.title}}</div>
         <div class="co-pd-a08 co-tx-r">{{dataDetail.time}}</div>
         <div class="co-line-3 co-text">
@@ -49,15 +50,15 @@ export default {
   methods: {
     getDetail (obj) {
       this.$ajax({
-        url: 'http://xiaoyueyue.com.cn:8088/testSRN1',
+        url: 'http://xiaoyueyue.com.cn:8088/getDetail',
         type: 'get',
         params: {
         }
       }).then(data => {
-        this.dataDetail = data.data
+        // this.dataDetail = data.data
         obj.cb()
       }).catch((error) => {
-        obj.cb(-1)
+        obj.cb(false)
       })
     }
   },
@@ -65,7 +66,7 @@ export default {
     let _self = this;
     this.getDetail({
       cb (type) {
-        _self.$refs.scroll.refresh(type)
+        _self.$refs.scroll.init(type)
       }
     })
   }

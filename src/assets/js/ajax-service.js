@@ -79,8 +79,5 @@ const $ajax = (obj, tag = true) => {
     }
   })
 }
-/**
- * 错误处理
- */
 
 export default $ajax
