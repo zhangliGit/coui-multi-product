@@ -6,7 +6,7 @@
           <i class="coicon coicon-wangluoguzhang co-cl-2" style="font-size: 4rem"></i>
         </div>
         <div class="co-fs-01 co-cl-2">数据请求失败，请重新尝试</div>
-        <div style="height: 5rem"></div>
+        <div class="empty-height"></div>
       </div>
       <div class="scroll-up-tip co-flex co-ac co-jc">
         <div v-if="pullDownRefresh">
@@ -68,7 +68,7 @@ export default {
     },
     pageSize: {
       type: Number,
-      defalut: 10
+      defalut: 15
     }
   },
   data() {
@@ -240,6 +240,9 @@ export default {
   left: 0;
   z-index: 99;
   background-color:#fff;
+}
+.empty-height {
+  height: 5rem
 }
 .scroll-up-tip {
   z-index: 1;

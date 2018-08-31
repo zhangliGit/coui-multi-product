@@ -54,7 +54,7 @@ export default {
         this.page ++
       }
       this.$ajax({
-        url: 'http://xiaoyueyue.com.cn:8088/testSRN',
+        url: 'http://yapi.demo.qunar.com/mock/9603/getList',
         type: 'get',
         params: {
           page: this.page,

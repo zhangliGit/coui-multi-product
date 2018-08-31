@@ -3,11 +3,11 @@
     <header-com isBack :title="title"></header-com>
     <div class="co-f1">
       <div class="co-pd-a05 co-flex co-ac">
-        <star v-model="score"></star>
+        <star star-num = "4" v-model="score"></star>
         <div class="co-mg-l04 co-fs-2">{{score}}</div>
       </div>
       <div class="co-pd-a05 co-flex co-ac">
-        <star v-model="score1" type="smile"></star>
+        <star  v-model="score1" type="smile"></star>
         <div class="co-mg-l04 co-fs-2">{{score1}}</div>
       </div>
     </div>

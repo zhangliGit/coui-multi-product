@@ -2,7 +2,7 @@
   <div class="alert co-f1 co-flex co-ver">
     <header-com isBack :title="title"></header-com>
     <div class="co-f1 co-pd-t1">
-      <footer-com @footMenu = "footMenu" :foot-list = "footList"></footer-com>
+      <footer-com @foot-menu = "footMenu" :foot-list = "footList"></footer-com>
     </div>
   </div>
 </template>

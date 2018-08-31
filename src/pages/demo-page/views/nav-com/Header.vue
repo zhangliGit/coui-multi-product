@@ -1,9 +1,12 @@
 <template>
-  <div class="alert co-f1 co-flex co-ver">
-    <header-com isBack :title="title"></header-com>
+  <div class="header co-f1 co-flex co-ver">
+    <header-com is-back :title="title"></header-com>
     <div class="co-f1 co-pd-t1">
-      <header-com isBack :title="title1" header-bg = "#000000">
-        <div slot="ritBtn">
+      <header-com is-back :title="title1">
+        <div slot="lef-btn">
+          <span class="co-cl-0">返回</span>
+        </div>
+        <div slot="rit-btn">
           <i class="coicon coicon-time co-fs-2 co-cl-0"></i>
         </div>
       </header-com>

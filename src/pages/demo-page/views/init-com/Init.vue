@@ -2,7 +2,7 @@
   <div class="init co-f1 co-flex co-ver">
     <header-com isBack :title="title"></header-com>
     <div class="co-f1 co-flex">
-      <init-img @loadEnd = "loadEnd" :load-img = "loadImg" :loading-time = "loadTime"></init-img>
+      <init-img @load-end = "loadEnd" :load-img = "loadImg" :loading-time = "loadTime"></init-img>
     </div>
   </div>
 </template>

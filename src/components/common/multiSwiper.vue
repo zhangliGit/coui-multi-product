@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     tabMenu (id) {
-      this.$emit('tabM', id)
+      this.$emit('tab-menu', id)
     }
   },
   mounted () {

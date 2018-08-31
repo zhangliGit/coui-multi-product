@@ -16,8 +16,8 @@ export default {
       default: ''
     },
     loadingTime: {
-      type: [Number],
-      default: 4
+      type: [Number, String],
+      default: 3
     }
   },
   data () {
@@ -36,7 +36,7 @@ export default {
     this.timeTag = setInterval(() => {
       this.times --;
       if (this.times === 0) {
-        this.$emit('loadEnd')
+        this.$emit('load-end')
         clearInterval(this.timeTag)
       }
     }, 1000)

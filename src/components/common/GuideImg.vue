@@ -6,7 +6,7 @@
           <img :src="item" alt="" :style="{ width: conW +'px', height: '100%', display: 'block'}">
         </div>
         <div class="goNext" @click="goNext" v-if = "index == imgList.length -1">
-          立即体验
+          {{guideText}}
         </div>
       </swiper-slide>
       <div class="swiper-pagination" :style="{ width: conW +'px'}" slot="pagination"></div>
@@ -23,6 +23,10 @@ export default {
     swiperSlide
   },
   props: {
+    guideText: {
+      type: String,
+      default: '立即体验'
+    },
     imgList: {
       type: Array,
       default: []
@@ -44,7 +48,7 @@ export default {
   },
   methods: {
     goNext () {
-      this.$emit('enterPage')
+      this.$emit('enter-page')
     }
   },
   mounted () {

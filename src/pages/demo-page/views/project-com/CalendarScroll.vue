@@ -1,7 +1,7 @@
 <template>
   <div class="alert co-f1 co-flex co-ver">
     <header-com isBack :title="title">
-      <div slot="ritBtn">
+      <div slot="rit-btn">
         <i class="coicon coicon-clock co-cl-0 co-fs-3" @click="setMonth"></i>
       </div>
     </header-com>

@@ -17,7 +17,9 @@ export default {
   props: {
     footList: {
       type: Array,
-      default: []
+      default: function() {
+        return []
+      }
     }
   },
   data () {
@@ -28,7 +30,7 @@ export default {
   methods: {
     footMenu (item, index) {
       this.currentIndex = index
-      this.$emit('footMenu', item)
+      this.$emit('foot-menu', item)
     }
   },
   mounted () {

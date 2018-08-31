@@ -1,14 +1,14 @@
 <template>
     <div id="co-header" class="co-header co-bg-3 co-flex co-ac">
-      <div class="headSlide co-flex">
-        <slot name="letBtn"></slot>
-        <div v-show = "isBack || isBacPortal" class="co-pd-r05">
+      <div class="headSlide co-flex co-ac">
+        <div v-show = "isBack || isBacPortal">
             <i @click="back" class="coicon coicon-return co-fs-3 co-cl-0"></i>
         </div>
+        <slot name="lef-btn"></slot>
       </div>
-      <div class="co-header-title co-cl-0 co-tx-c">{{title}}</div>
+      <div class="co-cl-0  co-header-title co-tx-c">{{title}}</div>
       <div class="headSlide co-flex co-je">
-        <slot name="ritBtn"></slot>
+        <slot name="rit-btn"></slot>
       </div>
     </div>
 </template>
@@ -46,6 +46,7 @@ export default {
           window.history.go(-1)
         }
       } else {
+        this.$emit('go-back')
         this.$router.goBack()
       }
     }

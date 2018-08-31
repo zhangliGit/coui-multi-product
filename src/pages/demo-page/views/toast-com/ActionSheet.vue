@@ -1,10 +1,10 @@
 <template>
-  <div class="alert co-f1 co-flex co-ver">
+  <div class="action-sheet co-f1 co-flex co-ver">
     <header-com isBack :title="title"></header-com>
     <div class="co-f1 co-of co-pd-t1">
-      <co-btn @btn = "show" isCircle bg-color = "#666666" text-color = "#fff">
-        <span>上传图片</span>
-      </co-btn>
+      <div @click = "show" class="upload-btn">
+        上传图片
+      </div>
       <div v-transfer-dom>
         <actionsheet v-model="actionShow" :menus="actionMenu" @on-click-menu="menuClick" show-cancel>
           <div slot="header">上传图片</div>
@@ -54,5 +54,17 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang = "less">
+  .action-sheet {
+    .upload-btn {
+      margin: 0 .4rem;
+      height: 2rem;
+      line-height: 2rem;
+      background:#666;
+      color:#fff;
+      text-align: center;
+      -webkit-border-radius: .3rem;
+      border-radius: .3rem;
+    }
+  }
 </style>

@@ -154,7 +154,6 @@ function getLastDate (date) {
   newdate.setFullYear(newYear)
   newdate.setMonth(newMonth)
   newdate.setDate(0)
-
   return newdate
 }
 // -> 获取本月第一天

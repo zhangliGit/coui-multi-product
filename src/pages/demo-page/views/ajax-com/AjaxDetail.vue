@@ -3,7 +3,6 @@
     <header-com isBack :title="title"></header-com>
     <scroll-list ref="scroll" isRequest>
       <div class="co-pd-a08 co-cl-1">
-        我是列表详情
         <div>{{dataDetail.title}}</div>
         <div class="co-pd-a08 co-tx-r">{{dataDetail.time}}</div>
         <div class="co-line-3 co-text">
@@ -50,12 +49,12 @@ export default {
   methods: {
     getDetail (obj) {
       this.$ajax({
-        url: 'http://xiaoyueyue.com.cn:8088/getDetail',
+        url: 'http://yapi.demo.qunar.com/mock/9603/detail',
         type: 'get',
         params: {
         }
       }).then(data => {
-        // this.dataDetail = data.data
+        this.dataDetail = data.data
         obj.cb()
       }).catch((error) => {
         obj.cb(false)

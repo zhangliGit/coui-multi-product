@@ -2,19 +2,19 @@
   <div class="alert co-f1 co-flex co-ver">
     <header-com isBack :title="title"></header-com>
     <div class="co-f1 co-of co-flex">
-      <welcome-img @enterPage = "enterPage" :img-list = "imgList"></welcome-img>
+      <guide-img guide-text="马上进入" @enter-page = "enterPage" :img-list = "imgList"></guide-img>
     </div>
   </div>
 </template>
 
 <script>
 import HeaderCom from '@c/HeaderCom'
-import WelcomeImg from '@c/WelcomeImg'
+import GuideImg from '@c/GuideImg'
 export default {
   name: 'Welcome',
   components: {
     HeaderCom,
-    WelcomeImg
+    GuideImg
   },
   data () {
     return {
