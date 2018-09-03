@@ -131,7 +131,7 @@ export default {
       this.couiList = this.COUI[type]
     },
     goList (path, title) {
-      this.$router.push({name: path, params: {title}})
+      this.$router.push({name: path})
     }
   },
   mounted () {

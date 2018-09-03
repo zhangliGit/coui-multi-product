@@ -2,7 +2,7 @@
   <div class="alert co-f1 co-flex co-ver">
     <header-com isBack :title="title"></header-com>
     <div class="co-f1 co-of">
-      <calendar-show :is-date = "isDate" @set-date = "setDate"></calendar-show>
+      <calendar-show :is-date = "isDate" @get-date = "getDate"></calendar-show>
     </div>
   </div>
 </template>
@@ -25,7 +25,7 @@ export default {
   computed: {
   },
   methods: {
-    setDate (date) {
+    getDate (date) {
       this.$loading.toast(JSON.stringify(date))
     }
   },

@@ -57,7 +57,7 @@ const COUI = {
     {
       id: 0,
       title: '网络请求',
-      path: 'AjaxData'
+      path: 'ajax'
     }
   ],
   /**
@@ -262,7 +262,7 @@ const COUI = {
     {
       id: 0,
       title: '打卡时间轴',
-      path: 'TimeLine'
+      path: 'ClockTime'
     },
     {
       id: 1,

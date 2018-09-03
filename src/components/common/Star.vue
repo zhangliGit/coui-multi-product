@@ -13,7 +13,7 @@ export default {
   props: {
     value: [String, Number],
     starNum: {
-      type: [Number, String],
+      type: [String, Number],
       default: 5
     },
     type: {
@@ -37,6 +37,7 @@ export default {
     }
   },
   mounted () {
+    console.log(this.starNum)
   }
 }
 </script>

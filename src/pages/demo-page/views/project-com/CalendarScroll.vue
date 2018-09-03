@@ -6,19 +6,19 @@
       </div>
     </header-com>
     <div class="co-f1 co-of">
-      <week-bar ref="weekBar" @current-day = "currentDay"></week-bar>
+      <calendar-bar ref="weekBar" @current-day = "currentDay"></calendar-bar>
     </div>
   </div>
 </template>
 
 <script>
 import HeaderCom from '@c/HeaderCom'
-import WeekBar from '@c/WeekBar'
+import CalendarBar from '@c/CalendarBar'
 export default {
   name: 'Calendar1',
   components: {
     HeaderCom,
-    WeekBar
+    CalendarBar
   },
   data () {
     return {

@@ -70,7 +70,7 @@ const Star = (resolve) => { require(['../views/progress-com/Star.vue'], resolve)
 /**
  * 项目常用组件
  */
-const TimeLine = (resolve) => { require(['../views/project-com/TimeLine.vue'], resolve) }
+const ClockTime = (resolve) => { require(['../views/project-com/ClockTime.vue'], resolve) }
 const Calendar = (resolve) => { require(['../views/project-com/Calendar.vue'], resolve) }
 const CalendarScroll = (resolve) => { require(['../views/project-com/CalendarScroll.vue'], resolve) }
 
@@ -109,8 +109,8 @@ export default new Router({
      * 网络请求
      */
     {
-      path: '/AjaxData',
-      name: 'AjaxData',
+      path: '/ajax',
+      name: 'ajax',
       component: AjaxData
     },
     {
@@ -122,42 +122,42 @@ export default new Router({
      * ui控件
      */
     {
-      path: '/Loading',
+      path: '/loading',
       name: 'Loading',
       component: Loading
     },
     {
-      path: '/Toast',
+      path: '/toast',
       name: 'Toast',
       component: Toast
     },
     {
-      path: '/Alert',
+      path: '/alert',
       name: 'Alert',
       component: Alert
     },
     {
-      path: '/Confirm',
+      path: '/confirm',
       name: 'Confirm',
       component: Confirm
     },
     {
-      path: '/Prompt',
+      path: '/prompt',
       name: 'Prompt',
       component: Prompt
     },
     {
-      path: '/Select',
+      path: '/select',
       name: 'Select',
       component: Select
     },
     {
-      path: '/ActionSheet',
+      path: '/actionsheet',
       name: 'ActionSheet',
       component: ActionSheet
     },
     {
-      path: '/DateTime',
+      path: '/datetime',
       name: 'DateTime',
       component: DateTime
     },
@@ -165,32 +165,32 @@ export default new Router({
      * 表单控件
      */
     {
-      path: '/Button',
+      path: '/co-input',
       name: 'Button',
       component: Button
     },
     {
-      path: '/Input',
+      path: '/co-input',
       name: 'Input',
       component: Input
     },
     {
-      path: '/TextArea',
+      path: '/textarea',
       name: 'TextArea',
       component: TextArea
     },
     {
-      path: '/Radio',
+      path: '/radio',
       name: 'Radio',
       component: Radio
     },
     {
-      path: '/CheckBox',
+      path: '/checkbox',
       name: 'CheckBox',
       component: CheckBox
     },
     {
-      path: '/Switch',
+      path: '/switch',
       name: 'Switch',
       component: Switch
     },
@@ -198,12 +198,12 @@ export default new Router({
      * 加载引导
      */
     {
-      path: '/Init',
+      path: '/init-img',
       name: 'Init',
       component: Init
     },
     {
-      path: '/Welcome',
+      path: '/guide-img',
       name: 'Welcome',
       component: Welcome
     },
@@ -211,27 +211,27 @@ export default new Router({
      * 导航菜单
      */
     {
-      path: '/Header',
+      path: '/header-com',
       name: 'Header',
       component: Header
     },
     {
-      path: '/Footer',
+      path: '/footer-com',
       name: 'Footer',
       component: Footer
     },
     {
-      path: '/TopMenu',
+      path: '/top-menu',
       name: 'TopMenu',
       component: TopMenu
     },
     {
-      path: '/TabMenu',
+      path: '/tab-menu',
       name: 'TabMenu',
       component: TabMenu
     },
     {
-      path: '/MultiTab',
+      path: '/multi-swiper',
       name: 'MultiTab',
       component: MultiTab
     },
@@ -239,27 +239,27 @@ export default new Router({
      * 滚动滑动
      */
     {
-      path: '/Scroll',
+      path: '/scroll-list-1',
       name: 'Scroll',
       component: Scroll
     },
     {
-      path: '/ScrollTopBot',
+      path: '/scroll-list-2',
       name: 'ScrollTopBot',
       component: ScrollTopBot
     },
     {
-      path: '/ScrollTop',
+      path: '/scroll-list-3',
       name: 'ScrollTop',
       component: ScrollTop
     },
     {
-      path: '/ScrollBot',
+      path: '/scroll-list-4',
       name: 'ScrollBot',
       component: ScrollBot
     },
     {
-      path: '/ScrollLefRit',
+      path: '/level-scroll',
       name: 'ScrollLefRit',
       component: ScrollLefRit
     },
@@ -267,7 +267,7 @@ export default new Router({
      * 滚动滑动
      */
     {
-      path: '/SwiperImg',
+      path: '/swiper-scroll',
       name: 'SwiperImg',
       component: SwiperImg
     },
@@ -275,12 +275,12 @@ export default new Router({
      * 进度条
      */
     {
-      path: '/LinePro',
+      path: '/line-progress',
       name: 'LinePro',
       component: LinePro
     },
     {
-      path: '/CirclePro',
+      path: '/x-circle',
       name: 'CirclePro',
       component: CirclePro
     },
@@ -290,7 +290,7 @@ export default new Router({
       component: StepPro
     },
     {
-      path: '/Star',
+      path: '/star',
       name: 'Star',
       component: Star
     },
@@ -298,17 +298,17 @@ export default new Router({
      * 项目常用组件
      */
     {
-      path: '/TimeLine',
-      name: 'TimeLine',
-      component: TimeLine
+      path: '/clock-time',
+      name: 'ClockTime',
+      component: ClockTime
     },
     {
-      path: '/Calendar',
+      path: '/calendar-show',
       name: 'Calendar',
       component: Calendar
     },
     {
-      path: '/CalendarScroll',
+      path: '/calendar-bar',
       name: 'CalendarScroll',
       component: CalendarScroll
     },

@@ -120,7 +120,7 @@ export default {
   },
   methods: {
     goList (path, title) {
-      this.$router.push({name: path, params: {title}})
+      this.$router.push({name: path})
     }
   },
   mounted () {

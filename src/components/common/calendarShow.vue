@@ -259,7 +259,7 @@ export default {
     },
     changeDate (day) {
       this.currentDate = day.date
-      this.$emit('set-date', {year: this.currentYear, month: this.currentMonth, day: day.date})
+      this.$emit('get-date', {year: this.currentYear, month: this.currentMonth, day: day.date})
     },
     swipeStart () {},
     swipe (evt) {
@@ -300,7 +300,7 @@ export default {
       this.currentNow.setMonth(this.currentMonth-1)
       this.currentNow.setDate(this.currentDate)
       this.caleList()
-      this.$emit('set-date', {year: this.currentYear, month: this.currentMonth, day: this.currentDate})
+      this.$emit('get-date', {year: this.currentYear, month: this.currentMonth, day: this.currentDate})
       this.$refs.calendar.style.transition = 'none'
       requestAnimationFrame(() => {
         if (dir === 'prev') {

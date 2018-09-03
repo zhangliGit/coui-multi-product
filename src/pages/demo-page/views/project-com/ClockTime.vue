@@ -3,7 +3,7 @@
     <header-com isBack :title="title"></header-com>
     <div class="co-f1 co-flex">
       <scroll-list>
-        <time-line :time-list = "timeList"></time-line>
+        <clock-time :time-list = "timeList"></clock-time>
       </scroll-list>
     </div>
   </div>
@@ -12,13 +12,13 @@
 <script>
 import HeaderCom from '@c/HeaderCom'
 import ScrollList from '@c/ScrollList'
-import TimeLine from '@c/TimeLine'
+import ClockTime from '@c/ClockTime'
 export default {
   name: 'TimeLineCom',
   components: {
     HeaderCom,
     ScrollList,
-    TimeLine
+    ClockTime
   },
   data () {
     return {
