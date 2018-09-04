@@ -2,7 +2,7 @@
     <div class="co-pd-t1">
       <div class="co-flex" v-for="(item, index) in timeList" :key="index">
         <div class="timeLine">
-          <div class="tipC">{{item.tip}}</div>
+          <div class="tipC">{{item.tip == 0 ? '上' : '下'}}</div>
         </div>
         <div class="co-f1">
           <div class="sjxD"></div>
