@@ -48,6 +48,11 @@ const COUI = {
       id: 8,
       title: '项目常用',
       type: 'PROJECT_LIST'
+    },
+    {
+      id: 9,
+      title: '路由跳转',
+      type: 'ROUTER_LIST'
     }
   ],
   /**
@@ -96,11 +101,16 @@ const COUI = {
     },
     {
       id: 6,
+      title: 'popup选择框',
+      path: 'Popup'
+    },
+    {
+      id: 7,
       title: 'ActionSheet弹出框',
       path: 'ActionSheet'
     },
     {
-      id: 6,
+      id: 8,
       title: 'date日期选择',
       path: 'DateTime'
     }
@@ -118,7 +128,7 @@ const COUI = {
       id: 1,
       title: '文本框',
       path: 'Input'
-    },
+    }
     // {
     //   id: 2,
     //   title: '文本区域',
@@ -273,6 +283,16 @@ const COUI = {
       id: 2,
       title: '滑动日历',
       path: 'CalendarScroll'
+    }
+  ],
+  /**
+   * 路由跳转
+   */
+  ROUTER_LIST: [
+    {
+      id: 0,
+      title: '路由跳转',
+      path: 'RouterPage'
     }
   ]
 }

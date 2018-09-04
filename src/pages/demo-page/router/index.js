@@ -17,6 +17,7 @@ const Alert = (resolve) => { require(['../views/toast-com/Alert.vue'], resolve) 
 const Confirm = (resolve) => { require(['../views/toast-com/Confirm.vue'], resolve) }
 const Prompt = (resolve) => { require(['../views/toast-com/Prompt.vue'], resolve) }
 const Select = (resolve) => { require(['../views/toast-com/Select.vue'], resolve) }
+const Popup = (resolve) => { require(['../views/toast-com/Popup.vue'], resolve) }
 const ActionSheet = (resolve) => { require(['../views/toast-com/ActionSheet.vue'], resolve) }
 const DateTime = (resolve) => { require(['../views/toast-com/DateTime.vue'], resolve) }
 
@@ -74,20 +75,14 @@ const ClockTime = (resolve) => { require(['../views/project-com/ClockTime.vue'],
 const Calendar = (resolve) => { require(['../views/project-com/Calendar.vue'], resolve) }
 const CalendarScroll = (resolve) => { require(['../views/project-com/CalendarScroll.vue'], resolve) }
 
-const BusinessFun = (resolve) => { require(['../views/BusinessFun.vue'], resolve) }
+/**
+ * 路由跳转
+ */
 const RouterPage = (resolve) => { require(['../views/RouterPage.vue'], resolve) }
 const RouterA = (resolve) => { require(['../views/RouterA.vue'], resolve) }
 const RouterB = (resolve) => { require(['../views/RouterB.vue'], resolve) }
 const RouterC = (resolve) => { require(['../views/RouterC.vue'], resolve) }
-const AppMain = (resolve) => { require(['../views/AppMain.vue'], resolve) }
-const DetailCom = (resolve) => { require(['../views/DetailCom.vue'], resolve) }
-const UiCom = (resolve) => { require(['../views/UiCom.vue'], resolve) }
-const TabCom = (resolve) => { require(['../views/TabCom.vue'], resolve) }
-const SwiperList = (resolve) => { require(['../views/SwiperList.vue'], resolve) }
-const ImgSwiper = (resolve) => { require(['../views/ImgSwiper.vue'], resolve) }
-const FormVail = (resolve) => { require(['../views/FormVail.vue'], resolve) }
-const WaterFall = (resolve) => { require(['../views/WaterFall.vue'], resolve) }
-const CalendarShow = (resolve) => { require(['../views/CalendarShow.vue'], resolve) }
+
 Vue.use(Router)
 Router.prototype.goBack = function (index) {
   this.isBack = true
@@ -150,6 +145,11 @@ export default new Router({
       path: '/select',
       name: 'Select',
       component: Select
+    },
+    {
+      path: '/popup',
+      name: 'Popup',
+      component: Popup
     },
     {
       path: '/actionsheet',
@@ -313,11 +313,6 @@ export default new Router({
       component: CalendarScroll
     },
     {
-      path: '/BusinessFun',
-      name: 'BusinessFun',
-      component: BusinessFun
-    },
-    {
       path: '/RouterPage',
       name: 'RouterPage',
       component: RouterPage
@@ -336,51 +331,6 @@ export default new Router({
       path: '/RouterC',
       name: 'RouterC',
       component: RouterC
-    },
-    {
-      path: '/AppMain',
-      name: 'AppMain',
-      component: AppMain
-    },
-    {
-      path: '/DetailCom',
-      name: 'DetailCom',
-      component: DetailCom
-    },
-    {
-      path: '/UiCom',
-      name: 'UiCom',
-      component: UiCom
-    },
-    {
-      path: '/TabCom',
-      name: 'TabCom',
-      component: TabCom
-    },
-    {
-      path: '/SwiperList',
-      name: 'SwiperList',
-      component: SwiperList
-    },
-    {
-      path: '/ImgSwiper',
-      name: 'ImgSwiper',
-      component: ImgSwiper
-    },
-    {
-      path: '/FormVail',
-      name: 'FormVail',
-      component: FormVail
-    },
-    {
-      path: '/WaterFall',
-      name: 'WaterFall',
-      component: WaterFall
-    },
-    {
-      path: '/CalendarShow',
-      name: 'CalendarShow',
-      component: CalendarShow
     }
   ]
 })
