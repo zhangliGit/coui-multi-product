@@ -2,7 +2,7 @@
     <div id="co-header" class="co-header co-flex co-ac">
       <div class="headSlide co-flex co-ac">
         <div v-show = "isBack || isBacPortal">
-            <i @click="back" v-if = "false" class="coicon coicon-return co-fs-3 co-cl-0"></i>
+            <i @click="back" class="coicon coicon-return co-fs-3 co-cl-0"></i>
         </div>
         <slot name="lef-btn"></slot>
       </div>
@@ -56,7 +56,7 @@ export default {
 
 <style lang = "less">
 .co-header {
-  background: #485668 !important;
+  background: #d81e06;
   .headSlide{
     min-width:4rem
   }
