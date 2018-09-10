@@ -56,19 +56,19 @@ export default {
   props: {
     isRequest: {
       type: Boolean,
-      defalut: false
+      default: false
     },
     pullDownRefresh: {
       type: Boolean,
-      defalut: false
+      default: false
     },
     pullUpLoad: {
       type: Boolean,
-      defalut: false
+      default: false
     },
     pageSize: {
       type: Number,
-      defalut: 15
+      default: 15
     }
   },
   data() {
