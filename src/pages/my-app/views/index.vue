@@ -52,39 +52,6 @@ export default {
   },
   computed: {
   },
-  beforeCreate() {
-    console.log('创建vue示例成功, 数据还没挂载')
-  },
-  created() {
-    console.log("数据创建成功")
-    console.log(this.title)
-  },
-  beforeMount() {
-    console.log("虚拟dom创建完成，但还没有完成挂载")
-  },
-  mounted () {
-    console.log("完成虚拟dom的挂载，数据渲染完毕")
-    console.log(this.title)
-    this.title = 'zhangli'
-  },
-  beforeUpdate() {
-    console.log("更新数据，数据重新渲染之前触发")
-  },
-  updated() {
-    console.log("数据重新渲染完毕")
-  },
-  beforeDestroy() {
-    console.log('组件销毁前执行')
-  },
-  destroyed() {
-    console.log('组件销毁后执行')
-  },
-  activated() {
-    console.log('组件')
-  },
-  deactivated() {
-    console.log('组件停用')
-  },
   methods: {
     goDetail () {
       this.$router.push({name: 'detail'})
