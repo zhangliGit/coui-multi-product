@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper co-f1 co-of" ref="wrapper">
+  <div class="wrapper co-f1 co-of " ref="wrapper">
     <div :style = "{minHeight: minH + 'px'}">
       <div v-show = "isFail" class="fail-dialog co-flex co-ver co-ac co-jc">
         <div>
