@@ -11,16 +11,16 @@
       <div class="co-flex co-bg-0 co-pd-a05 co-bd-b co-ac">
         <div>年龄：</div>
         <div class="co-f1">
-          <co-input v-model="address" isClear placeholder="请输入地址"></co-input>
+          <co-input v-model="address" is-clear placeholder="请输入地址"></co-input>
         </div>
       </div>
       <div class="co-flex co-bg-0 co-pd-a05 co-bd-b co-ac">
         <div>性别：</div>
         <div class="co-f1">
-          <co-input isRead v-model="sex"></co-input>
+          <co-input is-disable v-model="sex"></co-input>
         </div>
       </div>
-      <co-btn @btn="getData" isCircle bgColor="#">提交</co-btn>
+      <co-btn @btn="getData" is-circle bgColor="#">提交</co-btn>
     </div>
   </div>
 </template>

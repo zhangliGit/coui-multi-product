@@ -24,7 +24,9 @@ export default {
   props: {
     timeList: {
       type: Array,
-      default: []
+      default: function () {
+        return []
+      }
     }
   },
   filters: {

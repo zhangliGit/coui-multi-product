@@ -7,8 +7,8 @@
         <div class="co-pd-a08 co-bd-b" @click="goDetail">
           我的应用列表
         </div>
-        <div class="co-pd-a08 co-bd-b" @click="goDetail">
-          我的应用列表
+        <div class="co-pd-a08 co-bd-b co-flex co-ac" @click="goDetail">
+            我的应用列表
         </div>
       </div>
     </scroll-list>
@@ -62,4 +62,10 @@ export default {
 </script>
 
 <style scoped>
+  .div-img {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    background: red;
+  }
 </style>

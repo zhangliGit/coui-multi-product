@@ -74,7 +74,7 @@ const Star = (resolve) => { require(['../views/progress-com/Star.vue'], resolve)
 const ClockTime = (resolve) => { require(['../views/project-com/ClockTime.vue'], resolve) }
 const Calendar = (resolve) => { require(['../views/project-com/Calendar.vue'], resolve) }
 const CalendarScroll = (resolve) => { require(['../views/project-com/CalendarScroll.vue'], resolve) }
-
+const ApprovalList = (resolve) => { require(['../views/project-com/ApprovalList.vue'], resolve) }
 /**
  * 路由跳转
  */
@@ -165,7 +165,7 @@ export default new Router({
      * 表单控件
      */
     {
-      path: '/co-input',
+      path: '/Btn',
       name: 'Button',
       component: Button
     },
@@ -311,6 +311,11 @@ export default new Router({
       path: '/calendar-bar',
       name: 'CalendarScroll',
       component: CalendarScroll
+    },
+    {
+      path: '/ApprovalList',
+      name: 'ApprovalList',
+      component: ApprovalList
     },
     {
       path: '/RouterPage',

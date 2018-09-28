@@ -1,7 +1,7 @@
 <template>
   <div class="co-radio">
     <div class="co-flex co-ac co-wp co-of co-radio-com">
-      <div @click="chooseType(item)" :class="['co-radio-list', {'co-radio-list--active': JSON.stringify(list[index]).indexOf(JSON.stringify(selectList[0])) > -1}]" v-for="(item, index) in list" :key="index">{{item.name}}</div>
+      <div @click="chooseType(item)" :class="['co-radio-list', {'co-radio-list--active': JSON.stringify(listItem[index]).indexOf(JSON.stringify(selectList[0])) > -1}]" v-for="(item, index) in listItem" :key="index">{{item.name}}</div>
     </div>
   </div>
 </template>
@@ -16,7 +16,7 @@ export default {
       default: false
     },
     value: Array,
-    list: {
+    listItem: {
       type: Array,
       default: function () {
         return []
@@ -30,7 +30,6 @@ export default {
   },
   methods: {
     chooseType (item) {
-      console.log(this.isDisable)
       if (this.isDisable) return
       this.selectList = []
       this.selectList.push(item)

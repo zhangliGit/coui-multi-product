@@ -18,19 +18,20 @@ export default {
   name: 'HeaderCom',
   props: {
     title: {
-      type: String
+      type: String,
+      default: ''
     },
     isBack: {
       type: Boolean,
-      defualt: false
+      default: false
     },
     isBacPortal: {
       type: Boolean,
-      defualt: false
+      default: false
     },
     headerBg: {
       type: String,
-      defualt: '#d81e06'
+      default: '#d81e06'
     }
   },
   data () {
@@ -56,7 +57,7 @@ export default {
 
 <style lang = "less">
 .co-header {
-  background: #d81e06;
+  background: #d81e06 !important;
   .headSlide{
     min-width:4rem
   }

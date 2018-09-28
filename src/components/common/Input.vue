@@ -1,7 +1,7 @@
 <template>
     <div class="co-inp co-flex co-ac">
       <div class="co-f1 co-flex">
-        <input class="co-f1" :readonly="isRead" v-model="currentValue" :placeholder="placeholder" type="text" />
+        <input class="co-f1" :readonly="isDisable" v-model="currentValue" :placeholder="placeholder" type="text" />
       </div>
       <div class="co-mg-l04" v-show = "isClear" @click="clearText">
         <i class="coicon coicon-delete co-fs-3 co-cl-2"></i>
@@ -23,7 +23,7 @@ export default {
       type: Boolean,
       default: false
     },
-    isRead: {
+    isDisable: {
       type: Boolean,
       default: false
     }
