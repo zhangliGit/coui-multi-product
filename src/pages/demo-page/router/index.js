@@ -29,6 +29,7 @@ const Input = (resolve) => { require(['../views/form-com/Input.vue'], resolve) }
 const TextArea = (resolve) => { require(['../views/form-com/TextArea.vue'], resolve) }
 const Radio = (resolve) => { require(['../views/form-com/Radio.vue'], resolve) }
 const CheckBox = (resolve) => { require(['../views/form-com/CheckBox.vue'], resolve) }
+const Validate = (resolve) => { require(['../views/form-com/Validate.vue'], resolve) }
 const Switch = (resolve) => { require(['../views/form-com/Switch.vue'], resolve) }
 
 /**
@@ -188,6 +189,11 @@ export default new Router({
       path: '/checkbox',
       name: 'CheckBox',
       component: CheckBox
+    },
+    {
+      path: '/Validate',
+      name: 'Validate',
+      component: Validate
     },
     {
       path: '/switch',

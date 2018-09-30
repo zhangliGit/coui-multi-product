@@ -36,7 +36,7 @@ export default {
   }
 }
 </script>
-<style lang="less" >
+<style lang="less">
   .tab-button {
     height: 2.2rem;
     a {

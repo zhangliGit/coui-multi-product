@@ -144,6 +144,11 @@ const COUI = {
       title: '复选框',
       path: 'CheckBox'
     },
+    {
+      id: 5,
+      title: '表单验证',
+      path: 'Validate'
+    },
     // {
     //   id: 5,
     //   title: 'Switch切换',
