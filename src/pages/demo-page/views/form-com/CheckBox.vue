@@ -5,7 +5,7 @@
       <div class="co-flex co-bg-0 co-bd-b co-pd-a05">
         <div class="co-pd-t05">兴趣爱好:</div>
         <div class="co-f1 co-flex co-je">
-          <check-box v-model="selectList" :list-item="list"></check-box>
+          <check-box v-model="selectList" is-icon :list-item="list"></check-box>
         </div>
       </div>
     </div>

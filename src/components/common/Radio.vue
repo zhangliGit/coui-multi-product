@@ -1,8 +1,8 @@
 <template>
   <div class="co-radio">
-    <div :class="['co-flex co-ac co-wp co-of']">
+    <div :class="['co-flex co-ac co-wp co-of co-radio-com']">
       <div @click="chooseType(item)" :class="['co-radio-list', {'co-radio-mar': isMargin}, {'co-radio-radius': isCircle}, {'co-radio-list--active': JSON.stringify(listItem[index]).indexOf(JSON.stringify(selectList[0])) > -1}]" v-for="(item, index) in listItem" :key="index">
-        <i class="coicon coicon-success_fill"></i>
+        <i class="coicon coicon-success_fill" v-if="isIcon"></i>
         {{item.name}}
       </div>
     </div>
@@ -14,6 +14,10 @@ export default {
   components: {
   },
   props: {
+    isIcon: {
+      type: Boolean,
+      default: false
+    },
     isMargin: {
       type: Boolean,
       default: false,
