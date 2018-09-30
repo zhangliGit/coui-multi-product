@@ -1,7 +1,10 @@
 <template>
   <div class="co-radio">
-    <div class="co-flex co-ac co-wp co-of co-radio-com">
-      <div @click="chooseType(item)" :class="['co-radio-list', {'co-radio-list--active': JSON.stringify(listItem[index]).indexOf(JSON.stringify(selectList[0])) > -1}]" v-for="(item, index) in listItem" :key="index">{{item.name}}</div>
+    <div :class="['co-flex co-ac co-wp co-of']">
+      <div @click="chooseType(item)" :class="['co-radio-list', {'co-radio-mar': isMargin}, {'co-radio-radius': isCircle}, {'co-radio-list--active': JSON.stringify(listItem[index]).indexOf(JSON.stringify(selectList[0])) > -1}]" v-for="(item, index) in listItem" :key="index">
+        <i class="coicon coicon-success_fill"></i>
+        {{item.name}}
+      </div>
     </div>
   </div>
 </template>
@@ -11,6 +14,14 @@ export default {
   components: {
   },
   props: {
+    isMargin: {
+      type: Boolean,
+      default: false,
+    },
+    isCircle: {
+      type: Boolean,
+      default: false,
+    },
     isDisable: {
       type: Boolean,
       default: false
@@ -51,6 +62,13 @@ export default {
     background-color: #eee;
     padding: .3rem .6rem;
     border-right: 1px #ddd solid;
+  }
+  .co-radio-radius {
+    -webkit-border-radius: 5px;
+    border-radius: 5px
+  }
+  .co-radio-mar {
+    margin: 0 .2rem;
   }
   .co-radio-list:last-child {
     border-right:none;

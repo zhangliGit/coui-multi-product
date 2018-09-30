@@ -11,7 +11,7 @@
       <div class="co-flex co-ac co-bg-0 co-bd-b co-pd-a05">
         <div class="">事故类型1:</div>
         <div class="co-f1 co-flex co-je">
-          <radio v-model="selectList1" :list-item="list"></radio>
+          <radio v-model="selectList1" :list-item="list" is-icon is-margin is-circle></radio>
         </div>
       </div>
     </div>
@@ -62,5 +62,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+  /deep/ .co-radio {
+    .co-radio-list--active {
+      background-color: blue !important;
+      color: #fff
+    }
+  }
 </style>
