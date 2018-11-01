@@ -138,7 +138,10 @@ export default {
   mounted() {
     this.$nextTick(() => {
       if (this.pullDownRefresh) {
-        this.minH = this.$refs.wrapper.offsetHeight + 1
+        setTimeout(() => {
+          this.minH = this.$refs.wrapper.offsetHeight + 1
+          this.scroll.refresh()
+        }, 30)
       }
       if (!this.scroll) {
         const pullDownRefresh = this.pullDownRefresh
