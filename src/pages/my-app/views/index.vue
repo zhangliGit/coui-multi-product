@@ -2,6 +2,8 @@
   <div class="co-f1 co-flex co-ver co-cl-1">
     <header-com isBacPortal :title="title"></header-com>
     <!--pullDownRefresh pullUpLoad 这两个属性表示有上拉加载和 下拉刷新-->
+    <test></test>
+    <div class="color-blue">22</div>
     <scroll-list ref="scroll">
       <div class="co-bg-0">
         <div class="co-pd-a08 co-bd-b" @click="goDetail">
@@ -9,6 +11,11 @@
         </div>
         <div class="co-pd-a08 co-bd-b" @click="goDetail">
           我的应用列表
+        </div>
+        <div>
+          <x-button>
+            submit
+          </x-button>
         </div>
       </div>
     </scroll-list>
@@ -24,11 +31,15 @@
 <script>
 import HeaderCom from '@c/HeaderCom'
 import ScrollList from '@c/ScrollList'
+import { XButton } from 'vux'
+import test from './test.vue'
 export default {
   name: 'index',
   components: {
 		HeaderCom,
-		ScrollList
+    ScrollList,
+    XButton,
+    test
   },
   data () {
     return {
@@ -61,6 +72,14 @@ export default {
   }
 }
 </script>
-
-<style scoped>
+<style lang = "less" scoped>
+  .weui-btn_default {
+    background-color: red;
+  }
+  .color-blue {
+    color: red !important;
+  }
+  .weui-btn_default {
+    background-color: blue;
+  }
 </style>

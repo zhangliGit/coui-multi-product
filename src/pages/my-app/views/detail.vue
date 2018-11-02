@@ -3,6 +3,8 @@
     <header-com isBack :title="title"></header-com>
     <scroll-list ref="scroll">
       <div class="co-pd-a08 co-bg-0 co-cl-1">
+        <div class="color-blue">2121</div>
+        <x-button>按钮</x-button>
         <div>{{detail.title}}</div>
         <div class="co-pd-a08 co-tx-r">{{detail.time}}</div>
         <div class="co-line-3 co-text">
@@ -31,11 +33,13 @@
 <script>
 import HeaderCom from '@c/HeaderCom'
 import ScrollList from '@c/ScrollList'
+import { XButton } from 'vux'
 export default {
   name: 'DetailCom',
   components: {
     HeaderCom,
-    ScrollList
+    ScrollList,
+    XButton
   },
   data () {
     return {
@@ -63,5 +67,14 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang = "less" scoped>
+  .color-blue {
+    color: yellow !important;
+  }
+  .title-color {
+    color: red
+  }
+  .weui-btn_default {
+    background-color: blue;
+  }
 </style>
