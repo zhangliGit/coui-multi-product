@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper co-f1 co-of " ref="wrapper">
-    <div :style = "{minHeight: minH + 'px'}">
+    <div ref = "scrollH">
       <div v-show = "isFail" class="fail-dialog co-flex co-ver co-ac co-jc">
         <div>
           <i class="coicon coicon-wangluoguzhang co-cl-2" style="font-size: 4rem"></i>
@@ -75,7 +75,6 @@ export default {
     return {
       isFail: false,
       isShowData: this.isRequest,
-      minH: 0,
       autoTag: false,
       upTag: 0,
       loadTag: false,
@@ -139,9 +138,9 @@ export default {
     this.$nextTick(() => {
       if (this.pullDownRefresh) {
         setTimeout(() => {
-          this.minH = this.$refs.wrapper.offsetHeight + 1
+          this.$refs.scrollH.style.height = `${(this.$refs.wrapper.offsetHeight + 1)}px`
           this.scroll.refresh()
-        }, 30)
+        }, 100)
       }
       if (!this.scroll) {
         const pullDownRefresh = this.pullDownRefresh
