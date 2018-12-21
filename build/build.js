@@ -15,9 +15,11 @@ const fsCopy = require('fs-sync')
 const pagePath = path.resolve(__dirname,'../src/pages')
 const distPath = path.resolve(__dirname,'../dist')
 const glob = require('glob')
-const modulesDir = glob.sync(pagePath + '/*')
-
-// const spinner = ora('building for production...')
+/**
+ * 多应用模块开发时，同时编译打包会导致速度慢公用部分体积大，可以只打包当前开发的应用
+ */
+const modulesDir = glob.sync(pagePath + '/*') // 获取所有打包模块
+// const modulesDir = [demo-page', 'my-app'] // 设置对应打包模块
 var spinner = ora('building for ' + process.env.NODE_ENV + ' of ' + process.env.env_config+ ' mode...' )
 spinner.start()
 

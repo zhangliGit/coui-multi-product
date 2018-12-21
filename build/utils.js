@@ -7,8 +7,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const pagePath = path.resolve(__dirname,'../src/pages')
 const glob = require('glob')
-const modulesDir = glob.sync(pagePath + '/*')
-
+/**
+ * 多应用模块开发时，同时编译会导致速度慢，可以只编译当前开发时的应用，填写对应模块文件名即可（index必须）
+ */
+const modulesDir = glob.sync(pagePath + '/*') // 获取所有打包模块
+// const modulesDir = ['index', 'demo-page', 'my-app'] // 设置对应打包模块
 exports.entries = function () {
   let entries = {};
   modulesDir.forEach((file) => {
