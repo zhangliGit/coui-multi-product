@@ -1,6 +1,6 @@
 ## coui-multi-product
 
-**基于vue和webpack的多页面移动应用模板，使用vux ui框架，同时封装了一些常用的组件，适合开发门户轻应用类集合应用**
+**基于vue和webpack的多页面移动应用模板，使用vux ui框架，同时封装了一些常用的组件，适合开发门户轻应用类集合应用(多模块同时开发，分割打包)**
 
 ### 脚手架安装
 
@@ -30,11 +30,11 @@ npm run dev // 本地开发调试
 ```
 let baseUrl = ''
 if (process.env.NODE_ENV === 'testing') { // 测试环境
-  baseUrl = ''
+  baseUrl = 'http://testing'
 } else if (process.env.NODE_ENV === 'development') { // 开发环境
-  baseUrl = ''
+  baseUrl = 'http://development'
 } else if (process.env.NODE_ENV === 'production') { // 生产环境
-  baseUrl = ''
+  baseUrl = 'http://production'
 }
 export {
   baseUrl
@@ -68,6 +68,6 @@ npm run build--test // 打包测试环境
 
 ### 项目展示
 
-> [项目基础模块DEMO](http://xiaoyueyue.com.cn:8080/coui-demo/index.html)
+> [项目基础模块DEMO](http://xiaoyueyue.com.cn:8080/coui-demo/index/index.html)
 
 ![项目展示](http://xiaoyueyue.com.cn:8080/demoPage.png)
