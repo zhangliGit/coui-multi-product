@@ -250,8 +250,8 @@ export default {
   z-index: 1;
   width: 100%;
   position: absolute;
-  top: -44px;
-  height: 44px;
+  top: -88px;
+  height: 88px;
   text-align: center;
   color: #333;
 }
