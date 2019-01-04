@@ -10,6 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 const env = config.build[process.env.env_config+'Env']
 // const env = process.env.NODE_ENV === 'testing'
 //   ? require('../config/test.env')
@@ -30,7 +31,9 @@ const webpackConfig = merge(baseWebpackConfig, {
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
   plugins: [
-    // http://vuejs.github.io/vue-loader/en/workflow/production.html
+    /**
+     * 正式构建时删除dist目录文件
+     */
     new webpack.DefinePlugin({
       'process.env': env
     }),
@@ -127,8 +130,9 @@ const webpackConfig = merge(baseWebpackConfig, {
         to: path.resolve(__dirname, '../test'),
         ignore: ['.*']
       }
-    ])
-  ].concat(utils.prodHttpPlugins())
+    ]),
+    new CleanWebpackPlugin(['../dist'], { root: __dirname, allowExternal: true })
+  ].concat(utils.prodHttpPlugins()),
 })
 
 if (config.build.productionGzip) {
