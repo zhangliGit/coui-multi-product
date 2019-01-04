@@ -10,16 +10,17 @@ const chalk = require('chalk')
 const webpack = require('webpack')
 const config = require('../config')
 const zipper = require('zip-local')
+const utils = require('./utils')
 const webpackConfig = require('./webpack.prod.conf')
 const fsCopy = require('fs-sync')
 const pagePath = path.resolve(__dirname,'../src/pages')
 const distPath = path.resolve(__dirname,'../dist')
-const glob = require('glob')
+const glob = require('glob');
+let modulesDir = utils.defineDir();
 /**
- * 多应用模块开发时，同时编译打包会导致速度慢公用部分体积大，可以只打包当前开发的应用
+ * 多模块开发时，项目中所有按需加载的模块都打包在js文件夹中，这样导致单个模块发布的时候体积增大
+ * 模块正式打包时，推荐只打包当前正在开发的模块，这样会减少模块打包后的体积
  */
-const modulesDir = glob.sync(pagePath + '/*') // 获取所有打包模块
-// const modulesDir = [demo-page', 'my-app'] // 设置对应打包模块
 var spinner = ora('building for ' + process.env.NODE_ENV + ' of ' + process.env.env_config+ ' mode...' )
 spinner.start()
 
@@ -42,7 +43,7 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
     }
 
     modulesDir.forEach((file) => {
-      let pageDir = file.split('/')[file.split('/').length-1]
+      let pageDir = file.split('/')[file.split('/').length-1];
       fsCopy.copy(path.resolve(__dirname,'../dist/static'), path.resolve(__dirname, `../dist/${pageDir}/static`))
       glob.sync(distPath + `/${pageDir}/static/js/*`).forEach((file) => {
         var fileName = file.split('/')[file.split('/').length-1].split('.')[0]

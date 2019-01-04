@@ -8,19 +8,34 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const pagePath = path.resolve(__dirname,'../src/pages')
 const glob = require('glob')
 /**
- * 多应用模块开发时，同时编译会导致速度慢，可以只编译当前开发时的应用，填写对应模块文件名即可（index必须）
+ * 自定义编译或打包的模块
+ * 多应用模块开发时，所有模块同时编译会导致速度慢，可以只编译当前开发时的应用
+ * 只需填写对应模块的文件目录名即可，{index为开发入口模块，必填}
  */
-const modulesDir = glob.sync(pagePath + '/*') // 获取所有打包模块
-// const modulesDir = ['index', 'demo-page', 'my-app'] // 设置对应打包模块
+const defineDir = [
+  'index',
+  'my-app',
+];
+const modulesDir = [
+  /**
+   * 编译所有模块, webpack3.x速度有点慢
+   */
+  glob.sync(pagePath + '/*').map(file => {
+    return file.split('/')[file.split('/').length-1]
+  }),
+  defineDir
+][0]; // 设置编译方式 0为全部编译 1 为自定义编译
 exports.entries = function () {
   let entries = {};
   modulesDir.forEach((file) => {
-    const pageDir = file.split('/')[file.split('/').length-1]
-    entries[pageDir] = `./src/pages/${pageDir}/index.js`
+    entries[file] = `./src/pages/${file}/index.js`
   })
   return entries
 }
 
+exports.defineDir = function() {
+  return modulesDir;
+}
 exports.devHttpPlugins = function () {
   let devHttpPlugin = []
   modulesDir.forEach((file) => {
