@@ -29,19 +29,19 @@ export default {
       title: 'select选择框',
       selectList: [
        {
-          key: 1,
+          id: 1,
           value: '小米'
         },
         {
-          key: 2,
+          id: 2,
           value: '苹果'
         },
         {
-          key: 3,
+          id: 3,
           value: '三星'
         },
         {
-          key: 4,
+          id: 4,
           value: '华为'
         }
       ]
