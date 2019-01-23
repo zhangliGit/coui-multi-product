@@ -8,7 +8,7 @@ import store from './store/index.js'
 import { corJs, corNative } from 'corlib'
 import validateForm from '../../assets/js/validate-form'
 require('../../assets/js/vux-plugin.js')
-require('../../assets/css/vux.css')
+require('../../assets/css/common.css')
 require('corlib/lib/iconfont.css')
 require('corlib/lib/flex.css')
 require('corlib/lib/base.css')
