@@ -54,7 +54,6 @@
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
-  width:2rem !important;
 .weui-icon_toast.weui-loading {
   height:2rem !important
 }
