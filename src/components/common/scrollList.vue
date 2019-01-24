@@ -1,6 +1,9 @@
 <template>
   <div class="wrapper co-f1 co-of " ref="wrapper">
     <div ref = "scrollH">
+      <div @click="goTop" v-if="toTop" class="scrollToTop co-flex co-ac co-jc" ref="scrollToTop">
+        <i class="coicon coicon-jiantou co-cl-0 co-fs-4"></i>
+      </div>
       <div v-show = "isFail" class="fail-dialog co-flex co-ver co-ac co-jc">
         <div>
           <i class="coicon coicon-wangluoguzhang co-cl-2" style="font-size: 4rem"></i>
@@ -69,6 +72,10 @@ export default {
     pageSize: {
       type: Number,
       default: 15
+    },
+    toTop: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -96,8 +103,11 @@ export default {
         this.scroll.refresh();
       });
     },
+    goTop() {
+      this.scroll.scrollTo(0, 0, 500, 'easing')
+    },
     upShow(len) {
-      this.scroll.scrollTo(0, 0, 0)
+      this.scroll.scrollTo(0, 0, 300, 'easing')
       if (typeof len === 'undefined') {
         if (!this.isShowData) {
           return
@@ -132,10 +142,17 @@ export default {
     downEnd() {
       this.scroll.finishPullUp()
       this.refresh()
+    },
+    setTop () {
+      let dTop = document.createElement('div')
+      dTop.className = "scrollToTop"
+      document.body.appendChild(dTop);
     }
   },
   mounted() {
     this.$nextTick(() => {
+      //this.setTop();
+      let _self = this;
       if (this.pullDownRefresh) {
         setTimeout(() => {
           this.$refs.scrollH.style.minHeight = `${(this.$refs.wrapper.offsetHeight + 1)}px`
@@ -168,6 +185,14 @@ export default {
         *监听手势y轴滑动距离
         */
         this.scroll.on("scroll", pos => {
+          let scrollY = Math.round(-(pos.y));
+          if (_self.toTop) {
+            if (scrollY >= _self.$refs.wrapper.offsetHeight) {
+              _self.$refs.scrollToTop.style.bottom = `${_self.$refs.scrollH.offsetHeight - _self.$refs.wrapper.offsetHeight - scrollY + 20}px`;
+            } else {
+              _self.$refs.scrollToTop.style.bottom = '100000px';
+            }
+          }
           if (!this.pullDownRefresh) {
             return
           }
@@ -233,6 +258,16 @@ export default {
 </script>
 
 <style lang = "less">
+.scrollToTop {
+  position:absolute;
+  width:80px;
+  height:80px;
+  background:#444;
+  z-index:9999;
+  border-radius: 100%;
+  left: 40px;
+  bottom: 100000px;
+}
 .fail-dialog {
   padding-top: 3rem;
   width: 100%;
@@ -253,7 +288,7 @@ export default {
   top: -88px;
   height: 88px;
   text-align: center;
-  color: #333;
+  color: #666;
 }
 .scroll-nodata-pd {
   background:#fff;
