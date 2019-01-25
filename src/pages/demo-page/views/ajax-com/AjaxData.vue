@@ -15,6 +15,7 @@
 <script>
 import HeaderCom from '@c/HeaderCom'
 import ScrollList from '@c/ScrollList'
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'AjaxData',
   beforeRouteEnter (to, from, next) {
@@ -40,38 +41,18 @@ export default {
     return {
       title: '网络请求',
       page: 1,
-      pageSize: 10,
-      dataList: []
+      pageSize: 10
     }
   },
   computed: {
+    ...mapState('demoPage', [
+      'dataList'
+    ])
   },
   methods: {
-    showData (obj) {
-      if (obj.type === 0) {
-        this.page = 1
-      } else {
-        this.page ++
-      }
-      this.$ajax({
-        url: 'http://yapi.demo.qunar.com/mock/9603/getList',
-        type: 'get',
-        params: {
-          page: this.page,
-          pageSize: this.pageSize
-        }
-      }).then(data => {
-        let result = data.data
-        if (obj.type === 0) {
-          this.dataList = result
-        } else {
-          this.dataList = this.dataList.concat(result)
-        }
-        obj.cb(result.length)
-      }).catch((error) => {
-        obj.cb()
-      })
-    },
+    ...mapActions('demoPage',[
+      'showData'
+    ]),
     goDetail () {
       this.$router.push('/AjaxDetail') 
     },
