@@ -108,6 +108,7 @@ export default {
     },
     upShow(len) {
       this.scroll.scrollTo(0, 0, 300, 'easing')
+      this.refresh();
       if (typeof len === 'undefined') {
         if (!this.isShowData) {
           return
@@ -151,7 +152,6 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      //this.setTop();
       let _self = this;
       if (this.pullDownRefresh) {
         setTimeout(() => {
@@ -184,13 +184,15 @@ export default {
         /*
         *监听手势y轴滑动距离
         */
+        let st = _self.$refs.scrollToTop
         this.scroll.on("scroll", pos => {
-          let scrollY = Math.round(-(pos.y));
+          let ri = _self.$refs.refreshIcon
+          let scrollY = Math.round(-(pos.y))
           if (_self.toTop) {
             if (scrollY >= _self.$refs.wrapper.offsetHeight) {
-              _self.$refs.scrollToTop.style.bottom = `${_self.$refs.scrollH.offsetHeight - _self.$refs.wrapper.offsetHeight - scrollY + 20}px`;
+              st.style.bottom = `${_self.$refs.scrollH.offsetHeight - _self.$refs.wrapper.offsetHeight - scrollY + 20}px`
             } else {
-              _self.$refs.scrollToTop.style.bottom = '100000px';
+              st.style.bottom = '100000px'
             }
           }
           if (!this.pullDownRefresh) {
@@ -198,14 +200,12 @@ export default {
           }
           if (pos.y > 60) {
             try {
-              this.$refs.refreshIcon.style.transform = 'rotate(0deg)'
-              this.$refs.refreshIcon.style.webkitTransform = 'rotate(0deg)'
+              ri.style.transform = 'rotate(0deg)'
             } catch(e) {}
-            this.upTag = 1;
+            this.upTag = 1
           } else {
             try {
-              this.$refs.refreshIcon.style.transform = 'rotate(180deg)'
-              this.$refs.refreshIcon.style.webkitTransform = 'rotate(180deg)'
+              ri.style.transform = 'rotate(180deg)'
             } catch(e) {}
             this.upTag = 0
           }
@@ -260,10 +260,10 @@ export default {
 <style lang = "less">
 .scrollToTop {
   position:absolute;
-  width:80px;
-  height:80px;
+  width:  80px;
+  height: 80px;
   background:#444;
-  z-index:9999;
+  z-index: 9999;
   border-radius: 100%;
   left: 40px;
   bottom: 100000px;

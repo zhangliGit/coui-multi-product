@@ -46,13 +46,10 @@ export default {
   .tipC {
     position: absolute;
     top: .9rem;
-    left: .773rem;
-    width: .4rem;
-    height: .4rem;
-    line-height: 1.1rem;
-    text-align: center;
-    font-size: 0.6rem;
-    color: #fff;
+    left: 28px;
+    width: 20px;
+    height: 20px;
+    line-height: 10px;
     background: red;
     -webkit-border-radius: 100%;
     border-radius: 100%;
