@@ -4,13 +4,14 @@
     <!--pullDownRefresh pullUpLoad 这两个属性表示有上拉加载和 下拉刷新-->
     <scroll-list ref="scroll">
       <div class="co-bg-0">
-        <div class="co-pd-a08 co-bd-b" @click="goDetail">
+        <div class="co-pd-a08 co-bd-b btn-tap-bg" @click="goDetail">
           我的应用列表
         </div>
-        <div class="co-pd-a08 co-bd-b co-flex co-ac" @click="goDetail">
+        <div class="co-pd-a08 co-bd-b co-flex co-ac btn-tap-bg" @click="goDetail">
             我的应用列表
         </div>
       </div>
+      <co-btn></co-btn>
     </scroll-list>
     <div id="co-footer" class="co-bg-0 co-bd-t co-flex co-ac co-fs-01 co-cl-1">
       <div v-for="(item, index) in footer" :key="index" :class="['co-f1 co-flex co-ver co-ac co-jc',{'co-cl-4': current == index}]">
@@ -28,7 +29,7 @@ export default {
   name: 'index',
   components: {
 		HeaderCom,
-		ScrollList
+		ScrollList,
   },
   data () {
     return {
@@ -57,15 +58,10 @@ export default {
       this.$router.push({name: 'detail'})
     }
   },
-  
+  mounted() {
+  },
 }
 </script>
 
 <style scoped>
-  .div-img {
-    width: 100px;
-    height: 100px;
-    margin-right: 10px;
-    background: red;
-  }
 </style>

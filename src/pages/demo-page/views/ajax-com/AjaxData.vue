@@ -58,13 +58,6 @@ export default {
     },
   },
   mounted () {
-    let _self = this
-    this.showData({
-      type: 0,
-      cb (len) {
-        _self.$refs.scroll.upShow(len)
-      }
-    })
   }
 }
 </script>

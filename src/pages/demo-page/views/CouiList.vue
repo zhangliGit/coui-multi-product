@@ -11,8 +11,8 @@
       </div>
       <scroll-list>
         <div>
-          <div v-for="(item, index) in couiList" :key="index" @click="goList(item.path, item.title)" class="co-bd-b co-flex co-ac demo-list co-bg-0 co-te">
-            <div class="co-f1">
+          <div v-for="(item, index) in couiList" :key="index" @click="goList(item.path, item.title)" class="co-bd-b co-flex co-ac demo-list co-bg-0 btn-tap-bg">
+            <div class="co-f1  co-te">
               {{item.title}}
             </div>
             <i class="coicon coicon-enter"></i>

@@ -33,6 +33,7 @@ export default {
 </script>
 
 <style>
+@import url('../../assets/css/common.css');
 .Router {
   transition: all .2s ease-in-out;
 }
