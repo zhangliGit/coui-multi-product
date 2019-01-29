@@ -7,7 +7,6 @@ import $ajax from '../../assets/js/ajax-service.js'
 import store from './store/index.js'
 import { corJs, corNative, corPlugin } from 'corlib'
 require('../../assets/js/vux-plugin.js')
-require('../../assets/css/common.css')
 require('corlib/lib/iconfont.css')
 require('corlib/lib/flex.css')
 require('corlib/lib/base.css')

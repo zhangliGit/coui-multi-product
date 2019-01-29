@@ -156,7 +156,7 @@ export default {
       if (this.pullDownRefresh) {
         setTimeout(() => {
           this.$refs.scrollH.style.minHeight = `${(this.$refs.wrapper.offsetHeight + 1)}px`
-          this.scroll.refresh()
+          this.init()
         }, 100)
       }
       if (!this.scroll) {
