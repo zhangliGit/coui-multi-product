@@ -11,7 +11,6 @@
             我的应用列表
         </div>
       </div>
-      <co-btn></co-btn>
     </scroll-list>
     <div id="co-footer" class="co-bg-0 co-bd-t co-flex co-ac co-fs-01 co-cl-1">
       <div v-for="(item, index) in footer" :key="index" :class="['co-f1 co-flex co-ver co-ac co-jc',{'co-cl-4': current == index}]">
