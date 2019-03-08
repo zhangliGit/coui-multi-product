@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper co-f1 co-of" ref="wrapper">
+  <div class="wrapper co-f1 co-of " ref="wrapper">
     <div :style = "{minHeight: minH + 'px'}">
       <div v-show = "isFail" class="fail-dialog co-flex co-ver co-ac co-jc">
         <div>
@@ -138,7 +138,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       if (this.pullDownRefresh) {
-        this.minH = this.$refs.wrapper.offsetHeight + 1
+          this.minH = this.$refs.wrapper.offsetHeight + 1
       }
       if (!this.scroll) {
         const pullDownRefresh = this.pullDownRefresh

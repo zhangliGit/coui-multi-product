@@ -128,22 +128,27 @@ const COUI = {
       id: 1,
       title: '文本框',
       path: 'Input'
-    }
+    },
     // {
     //   id: 2,
     //   title: '文本区域',
     //   path: 'TextArea'
     // },
-    // {
-    //   id: 3,
-    //   title: '单选框',
-    //   path: 'Radio'
-    // },
-    // {
-    //   id: 4,
-    //   title: '复选框',
-    //   path: 'CheckBox'
-    // },
+    {
+      id: 3,
+      title: '单选框',
+      path: 'Radio'
+    },
+    {
+      id: 4,
+      title: '复选框',
+      path: 'CheckBox'
+    },
+    {
+      id: 5,
+      title: '表单验证',
+      path: 'Validate'
+    },
     // {
     //   id: 5,
     //   title: 'Switch切换',
@@ -283,6 +288,11 @@ const COUI = {
       id: 2,
       title: '滑动日历',
       path: 'CalendarScroll'
+    },
+    {
+      id: 3,
+      title: '审批流程',
+      path: 'ApprovalList'
     }
   ],
   /**

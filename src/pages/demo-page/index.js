@@ -6,6 +6,7 @@ import router from './router'
 import $ajax from '../../assets/js/ajax-service.js'
 import store from './store/index.js'
 import { corJs, corNative } from 'corlib'
+import validateForm from '../../assets/js/validate-form'
 require('../../assets/js/vux-plugin.js')
 require('../../assets/css/vux.css')
 require('corlib/lib/iconfont.css')
@@ -19,6 +20,7 @@ Vue.config.productionTip = false
 Vue.prototype.$ajax = $ajax
 Vue.prototype.corJs = corJs
 Vue.prototype.corNative = corNative
+Vue.prototype.$validateForm = validateForm
 const attachFastClick = require('fastclick')
 attachFastClick.attach(document.body)
 new Vue({

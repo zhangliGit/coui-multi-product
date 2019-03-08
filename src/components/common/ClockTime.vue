@@ -1,7 +1,7 @@
   <template>
     <div class="co-pd-t1">
       <div class="co-flex" v-for="(item, index) in timeList" :key="index">
-        <div class="timeLine">
+        <div class="time-list">
           <div class="tipC">{{item.tip == 0 ? '上' : '下'}}</div>
         </div>
         <div class="co-f1">
@@ -24,7 +24,9 @@ export default {
   props: {
     timeList: {
       type: Array,
-      default: []
+      default: function () {
+        return []
+      }
     }
   },
   filters: {
@@ -49,8 +51,8 @@ export default {
   }
 }
 </script>
-<style lang="less" scoped>
- .timeLine {
+<style lang="less">
+ .time-list {
    border-right: 2px red solid;
    width: 1rem;
    min-height:4.8rem;
