@@ -245,7 +245,6 @@ export default {
         document.getElementById('calendar').style.height =  3.2 * sortDate.length + 'rem'
       }
       this.sortDate = sortDate
-      console.log(this.sortDate)
     },
     toogleCal () {
       if (this.isOpen) {
