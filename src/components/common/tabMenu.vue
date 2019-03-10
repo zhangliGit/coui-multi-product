@@ -2,7 +2,7 @@
     <div class="tab-menu">
       <tab>
         <tab-item :selected="index === 0" :key="index" v-for="(item, index) in tabMenu" @on-item-click="tabClick(item)">
-          <div><div class="tip-num co-flex co-ac co-jc" v-if="item.tip != 0">21</div>{{item.name}}</div>
+          <div><div class="tip-num co-flex co-ac co-jc" v-if="item.tip != 0">{{item.tip}}</div>{{item.name}}</div>
         </tab-item>
       </tab>
     </div>
@@ -36,7 +36,7 @@ export default {
 </script>
 <style lang="less">
   .tab-menu {
-    height: 2.2rem;
+    height: 44PX;
     .tip-num {
       position: absolute;
       width: .9rem;

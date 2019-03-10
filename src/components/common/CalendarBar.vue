@@ -82,7 +82,6 @@ export default {
       month = parseInt(month)
       let days = new Date(year,month,0).getDate()
       this.weekDayList = []
-      console.log(days)
       for (let i = 1; i <= days; i++) {
         var day = year + '/' + month + '/' + i
         var obj = {

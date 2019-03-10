@@ -1,10 +1,11 @@
 import $ajax from '@a/js/ajax-service.js'
+const localData = window.localStorage.getItem('vuex')
 const demoPage = {
   namespaced: true,
   state: {
     page: 1,
     pageSize: 10,
-    dataList: [],
+    dataList: localData ? JSON.parse(localData).demoPage.dataList : [],
     dataDetail: {}
   },
   actions: {

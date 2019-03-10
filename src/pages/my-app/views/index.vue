@@ -4,10 +4,10 @@
     <!--pullDownRefresh pullUpLoad 这两个属性表示有上拉加载和 下拉刷新-->
     <scroll-list ref="scroll">
       <div class="co-bg-0">
-        <div class="co-pd-a08 co-bd-b" @click="goDetail">
+        <div class="co-pd-a08 co-bd-b btn-tap-bg div-col" @click="goDetail">
           我的应用列表
         </div>
-        <div class="co-pd-a08 co-bd-b co-flex co-ac" @click="goDetail">
+        <div class="co-pd-a08 co-bd-b co-flex co-ac btn-tap-bg" @click="goDetail">
             我的应用列表
         </div>
         <dialog-com></dialog-com>
@@ -25,17 +25,11 @@
 <script>
 import HeaderCom from '@c/HeaderCom'
 import ScrollList from '@c/ScrollList'
-import { DialogCom } from '../components'
-import { XButton } from 'vux'
-import test from './test.vue'
 export default {
   name: 'index',
   components: {
 		HeaderCom,
-    ScrollList,
-    XButton,
-    test,
-    DialogCom
+		ScrollList,
   },
   data () {
     return {
@@ -64,15 +58,10 @@ export default {
       this.$router.push({name: 'detail'})
     }
   },
-  
+  mounted() {
+  },
 }
 </script>
 
-<style scoped>
-  .div-img {
-    width: 100px;
-    height: 100px;
-    margin-right: 10px;
-    background: red;
-  }
+<style lang="less">
 </style>

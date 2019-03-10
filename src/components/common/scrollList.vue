@@ -1,6 +1,9 @@
 <template>
   <div class="wrapper co-f1 co-of " ref="wrapper">
-    <div :style = "{minHeight: minH + 'px'}">
+    <div ref = "scrollH">
+      <div @click="goTop" v-if="toTop" class="scrollToTop co-flex co-ac co-jc" ref="scrollToTop">
+        <i class="coicon coicon-jiantou co-cl-0 co-fs-4"></i>
+      </div>
       <div v-show = "isFail" class="fail-dialog co-flex co-ver co-ac co-jc">
         <div>
           <i class="coicon coicon-wangluoguzhang co-cl-2" style="font-size: 4rem"></i>
@@ -69,13 +72,16 @@ export default {
     pageSize: {
       type: Number,
       default: 15
+    },
+    toTop: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
     return {
       isFail: false,
       isShowData: this.isRequest,
-      minH: 0,
       autoTag: false,
       upTag: 0,
       loadTag: false,
@@ -97,8 +103,12 @@ export default {
         this.scroll.refresh();
       });
     },
+    goTop() {
+      this.scroll.scrollTo(0, 0, 500, 'easing')
+    },
     upShow(len) {
-      this.scroll.scrollTo(0, 0, 0)
+      this.scroll.scrollTo(0, 0, 300, 'easing')
+      this.refresh();
       if (typeof len === 'undefined') {
         if (!this.isShowData) {
           return
@@ -133,12 +143,21 @@ export default {
     downEnd() {
       this.scroll.finishPullUp()
       this.refresh()
+    },
+    setTop () {
+      let dTop = document.createElement('div')
+      dTop.className = "scrollToTop"
+      document.body.appendChild(dTop);
     }
   },
   mounted() {
     this.$nextTick(() => {
+      let _self = this;
       if (this.pullDownRefresh) {
-          this.minH = this.$refs.wrapper.offsetHeight + 1
+        setTimeout(() => {
+          this.$refs.scrollH.style.minHeight = `${(this.$refs.wrapper.offsetHeight + 1)}px`
+          this.init()
+        }, 100)
       }
       if (!this.scroll) {
         const pullDownRefresh = this.pullDownRefresh
@@ -165,20 +184,28 @@ export default {
         /*
         *监听手势y轴滑动距离
         */
+        let st = _self.$refs.scrollToTop
         this.scroll.on("scroll", pos => {
+          let ri = _self.$refs.refreshIcon
+          let scrollY = Math.round(-(pos.y))
+          if (_self.toTop) {
+            if (scrollY >= _self.$refs.wrapper.offsetHeight) {
+              st.style.bottom = `${_self.$refs.scrollH.offsetHeight - _self.$refs.wrapper.offsetHeight - scrollY + 20}px`
+            } else {
+              st.style.bottom = '100000px'
+            }
+          }
           if (!this.pullDownRefresh) {
             return
           }
           if (pos.y > 60) {
             try {
-              this.$refs.refreshIcon.style.transform = 'rotate(0deg)'
-              this.$refs.refreshIcon.style.webkitTransform = 'rotate(0deg)'
+              ri.style.transform = 'rotate(0deg)'
             } catch(e) {}
-            this.upTag = 1;
+            this.upTag = 1
           } else {
             try {
-              this.$refs.refreshIcon.style.transform = 'rotate(180deg)'
-              this.$refs.refreshIcon.style.webkitTransform = 'rotate(180deg)'
+              ri.style.transform = 'rotate(180deg)'
             } catch(e) {}
             this.upTag = 0
           }
@@ -231,6 +258,16 @@ export default {
 </script>
 
 <style lang = "less">
+.scrollToTop {
+  position:absolute;
+  width:  80px;
+  height: 80px;
+  background:#444;
+  z-index: 9999;
+  border-radius: 100%;
+  left: 40px;
+  bottom: 100000px;
+}
 .fail-dialog {
   padding-top: 3rem;
   width: 100%;
@@ -248,10 +285,10 @@ export default {
   z-index: 1;
   width: 100%;
   position: absolute;
-  top: -44px;
-  height: 44px;
+  top: -88px;
+  height: 88px;
   text-align: center;
-  color: #333;
+  color: #666;
 }
 .scroll-nodata-pd {
   background:#fff;

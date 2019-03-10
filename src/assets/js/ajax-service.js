@@ -13,7 +13,6 @@ function checkParams (params) {
 function errorToast (e) {
   Vue.$vux.loading.hide()
   let info
-  console.log(JSON.stringify(e))
   if (e.code) {
     info = '数据请求失败'
   } else {

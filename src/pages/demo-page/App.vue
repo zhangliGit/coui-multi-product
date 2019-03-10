@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <transition :name="transitionName">
-      <keep-alive include="HomePage,AjaxData">
+      <keep-alive include="HomePage">
         <router-view  class="Router co-Page co-flex co-cl-1" />
       </keep-alive>
     </transition>
@@ -32,7 +32,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
+@import '../../assets/css/common.less';
 .Router {
   transition: all .2s ease-in-out;
 }

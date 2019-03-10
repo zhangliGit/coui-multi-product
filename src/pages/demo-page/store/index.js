@@ -1,6 +1,7 @@
 /**
  * 公用store模块
  */
+import createPersistedState from 'vuex-persistedstate'
 import Vue from 'vue'
 import Vuex from 'vuex'
 import demoPage from './modules/list-data.js'
@@ -18,5 +19,6 @@ export default new Vuex.Store({
 
   },
   mutations: {
-  }
+  },
+  plugins: [createPersistedState()]
 })

@@ -38,7 +38,7 @@
   }
 
   .calendar-header {
-    height: 24px;
+    height: 48px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,7 +74,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    top: 4px;
+    top: 8px;
   }
 
   .calendar-day.current {
@@ -95,25 +95,25 @@
 
   .calendar-day.exception:before {
     content: '';
-    width: 4px;
-    height: 4px;
+    width: 8px;
+    height: 8px;
     background: #d0021b;
     border-radius: 50%;
     position: absolute;
     left: 50%;
     top: -.4rem;
-    margin-left: -2px;
+    margin-left: -4px;
   }
 
   .calendar-day i:last-child {
-    font-size: 10px;
+    font-size: 20px;
     color: #8a8a8a;
   }
 
   .calendar-btn {
     height: 1.5rem;
     background: #fff;
-    border-top: 1px solid #e9e9e9;
+    border-top: 2px solid #e9e9e9;
     text-align: center;
   }
 
@@ -133,8 +133,6 @@
     -webkit-transition: height .6s ease;
     transition: height .6s ease;
     overflow: hidden;
-  }
-  .showHeight {
   }
 </style>
 
@@ -247,7 +245,6 @@ export default {
         document.getElementById('calendar').style.height =  3.2 * sortDate.length + 'rem'
       }
       this.sortDate = sortDate
-      console.log(this.sortDate)
     },
     toogleCal () {
       if (this.isOpen) {
