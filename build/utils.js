@@ -7,17 +7,34 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const pagePath = path.resolve(__dirname,'../src/pages')
 const glob = require('glob')
-const modulesDir = glob.sync(pagePath + '/*')
-
+/**
+ * 自定义编译或打包的模块
+ * 多应用模块开发时，所有模块同时编译会导致速度慢，可以只编译当前开发时的应用
+ * 只需填写对应模块的文件目录名即可，{index为开发入口模块，必填}
+ */
+const defineDir = [
+  'index',
+];
+const modulesDir = [
+  /**
+   * 编译所有模块, webpack3.x速度有点慢
+   */
+  glob.sync(pagePath + '/*').map(file => {
+    return file.split('/')[file.split('/').length-1]
+  }),
+  defineDir
+][0]; // 设置编译方式 0为全部编译 1 为自定义编译
 exports.entries = function () {
   let entries = {};
   modulesDir.forEach((file) => {
-    const pageDir = file.split('/')[file.split('/').length-1]
-    entries[pageDir] = `./src/pages/${pageDir}/index.js`
+    entries[file] = `./src/pages/${file}/index.js`
   })
   return entries
 }
 
+exports.defineDir = function() {
+  return modulesDir;
+}
 exports.devHttpPlugins = function () {
   let devHttpPlugin = []
   modulesDir.forEach((file) => {
@@ -96,7 +113,30 @@ exports.cssLoaders = function (options) {
       sourceMap: options.sourceMap
     }
   }
-
+  
+  // 配置less全局变量访问
+  function lessResourceLoader() {
+    var loaders = [
+        cssLoader,
+        'less-loader',
+        {
+            loader: 'sass-resources-loader',
+            options: {
+                resources: [
+                    path.resolve(__dirname, '../src/assets/css/common.less'),
+                ]
+            }
+                    }
+    ];
+    if (options.extract) {
+        return ExtractTextPlugin.extract({
+            use: loaders,
+            fallback: 'vue-style-loader'
+        })
+    } else {
+        return ['vue-style-loader'].concat(loaders)
+    }
+  }
   // generate loader string to be used with extract text plugin
   function generateLoaders (loader, loaderOptions) {
     const loaders = options.usePostCSS ? [cssLoader, postcssLoader] : [cssLoader]
@@ -127,7 +167,7 @@ exports.cssLoaders = function (options) {
   return {
     css: generateLoaders(),
     postcss: generateLoaders(),
-    less: generateLoaders('less'),
+    less: lessResourceLoader(),
     sass: generateLoaders('sass', { indentedSyntax: true }),
     scss: generateLoaders('sass'),
     stylus: generateLoaders('stylus'),
