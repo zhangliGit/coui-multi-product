@@ -3,7 +3,8 @@
     <header-com isBack :title="title"></header-com>
     <div class="co-f1 co-flex">
       <scroll-list>
-        <approval-list :list = "dataList"></approval-list>
+        <approval-list :list = "dataList">
+        </approval-list>
       </scroll-list>
     </div>
   </div>
@@ -22,7 +23,7 @@ export default {
   },
   data () {
     return {
-      title: '打卡时间轴',
+      title: '审批流程',
       dataList: [
         {
           id: 0,

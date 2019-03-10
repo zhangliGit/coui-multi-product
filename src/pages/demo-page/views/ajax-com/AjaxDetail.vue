@@ -40,32 +40,23 @@ export default {
   },
   data () {
     return {
-      dataDetail: {},
       title: '列表详情'
     }
   },
   computed: {
+    ...mapState('demoPage',[
+      'dataDetail'
+    ])
   },
   methods: {
-    getDetail (obj) {
-      this.$ajax({
-        url: 'http://yapi.demo.qunar.com/mock/9603/detail',
-        type: 'get',
-        params: {
-        }
-      }).then(data => {
-        this.dataDetail = data.data
-        obj.cb()
-      }).catch((error) => {
-        obj.cb(false)
-      })
-    }
+    ...mapActions('demoPage', [
+      'getDetail'
+    ]),
   },
   mounted () {
-    let _self = this;
     this.getDetail({
-      cb (type) {
-        _self.$refs.scroll.init(type)
+      cb: () => {
+        this.$refs.scroll.init()
       }
     })
   }
