@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "better-scroll": "^1.12.4",
-    "corlib": "^1.2.7",
+    "corlib": "^1.2.8",
     "date-fns": "^1.29.0",
     "lib-flexible": "^0.3.2",
     "vue": "^2.5.2",
@@ -84,6 +84,7 @@
     "px2rem-loader": "^0.1.9",
     "request": "^2.88.0",
     "rimraf": "^2.6.0",
+    "sass-resources-loader": "^2.0.0",
     "selenium-server": "^3.0.1",
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",

@@ -28,7 +28,7 @@ import COUI from '../assets/js/coui-data'
 import HeaderCom from '@c/HeaderCom'
 import ScrollList from '@c/ScrollList'
 export default {
-  name: 'HomePage',
+  name: 'CouiList',
   components: {
 		HeaderCom,
 		ScrollList

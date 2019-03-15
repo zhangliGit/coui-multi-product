@@ -4,12 +4,13 @@
     <!--pullDownRefresh pullUpLoad 这两个属性表示有上拉加载和 下拉刷新-->
     <scroll-list ref="scroll">
       <div class="co-bg-0">
-        <div class="co-pd-a08 co-bd-b btn-tap-bg" @click="goDetail">
+        <div class="co-pd-a08 co-bd-b btn-tap-bg div-col" @click="goDetail">
           我的应用列表
         </div>
         <div class="co-pd-a08 co-bd-b co-flex co-ac btn-tap-bg" @click="goDetail">
             我的应用列表
         </div>
+        <dialog-com></dialog-com>
       </div>
     </scroll-list>
     <div id="co-footer" class="co-bg-0 co-bd-t co-flex co-ac co-fs-01 co-cl-1">
@@ -62,5 +63,5 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="less">
 </style>

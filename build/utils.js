@@ -14,7 +14,6 @@ const glob = require('glob')
  */
 const defineDir = [
   'index',
-  'my-app',
 ];
 const modulesDir = [
   /**
@@ -114,7 +113,30 @@ exports.cssLoaders = function (options) {
       sourceMap: options.sourceMap
     }
   }
-
+  
+  // 配置less全局变量访问
+  function lessResourceLoader() {
+    var loaders = [
+        cssLoader,
+        'less-loader',
+        {
+            loader: 'sass-resources-loader',
+            options: {
+                resources: [
+                    path.resolve(__dirname, '../src/assets/css/common.less'),
+                ]
+            }
+                    }
+    ];
+    if (options.extract) {
+        return ExtractTextPlugin.extract({
+            use: loaders,
+            fallback: 'vue-style-loader'
+        })
+    } else {
+        return ['vue-style-loader'].concat(loaders)
+    }
+  }
   // generate loader string to be used with extract text plugin
   function generateLoaders (loader, loaderOptions) {
     const loaders = options.usePostCSS ? [cssLoader, postcssLoader] : [cssLoader]
@@ -145,7 +167,7 @@ exports.cssLoaders = function (options) {
   return {
     css: generateLoaders(),
     postcss: generateLoaders(),
-    less: generateLoaders('less'),
+    less: lessResourceLoader(),
     sass: generateLoaders('sass', { indentedSyntax: true }),
     scss: generateLoaders('sass'),
     stylus: generateLoaders('stylus'),
