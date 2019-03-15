@@ -36,7 +36,7 @@ export default {
 </script>
 <style lang="less">
   .tab-menu {
-    height: 44px;
+    height: 44PX;
     .tip-num {
       position: absolute;
       width: .9rem;

@@ -10,7 +10,7 @@
 <script>
 import HeaderCom from '@c/HeaderCom'
 export default {
-  name: 'RouterPaeg',
+  name: 'RouterPage',
   components: {
     HeaderCom
   },
