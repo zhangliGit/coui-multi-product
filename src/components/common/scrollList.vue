@@ -100,7 +100,8 @@ export default {
     },
     refresh() {
       this.$nextTick(() => {
-        this.scroll.refresh();
+        this.scroll.finishPullUp()
+        this.scroll.refresh()
       });
     },
     goTop() {
